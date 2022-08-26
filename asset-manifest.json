@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/kapusta-project-6/static/css/main.7acaea2f.css",
+    "main.js": "/kapusta-project-6/static/js/main.07d3183d.js",
+    "index.html": "/kapusta-project-6/index.html",
+    "main.7acaea2f.css.map": "/kapusta-project-6/static/css/main.7acaea2f.css.map",
+    "main.07d3183d.js.map": "/kapusta-project-6/static/js/main.07d3183d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.07d3183d.js"
+  ]
+}
