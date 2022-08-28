@@ -1,4 +1,32 @@
-@import-normalize; /* bring in normalize.css styles */
+:root {
+  /* background-color */
+  --bg-primary-color: #f5f6fb;
+  --bg-secondary-color: #ffffff;
+  --bg-third-color: #f2f5fc;
+
+  /* modal */
+  --auth-modal: #ffffff;
+  --input-color: #f6f7fb;
+  --red-color: #eb5757;
+
+  /* text */
+  --primary-text: #000000;
+  --secondary-text: #52555f;
+  --third-text: #e7192e;
+
+  /* button */
+  --btn-color: #f5f6fb;
+  --accent-color: #ff751d;
+
+  /* notification */
+  --background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
+
+  /* schedule */
+  --primary-column: #ff751d;
+  --secondary-column: #ffdac0;
+
+  --box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+}
 
 body {
   margin: 0;
@@ -12,4 +40,19 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
 }
