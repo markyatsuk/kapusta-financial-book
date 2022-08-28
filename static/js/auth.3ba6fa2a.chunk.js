@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkkapusta_project_6=self.webpackChunkkapusta_project_6||[]).push([[818],{6839:function(e,t,u){u.r(t);var a=u(3329);t.default=function(){return(0,a.jsx)("div",{children:"Auth Page"})}}}]);
-//# sourceMappingURL=auth.3ba6fa2a.chunk.js.map

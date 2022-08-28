@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/auth.7e12218e.chunk.js","mappings":"gJAMA,UANiB,kBACf,0BACE,qCAFa,C","sources":["pages/AuthView.jsx"],"sourcesContent":["const AuthView = () => (\n  <div>\n    <p>AuthView</p>\n  </div>\n);\n\nexport default AuthView;\n"],"names":[],"sourceRoot":""}
