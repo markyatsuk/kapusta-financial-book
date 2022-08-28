@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/reports.0e6c49eb.chunk.js","mappings":"gJAEA,UAFoB,kBAAM,yCAAN,C","sources":["pages/ReportsView/ReportsView.jsx"],"sourcesContent":["const ReportsView = () => <div>Reports Page</div>;\r\n\r\nexport default ReportsView;\r\n"],"names":[],"sourceRoot":""}

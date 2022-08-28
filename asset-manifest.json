@@ -1,19 +1,24 @@
 {
   "files": {
-    "main.css": "/kapusta-project-6/static/css/main.af14c5cb.css",
-    "main.js": "/kapusta-project-6/static/js/main.0ca023b6.js",
-    "auth.js": "/kapusta-project-6/static/js/auth.7e12218e.chunk.js",
-    "home.js": "/kapusta-project-6/static/js/home.88d9643e.chunk.js",
-    "reports.js": "/kapusta-project-6/static/js/reports.25008921.chunk.js",
+    "main.css": "/kapusta-project-6/static/css/main.4584f192.css",
+    "main.js": "/kapusta-project-6/static/js/main.37c913b1.js",
+    "auth.css": "/kapusta-project-6/static/css/auth.23c4b04b.chunk.css",
+    "auth.js": "/kapusta-project-6/static/js/auth.99f7e081.chunk.js",
+    "home.js": "/kapusta-project-6/static/js/home.9312cca5.chunk.js",
+    "reports.js": "/kapusta-project-6/static/js/reports.0e6c49eb.chunk.js",
+    "static/media/IconHome.svg": "/kapusta-project-6/static/media/IconHome.b85d644025aabf620bd5f27126aa882e.svg",
+    "static/media/google.svg": "/kapusta-project-6/static/media/google.bc613d17d42cf9d99e78b232895bd254.svg",
     "index.html": "/kapusta-project-6/index.html",
-    "main.af14c5cb.css.map": "/kapusta-project-6/static/css/main.af14c5cb.css.map",
-    "main.0ca023b6.js.map": "/kapusta-project-6/static/js/main.0ca023b6.js.map",
-    "auth.7e12218e.chunk.js.map": "/kapusta-project-6/static/js/auth.7e12218e.chunk.js.map",
-    "home.88d9643e.chunk.js.map": "/kapusta-project-6/static/js/home.88d9643e.chunk.js.map",
-    "reports.25008921.chunk.js.map": "/kapusta-project-6/static/js/reports.25008921.chunk.js.map"
+    "static/media/eye.svg": "/kapusta-project-6/static/media/eye.3e417dc0051324d22866425728987a54.svg",
+    "main.4584f192.css.map": "/kapusta-project-6/static/css/main.4584f192.css.map",
+    "main.37c913b1.js.map": "/kapusta-project-6/static/js/main.37c913b1.js.map",
+    "auth.23c4b04b.chunk.css.map": "/kapusta-project-6/static/css/auth.23c4b04b.chunk.css.map",
+    "auth.99f7e081.chunk.js.map": "/kapusta-project-6/static/js/auth.99f7e081.chunk.js.map",
+    "home.9312cca5.chunk.js.map": "/kapusta-project-6/static/js/home.9312cca5.chunk.js.map",
+    "reports.0e6c49eb.chunk.js.map": "/kapusta-project-6/static/js/reports.0e6c49eb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.af14c5cb.css",
-    "static/js/main.0ca023b6.js"
+    "static/css/main.4584f192.css",
+    "static/js/main.37c913b1.js"
   ]
 }
