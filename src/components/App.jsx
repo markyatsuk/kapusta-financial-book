@@ -1,17 +1,79 @@
+import { useEffect, Suspense, lazy } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { authOperations, authSelectors } from 'redux/auth';
+import { SharedLayout } from './SharedLayout';
+import { ProtectedRoute } from './ProtectedRoute';
+import { PublicRoute } from './PublicRoute';
+
+const AuthView = lazy(() =>
+  import('../pages/AuthView/AuthView' /* webpackChunkName: "auth" */),
+);
+const HomeView = lazy(() =>
+  import('../pages/HomeView/HomeView' /* webpackChunkName: "home" */),
+);
+const ReportsView = lazy(() =>
+  import('../pages/ReportsView/ReportsView' /* webpackChunkName: "reports" */),
+);
+
 export const App = () => {
+  const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: 'blue',
-        background: 'yellow',
-      }}
-    >
-      React homework template
+    <div>
+      {isFetchingCurrentUser ? (
+        <p>Download...</p>
+      ) : (
+        <>
+          <Suspense fallback={<p>Download...</p>}>
+            <Routes>
+              <Route path="/auth" element={<AuthView />}></Route>
+              <Route
+                path="/reports"
+                element={
+                  <ProtectedRoute redirectPath={'/auth'}>
+                    <ReportsView />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route path="/" element={<SharedLayout />}>
+                <Route
+                  path="auth"
+                  element={
+                    <PublicRoute redirectPath={'/home'}>
+                      <AuthView />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="home"
+                  element={
+                    <ProtectedRoute redirectPath={'/auth'}>
+                      <HomeView />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="reports"
+                  element={
+                    <ProtectedRoute redirectPath={'/auth'}>
+                      <ReportsView />
+                    </ProtectedRoute>
+                  }
+                />
+              </Route>
+
+              <Route path="*" element={<Navigate to="/auth" />} />
+            </Routes>
+          </Suspense>
+        </>
+      )}
     </div>
   );
 };
