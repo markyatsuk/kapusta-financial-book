@@ -1,3 +1,4 @@
+
 :root {
   /* background-color */
   --bg-primary-color: #f5f6fb;
@@ -28,6 +29,7 @@
   --box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
 }
 
+
 body {
   margin: 0;
   padding: 0;
@@ -56,4 +58,19 @@ button {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
 }
