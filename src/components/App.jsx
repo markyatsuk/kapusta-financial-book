@@ -2,16 +2,17 @@ import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { authOperations, authSelectors } from 'redux/auth';
+import { SharedLayout } from './SharedLayout';
 import { ProtectedRoute } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';
 
-const Auth = lazy(() =>
+const AuthView = lazy(() =>
   import('../pages/AuthView' /* webpackChunkName: "auth" */),
 );
-const Home = lazy(() =>
+const HomeView = lazy(() =>
   import('../pages/HomeView' /* webpackChunkName: "home" */),
 );
-const Reports = lazy(() =>
+const ReportsView = lazy(() =>
   import('../pages/ReportsView' /* webpackChunkName: "reports" */),
 );
 
@@ -31,30 +32,32 @@ export const App = () => {
         <>
           <Suspense fallback={<p>Download...</p>}>
             <Routes>
-              <Route
-                path="/auth"
-                element={
-                  <PublicRoute redirectPath={'/home'}>
-                    <Auth />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="/home"
-                element={
-                  <ProtectedRoute redirectPath={'/auth'}>
-                    <Home />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/reports"
-                element={
-                  <ProtectedRoute redirectPath={'/auth'}>
-                    <Reports />
-                  </ProtectedRoute>
-                }
-              />
+              <Route path="/" element={<SharedLayout />}>
+                <Route
+                  path="auth"
+                  element={
+                    <PublicRoute redirectPath={'/home'}>
+                      <AuthView />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="home"
+                  element={
+                    <ProtectedRoute redirectPath={'/auth'}>
+                      <HomeView />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="reports"
+                  element={
+                    <ProtectedRoute redirectPath={'/auth'}>
+                      <ReportsView />
+                    </ProtectedRoute>
+                  }
+                />
+              </Route>
               <Route path="*" element={<Navigate to="/auth" />} />
             </Routes>
           </Suspense>
