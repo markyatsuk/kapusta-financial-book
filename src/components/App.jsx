@@ -7,13 +7,13 @@ import { ProtectedRoute } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';
 
 const AuthView = lazy(() =>
-  import('../pages/AuthView' /* webpackChunkName: "auth" */),
+  import('../pages/AuthView/AuthView' /* webpackChunkName: "auth" */),
 );
 const HomeView = lazy(() =>
-  import('../pages/HomeView' /* webpackChunkName: "home" */),
+  import('../pages/HomeView/HomeView' /* webpackChunkName: "home" */),
 );
 const ReportsView = lazy(() =>
-  import('../pages/ReportsView' /* webpackChunkName: "reports" */),
+  import('../pages/ReportsView/ReportsView' /* webpackChunkName: "reports" */),
 );
 
 export const App = () => {
@@ -32,6 +32,16 @@ export const App = () => {
         <>
           <Suspense fallback={<p>Download...</p>}>
             <Routes>
+              <Route path="/auth" element={<AuthView />}></Route>
+              <Route
+                path="/reports"
+                element={
+                  <ProtectedRoute redirectPath={'/auth'}>
+                    <ReportsView />
+                  </ProtectedRoute>
+                }
+              />
+
               <Route path="/" element={<SharedLayout />}>
                 <Route
                   path="auth"
@@ -58,6 +68,7 @@ export const App = () => {
                   }
                 />
               </Route>
+
               <Route path="*" element={<Navigate to="/auth" />} />
             </Routes>
           </Suspense>

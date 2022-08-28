@@ -1,0 +1,143 @@
+.formContainer {
+  box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+  border-radius: 30px;
+  padding: 40px 20px;
+}
+
+.help {
+  font-size: 10px;
+  line-height: calc(12 / 10);
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #52555f;
+  margin-bottom: 20px;
+}
+
+.googleBtn {
+  padding: 10px 0;
+  background: #f6f7fb;
+  border-radius: 26px;
+  width: 122px;
+  height: 40px;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
+}
+
+.btn__span {
+  margin-left: 10px;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+}
+
+.prompt {
+  font-size: 10px;
+  line-height: calc(12 / 10);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+
+.form {
+  margin-bottom: 40px;
+}
+
+.form__input {
+  width: 100%;
+  padding: 17px 18px;
+  background: #f6f7fb;
+  border-radius: 30px;
+  border: none;
+  display: block;
+}
+
+.form__input.form__inputMargin {
+  margin-bottom: 20px;
+}
+
+.buttonContainer {
+  display: flex;
+  margin-top: 40px;
+}
+
+.authBtn {
+  flex-basis: calc((100% - 8px) / 2);
+  border-radius: 16px;
+  padding: 12px 0;
+  border: none;
+  background-color: #f5f6fb;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.authBtn:not([disabled]) {
+  background-color: #f5f6fb;
+  color: #52555f;
+}
+
+.authBtn.activeBtn:not([disabled]) {
+  flex-basis: calc((100% - 8px) / 2);
+  background: #ff751d;
+  border-radius: 16px;
+  padding: 12px 0;
+  border: none;
+  color: #ffffff;
+}
+
+.authBtn + .authBtn {
+  margin-left: 8px;
+}
+
+.form__input.password {
+  position: relative;
+}
+
+.passwordControl {
+  position: absolute;
+  top: 11px;
+  right: 6px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/eye.svg) 0 0 no-repeat;
+}
+.passwordControl.view {
+  background: url(../../images/eye.svg) 0 0 no-repeat;
+}
+
+@media screen and (min-width: 768px) {
+  .afterTitle {
+    font-size: 16px;
+    line-height: calc(19 / 16);
+    letter-spacing: 0.18em;
+  }
+  .formContainer {
+    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    padding: 56px 83px;
+  }
+  .help {
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.04em;
+  }
+  .prompt {
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .googleBtn {
+    width: 120px;
+  }
+  .authBtn {
+    flex-basis: calc((100% - 15px) / 2);
+  }
+  .authBtn + .authBtn {
+    margin-left: 15px;
+  }
+}
