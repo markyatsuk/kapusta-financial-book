@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://my-site.com/';
+// axios.defaults.baseURL = 'https://my-site.com/';
 
 const token = {
   set(token) {
@@ -58,7 +58,7 @@ const fetchCurrentUser = createAsyncThunk(
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 );
 
 const authOperations = {
