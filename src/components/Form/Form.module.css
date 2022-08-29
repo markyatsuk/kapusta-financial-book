@@ -2,6 +2,7 @@
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
   padding: 40px 20px;
+  background-color: #fff;
 }
 
 .help {
@@ -15,7 +16,7 @@
 
 .googleBtn {
   padding: 10px 0;
-  background: #f6f7fb;
+  background-color: #f6f7fb;
   border-radius: 26px;
   width: 122px;
   height: 40px;
@@ -28,6 +29,18 @@
   justify-content: center;
   cursor: pointer;
   filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
+}
+
+.googleLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+
+.googleLink:visited {
+  color: #000000;
 }
 
 .btn__span {
