@@ -31,6 +31,18 @@
   filter: drop-shadow(1px 2px 3px rgba(170, 178, 197, 0.2));
 }
 
+.googleLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+
+.googleLink:visited {
+  color: #000000;
+}
+
 .btn__span {
   margin-left: 10px;
   font-size: 14px;

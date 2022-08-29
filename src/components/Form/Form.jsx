@@ -36,8 +36,13 @@ export default function Form() {
     <div className={s.formContainer}>
       <p className={s.help}>You can log in with your Google Account:</p>
       <button className={s.googleBtn}>
-        {' '}
-        <GoogleIconHome /> <span className={s.btn__span}>Google</span>
+        <a
+          className={s.googleLink}
+          href="https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?access_type=offline&client_id=530617987889-27act2dq0attad58rnt5j32gapooa5sc.apps.googleusercontent.com&prompt=consent&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fgoogle-redirect&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&flowName=GeneralOAuthFlow"
+        >
+          {' '}
+          <GoogleIconHome /> <span className={s.btn__span}>Google</span>
+        </a>
       </button>
       <p className={s.help}>
         Or log in using e-mail and password, after registering:
