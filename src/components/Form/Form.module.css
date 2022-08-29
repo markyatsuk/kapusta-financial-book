@@ -2,6 +2,7 @@
   box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
   border-radius: 30px;
   padding: 40px 20px;
+  background-color: #fff;
 }
 
 .help {
@@ -15,7 +16,7 @@
 
 .googleBtn {
   padding: 10px 0;
-  background: #f6f7fb;
+  background-color: #f6f7fb;
   border-radius: 26px;
   width: 122px;
   height: 40px;
