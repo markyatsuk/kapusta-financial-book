@@ -1,0 +1,36 @@
+.btn {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+
+  color: var(--secondary-text);
+  background-color: transparent;
+  border: none;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+
+  fill: var(--btn-logout);
+}
+
+.text {
+  position: relative;
+  display: block;
+}
+
+.text::before {
+  content: '';
+  position: absolute;
+  display: block;
+
+  width: 1px;
+  height: 36px;
+  top: -8px;
+  left: -18px;
+
+  border: 1px solid #e0e5eb;
+}
