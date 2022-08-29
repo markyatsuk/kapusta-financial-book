@@ -1,24 +1,30 @@
 {
   "files": {
-    "main.css": "/kapusta-project-6/static/css/main.762880ee.css",
-    "main.js": "/kapusta-project-6/static/js/main.56a2d292.js",
-    "auth.css": "/kapusta-project-6/static/css/auth.538cea90.chunk.css",
-    "auth.js": "/kapusta-project-6/static/js/auth.f2892a5d.chunk.js",
+    "main.css": "/kapusta-project-6/static/css/main.dd2c66eb.css",
+    "main.js": "/kapusta-project-6/static/js/main.4c51ba54.js",
+    "auth.css": "/kapusta-project-6/static/css/auth.21550b9c.chunk.css",
+    "auth.js": "/kapusta-project-6/static/js/auth.d5239040.chunk.js",
     "home.js": "/kapusta-project-6/static/js/home.9312cca5.chunk.js",
     "reports.js": "/kapusta-project-6/static/js/reports.0e6c49eb.chunk.js",
-    "static/media/IconHome.svg": "/kapusta-project-6/static/media/IconHome.b85d644025aabf620bd5f27126aa882e.svg",
+    "static/js/805.e1efd8c2.chunk.js": "/kapusta-project-6/static/js/805.e1efd8c2.chunk.js",
+    "static/media/CabbageGroup.png": "/kapusta-project-6/static/media/CabbageGroup.8d475dd61cb62ca1a1b1.png",
+    "static/media/cabbage.svg": "/kapusta-project-6/static/media/cabbage.233805511f94fc865ec8195e18e8c526.svg",
+    "static/media/IconHomeTablet.svg": "/kapusta-project-6/static/media/IconHomeTablet.614f1b6bfb1c754e7ede845512cfb726.svg",
+    "static/media/IconHomeDesktop.svg": "/kapusta-project-6/static/media/IconHomeDesktop.eb3db8ddb87e9077e0c2ef723c84b8fc.svg",
+    "static/media/IconHomeMobile.svg": "/kapusta-project-6/static/media/IconHomeMobile.700cad62dadbd02c6f63dc8c97d81be5.svg",
     "static/media/google.svg": "/kapusta-project-6/static/media/google.bc613d17d42cf9d99e78b232895bd254.svg",
     "index.html": "/kapusta-project-6/index.html",
     "static/media/eye.svg": "/kapusta-project-6/static/media/eye.3e417dc0051324d22866425728987a54.svg",
-    "main.762880ee.css.map": "/kapusta-project-6/static/css/main.762880ee.css.map",
-    "main.56a2d292.js.map": "/kapusta-project-6/static/js/main.56a2d292.js.map",
-    "auth.538cea90.chunk.css.map": "/kapusta-project-6/static/css/auth.538cea90.chunk.css.map",
-    "auth.f2892a5d.chunk.js.map": "/kapusta-project-6/static/js/auth.f2892a5d.chunk.js.map",
+    "main.dd2c66eb.css.map": "/kapusta-project-6/static/css/main.dd2c66eb.css.map",
+    "main.4c51ba54.js.map": "/kapusta-project-6/static/js/main.4c51ba54.js.map",
+    "auth.21550b9c.chunk.css.map": "/kapusta-project-6/static/css/auth.21550b9c.chunk.css.map",
+    "auth.d5239040.chunk.js.map": "/kapusta-project-6/static/js/auth.d5239040.chunk.js.map",
     "home.9312cca5.chunk.js.map": "/kapusta-project-6/static/js/home.9312cca5.chunk.js.map",
-    "reports.0e6c49eb.chunk.js.map": "/kapusta-project-6/static/js/reports.0e6c49eb.chunk.js.map"
+    "reports.0e6c49eb.chunk.js.map": "/kapusta-project-6/static/js/reports.0e6c49eb.chunk.js.map",
+    "805.e1efd8c2.chunk.js.map": "/kapusta-project-6/static/js/805.e1efd8c2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.762880ee.css",
-    "static/js/main.56a2d292.js"
+    "static/css/main.dd2c66eb.css",
+    "static/js/main.4c51ba54.js"
   ]
 }
