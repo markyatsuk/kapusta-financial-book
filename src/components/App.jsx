@@ -5,7 +5,7 @@ import { authOperations, authSelectors } from 'redux/auth';
 import { SharedLayout } from './SharedLayout';
 import { ProtectedRoute } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';
-
+import { Header } from './Header/Header';
 const AuthView = lazy(() =>
   import('../pages/AuthView/AuthView' /* webpackChunkName: "auth" */),
 );
@@ -27,54 +27,57 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      {isFetchingCurrentUser ? (
-        <p>Download...</p>
-      ) : (
-        <>
-          <Suspense fallback={<p>Download...</p>}>
-            <Routes>
-              <Route path="/auth" element={<AuthView />}></Route>
-              <Route path="/" element={<SharedLayout />}>
-                <Route
-                  path="auth"
-                  element={
-                    <PublicRoute redirectPath={'/home'}>
-                      <AuthView />
-                    </PublicRoute>
-                  }
-                />
-                <Route
-                  path="home"
-                  element={
-                    <ProtectedRoute redirectPath={'/auth'}>
-                      <HomeView />
-                    </ProtectedRoute>
-                  }
-                />
+    <>
+      <Header />
+      <div>
+        {isFetchingCurrentUser ? (
+          <p>Download...</p>
+        ) : (
+          <>
+            <Suspense fallback={<p>Download...</p>}>
+              <Routes>
+                <Route path="/auth" element={<AuthView />}></Route>
+                <Route path="/" element={<SharedLayout />}>
+                  <Route
+                    path="auth"
+                    element={
+                      <PublicRoute redirectPath={'/home'}>
+                        <AuthView />
+                      </PublicRoute>
+                    }
+                  />
+                  <Route
+                    path="home"
+                    element={
+                      <ProtectedRoute redirectPath={'/auth'}>
+                        <HomeView />
+                      </ProtectedRoute>
+                    }
+                  />
 
+                  <Route
+                    path="reports"
+                    element={
+                      // <ProtectedRoute redirectPath={'/auth'}>
+                      <ReportsView />
+                      // </ProtectedRoute>
+                    }
+                  />
+                </Route>
                 <Route
-                  path="reports"
+                  path="balance"
                   element={
                     // <ProtectedRoute redirectPath={'/auth'}>
-                    <ReportsView />
+                    <BalanceView />
                     // </ProtectedRoute>
                   }
                 />
-              </Route>
-              <Route
-                path="balance"
-                element={
-                  // <ProtectedRoute redirectPath={'/auth'}>
-                  <BalanceView />
-                  // </ProtectedRoute>
-                }
-              />
-              <Route path="*" element={<Navigate to="/auth" />} />
-            </Routes>
-          </Suspense>
-        </>
-      )}
-    </div>
+                <Route path="*" element={<Navigate to="/auth" />} />
+              </Routes>
+            </Suspense>
+          </>
+        )}
+      </div>
+    </>
   );
 };
