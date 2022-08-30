@@ -15,7 +15,9 @@ const HomeView = lazy(() =>
 const ReportsView = lazy(() =>
   import('../pages/ReportsView/ReportsView' /* webpackChunkName: "reports" */),
 );
-
+const BalanceView = lazy(() =>
+  import('../pages/BalanceView/BalanceView' /* webpackChunkName: "balance" */),
+);
 export const App = () => {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
@@ -33,15 +35,6 @@ export const App = () => {
           <Suspense fallback={<p>Download...</p>}>
             <Routes>
               <Route path="/auth" element={<AuthView />}></Route>
-              <Route
-                path="/reports"
-                element={
-                  <ProtectedRoute redirectPath={'/auth'}>
-                    <ReportsView />
-                  </ProtectedRoute>
-                }
-              />
-
               <Route path="/" element={<SharedLayout />}>
                 <Route
                   path="auth"
@@ -59,16 +52,24 @@ export const App = () => {
                     </ProtectedRoute>
                   }
                 />
+
                 <Route
                   path="reports"
                   element={
-                    <ProtectedRoute redirectPath={'/auth'}>
-                      <ReportsView />
-                    </ProtectedRoute>
+                    // <ProtectedRoute redirectPath={'/auth'}>
+                    <ReportsView />
+                    // </ProtectedRoute>
                   }
                 />
               </Route>
-
+              <Route
+                path="balance"
+                element={
+                  // <ProtectedRoute redirectPath={'/auth'}>
+                  <BalanceView />
+                  // </ProtectedRoute>
+                }
+              />
               <Route path="*" element={<Navigate to="/auth" />} />
             </Routes>
           </Suspense>
