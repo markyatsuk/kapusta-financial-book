@@ -68,8 +68,13 @@
   border-radius: 30px;
   border: none;
   display: block;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
 }
-
+.passwordContainer {
+  position: relative;
+}
 .form__input.form__inputMargin {
   margin-bottom: 20px;
 }
@@ -114,8 +119,8 @@
 
 .passwordControl {
   position: absolute;
-  top: 11px;
-  right: 6px;
+  top: 15px;
+  right: 15px;
   display: inline-block;
   width: 20px;
   height: 20px;

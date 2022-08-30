@@ -1,6 +1,7 @@
 import s from './Form.module.css';
 import { useState } from 'react';
 import { GoogleIconHome } from '../../components/Icons/Icons';
+import Notiflix from 'notiflix';
 export default function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,8 +19,18 @@ export default function Form() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
+    let joinedPassword;
+    const emailArr = email.split('@');
+    if (emailArr[0].length < 2) {
+      Notiflix.Notify.warning("Email must contain 2 symbols before '@'!");
+      return;
+    }
+    const passwordArr = password.split(' ');
+    if (passwordArr.length > 2) {
+      joinedPassword = passwordArr.join('');
+    }
     console.log('email', email);
-    console.log('password', password);
+    console.log('password', joinedPassword);
     setEmail('');
     setPassword('');
     e.target.reset();
@@ -29,9 +40,15 @@ export default function Form() {
     if (email === '' || password === '') return true;
   };
 
-  // function togglePassword(e){
-
-  // }
+  function togglePassword(e) {
+    e.preventDefault();
+    const inputEl = e.currentTarget.previousSibling;
+    if (inputEl.getAttribute('type') === 'password') {
+      inputEl.setAttribute('type', 'text');
+    } else {
+      inputEl.setAttribute('type', 'password');
+    }
+  }
   return (
     <div className={s.formContainer}>
       <p className={s.help}>You can log in with your Google Account:</p>
@@ -58,20 +75,29 @@ export default function Form() {
           onChange={handleChange}
           placeholder="your@email.com"
           autoComplete="on"
+          minLength="10"
+          maxLength="63"
         />
         <p className={s.prompt}>Password:</p>
-        <input
-          className={s.form__input + ' ' + s.password}
-          type="password"
-          name="password"
-          title=""
-          required
-          placeholder="password"
-          autoComplete="current-password"
-          id="current-password"
-          onChange={handleChange}
-        />
-        {/* <a href="!" className={s.passwordControl} onClick={togglePassword}></a> */}
+        <div className={s.passwordContainer}>
+          <input
+            className={s.form__input + ' ' + s.password}
+            type="password"
+            name="password"
+            title=""
+            required
+            placeholder="password"
+            autoComplete="current-password"
+            id="current-password"
+            onChange={handleChange}
+          />
+          <a
+            href="!"
+            className={s.passwordControl}
+            onClick={togglePassword}
+          ></a>
+        </div>
+
         <div className={s.buttonContainer}>
           <button
             className={s.authBtn + ' ' + s.activeBtn}

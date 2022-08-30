@@ -8,7 +8,7 @@ import UserMenu from 'components/UserMenu';
 import LogoutButton from 'components/LogoutButton';
 import s from './Header.module.css';
 
-const Header = ({ isAuthenticated, onLogOut }) => {
+export const Header = ({ isAuthenticated, onLogOut }) => {
   const Desktop = isDesktop(useMediaQuery);
 
   return (
