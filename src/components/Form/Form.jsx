@@ -91,11 +91,9 @@ export default function Form() {
             id="current-password"
             onChange={handleChange}
           />
-          <a
-            href="!"
-            className={s.passwordControl}
-            onClick={togglePassword}
-          ></a>
+          <a href="!" className={s.passwordControl} onClick={togglePassword}>
+            .
+          </a>
         </div>
 
         <div className={s.buttonContainer}>
