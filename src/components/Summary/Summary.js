@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import data from 'data/month.json';
+import data from '../../data/month.json';
 import styles from './Summary.module.css';
-import * as selectors from 'redux/transactions/transactions-selectors';
-import transactionsOperations from 'redux/transactions/transactions-operations';
-import OnLoader from 'components/OnLoader';
-import { getLoader } from 'redux/transactions';
+import * as selectors from '../../redux/transactions/transactions-selectors';
+import transactionsOperations from '../../redux/transactions/transactions-operations';
+import OnLoader from '../../components/OnLoader';
+import { getLoader } from '../../redux/transactions';
 
 const Summary = ({ year }) => {
   const dispatch = useDispatch();

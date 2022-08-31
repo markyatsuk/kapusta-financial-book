@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from 'react';
 
-import AddTransaction from 'components/AddTransaction/AddTransaction';
-import Container from 'components/Container';
-import TransactionsList from 'components/TransactionsList/TransactionsList';
-import TransactionsListMobile from 'components/TransactionsList/TransactionListMobile';
-import Summary from 'components/Summary';
-import Balance from 'components/Balance';
-import ToGoReport from 'components/ToGoReport';
-import DateForm from 'components/DateForm';
+import AddTransaction from '../../components/AddTransaction/AddTransaction';
+import Container from '../../components/Container';
+import TransactionsList from '../../components/TransactionsList/TransactionsList';
+import TransactionsListMobile from '../../components/TransactionsList/TransactionListMobile';
+import Summary from '../../components/Summary';
+import Balance from '../../components/Balance';
+import ToGoReport from '../../components/ToGoReport';
+import DateForm from '../../components/DateForm';
 
 import useWindowDimensions from 'hooks/useWindowDimensions';
-import contextProps from 'context/context';
+import contextProps from '../../context/context';
 import s from './BalanceView.module.css';
 import { useSelector } from 'react-redux';
-import { getLoader } from 'redux/transactions';
-import OnLoader from 'components/OnLoader';
+import { getLoader } from '../../redux/transactions';
+import OnLoader from '../../components/OnLoader';
 
 const BalanceView = () => {
   const [type, setType] = useState('income');

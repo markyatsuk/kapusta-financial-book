@@ -1,6 +1,6 @@
 import s from './DateForm.module.css';
 
-import CalendarPicker from 'components/DayPicker/DayPicker';
+import CalendarPicker from '../../components/DayPicker/DayPicker';
 // import СalendarIcon from 'components/SvgIcons/СalendarIcon';
 
 const DateForm = ({

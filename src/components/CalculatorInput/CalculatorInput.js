@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import useOnClickOutside from 'hooks/useOnClickOutside';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 import s from './Calculator.module.css';
 
