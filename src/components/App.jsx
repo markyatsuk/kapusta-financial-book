@@ -12,9 +12,9 @@ const AuthView = lazy(() =>
 const HomeView = lazy(() =>
   import('../pages/HomeView/HomeView' /* webpackChunkName: "home" */),
 );
-// const ReportsView = lazy(() =>
-//   import('../pages/ReportsView/ReportsView' /* webpackChunkName: "reports" */),
-// );
+const ReportsView = lazy(() =>
+  import('../pages/ReportsView/ReportsView' /* webpackChunkName: "reports" */),
+);
 const BalanceView = lazy(() =>
   import('../pages/BalanceView/BalanceView' /* webpackChunkName: "balance" */),
 );
@@ -55,14 +55,14 @@ export const App = () => {
                     }
                   />
 
-                  {/* <Route
+                  <Route
                     path="reports"
                     element={
-                      // <ProtectedRoute redirectPath={'/auth'}>
+                      <ProtectedRoute redirectPath={'/auth'}>
                       <ReportsView />
-                      // </ProtectedRoute>
+                      </ProtectedRoute>
                     }
-                  /> */}
+                  />
                 </Route>
                 <Route
                   path="balance"

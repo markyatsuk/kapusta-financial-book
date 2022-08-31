@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
 
 import Logo from '../Logo';
-import UserMenu from '../UserMenu';
+// import UserMenu from '../UserMenu';
 import LogoutButton from '../LogoutButton';
 
 import s from './Header.module.css';
@@ -21,7 +21,7 @@ export const Header = ({ isAuthenticated, onLogOut }) => {
 
       {isAuthenticated ? (
         <div className={s.userEmail}>
-          <UserMenu />
+          {/* <UserMenu /> */}
           <LogoutButton onLogOut={onLogOut} />
         </div>
       ) : null}
@@ -31,7 +31,7 @@ export const Header = ({ isAuthenticated, onLogOut }) => {
 
 Header.propTypes = {
   isAuthenticated: PropTypes.bool,
-  onLogOut: PropTypes.func.isRequired,
+  onLogOut: PropTypes.func,
 };
 
 const stateProps = state => ({
