@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { isMobile } from 'services/mediaQuery';
+import { isMobile } from '../../services/mediaQuery';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import AuthView from '../../pages/AuthView/AuthView';

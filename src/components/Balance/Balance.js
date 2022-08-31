@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import s from './Balance.module.css';
-import { getTotalBalance } from 'redux/transactions/transactions-selectors';
-import transactionOp from 'redux/transactions/transactions-operations';
+import { getTotalBalance } from '../../redux/transactions/transactions-selectors';
+import transactionOp from '../../redux/transactions/transactions-operations';
 
 import Notification from '../Notification/Notification';
 

@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
-import useOnClickOutside from 'hooks/useOnClickOutside';
-import Dropdown from 'components/Dropdown';
-import CalculatorInput from 'components/CalculatorInput';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
+import Dropdown from '../Dropdown';
+import CalculatorInput from '../CalculatorInput';
 // import CalculatorIcon from 'components/SvgIcons/CalculatorIcon/CalculatorIcon';
-import DateForm from 'components/DateForm';
-import transactionsOperations from 'redux/transactions/transactions-operations';
+import DateForm from '../DateForm';
+import transactionsOperations from '../../redux/transactions/transactions-operations';
 import s from './EditTransaction.module.css';
 import { useDispatch } from 'react-redux';
 

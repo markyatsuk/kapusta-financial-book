@@ -1,7 +1,7 @@
 import * as actions from './transactions-actions';
-import { fetch } from 'services/fetchApi';
+import { fetch } from '../../services/fetchApi';
 import { store } from '../store';
-import Alert from 'components/Alert';
+import Alert from '../../components/Alert';
 
 const setBalance = balance => async dispatch => {
   dispatch(actions.setTotalBalanceRequest());

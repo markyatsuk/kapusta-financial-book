@@ -1,4 +1,4 @@
-import Button from 'components/Button';
+import Button from '../Button';
 import s from './Modal.module.css';
 
 const Modal = ({ children }) => (

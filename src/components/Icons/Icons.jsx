@@ -5,7 +5,7 @@ import { ReactComponent as Cabbage } from '../../images/cabbage.svg';
 import { ReactComponent as Google } from '../../images/google.svg';
 import { ReactComponent as Eye } from '../../images/eye.svg';
 import s from './Icons.module.css';
-import { Desktop, Tablet, Mobile, Default } from 'services/mediaQuery';
+import { Desktop, Tablet, Mobile, Default } from '../../services/mediaQuery';
 import CabbagePair from '../../images/CabbagePair.png';
 import CabbageGroup from '../../images/CabbageGroup.png';
 export function IconHomeKapustaMobile() {
