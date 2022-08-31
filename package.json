@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://markyatsuk.github.io/kapusta-project-6/",
   "dependencies": {
-    "@material-ui/core": "^4.12.2",
     "@material-ui/icons": "^4.11.2",
     "@reduxjs/toolkit": "^1.8.5",
     "@testing-library/jest-dom": "^5.16.3",
