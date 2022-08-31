@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Mobile, Default } from 'services/mediaQuery';
+import { Mobile, Default } from '../../services/mediaQuery';
 import logoutsvg from '../../images/svg/header/logout-btn.svg';
 import s from './LogoutButton.module.css';
 

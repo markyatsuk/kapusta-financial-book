@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import s from './Report.module.css';
 import { ReactComponent as Strip } from './strip.svg';
-import transactionsOperations from 'redux/transactions/transactions-operations';
-import { getTransactionsPerMonth } from 'redux/transactions/transactions-selectors';
+import transactionsOperations from '../../redux/transactions/transactions-operations';
+import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
 
 const CurrentAmount = ({ currentMonth, currentYear }) => {
   const dispatch = useDispatch();

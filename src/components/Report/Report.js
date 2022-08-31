@@ -7,12 +7,12 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import s from './Report.module.css';
 
 import Balance from '../Balance';
-import { getTransactionsPerMonth } from 'redux/transactions/transactions-selectors';
+import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
 import { CurrentAmount, CurrentMonth } from './';
-import categories from 'data/categories';
+import categories from '../../data/categories.json';
 import sprite from './icon.svg';
 import ArrowToGoBack from '../ArrowToGoBack';
-import transactionsOperations from 'redux/transactions/transactions-operations';
+import transactionsOperations from '../../redux/transactions/transactions-operations';
 
 const Report = ({
   month,

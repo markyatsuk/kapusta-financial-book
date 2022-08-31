@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { transactionsApi } from './transactions/transactionsApi';
 import authReducer from './auth/auth-slice';
-import { wallet } from 'redux/transactions';
+import { wallet } from '../redux/transactions';
 
 const middleware = [
   ...getDefaultMiddleware({

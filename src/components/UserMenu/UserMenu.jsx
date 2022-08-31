@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { connect, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
-import { authSelectors } from 'redux/auth';
-import { isDesktop, isTablet, isMobile } from 'services/mediaQuery';
+import { authSelectors } from '../../redux/auth';
+import { isDesktop, isTablet, isMobile } from '../../services/mediaQuery';
 import s from './UserMenu.module.css';
 
 const UserMenu = ({ isRender }) => {

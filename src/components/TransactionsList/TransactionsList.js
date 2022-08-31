@@ -1,12 +1,12 @@
 import { useEffect, useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as selectors from 'redux/transactions/transactions-selectors';
-import transactionsOperations from 'redux/transactions/transactions-operations';
+import * as selectors from '../../redux/transactions/transactions-selectors';
+import transactionsOperations from '../../redux/transactions/transactions-operations';
 import styles from './TransactionsList.module.css';
-import Modal from 'components/Modal';
-import EditTransaction from 'components/EditTransaction';
-import contextProps from 'context/context';
+import Modal from '../../components/Modal';
+import EditTransaction from '../../components/EditTransaction';
+import contextProps from '../../context/context';
 
 export default function TransactionsList() {
   const { type, date, setNewDate } = useContext(contextProps);

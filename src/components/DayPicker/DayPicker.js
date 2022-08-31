@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { DayPicker } from 'react-day-picker';
 // import 'react-day-picker/lib/style.css';
 import styles from './DayPicker.module.css';
-import useOnClickOutside from 'hooks/useOnClickOutside';
+import useOnClickOutside from '../../hooks/useOnClickOutside';
 
 export default function CalendarPicker({ startDate, closeHandler, align }) {
   const ref = useRef();
