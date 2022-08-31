@@ -10,6 +10,7 @@ import Balance from '../Balance';
 import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
 import { CurrentAmount, CurrentMonth } from './';
 import categories from '../../data/categories';
+
 import sprite from './icon.svg';
 import ArrowToGoBack from '../ArrowToGoBack';
 import transactionsOperations from '../../redux/transactions/transactions-operations';

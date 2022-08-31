@@ -5,7 +5,9 @@ import data from '../../data/month.json';
 import styles from './Summary.module.css';
 import * as selectors from '../../redux/transactions/transactions-selectors';
 import transactionsOperations from '../../redux/transactions/transactions-operations';
+
 import OnLoader from '../OnLoader';
+
 import { getLoader } from '../../redux/transactions';
 
 const Summary = ({ year }) => {
