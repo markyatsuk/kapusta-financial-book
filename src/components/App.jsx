@@ -39,7 +39,7 @@ export const App = () => {
                 <Route path="/auth" element={<AuthView />}></Route>
                 <Route path="/" element={<SharedLayout />}>
                   <Route
-                    path="auth"
+                    path="/auth"
                     element={
                       <PublicRoute redirectPath={'/home'}>
                         <AuthView />
@@ -47,7 +47,7 @@ export const App = () => {
                     }
                   />
                   <Route
-                    path="home"
+                    path="/home"
                     element={
                       <ProtectedRoute redirectPath={'/auth'}>
                         <HomeView />
@@ -56,7 +56,7 @@ export const App = () => {
                   />
 
                   <Route
-                    path="reports"
+                    path="/reports"
                     element={
                       <ProtectedRoute redirectPath={'/auth'}>
                       <ReportsView />
@@ -65,7 +65,7 @@ export const App = () => {
                   />
                 </Route>
                 <Route
-                  path="balance"
+                  path="/balance"
                   element={
                     // <ProtectedRoute redirectPath={'/auth'}>
                     <BalanceView />
