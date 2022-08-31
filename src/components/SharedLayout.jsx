@@ -1,15 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import Container from './Container';
-import Header from './Header';
-import Logo from './Logo';
+// import Header from './Header';
+// import Logo from './Logo';
 
 export const SharedLayout = () => {
   return (
     <Container>
-      <Header>
-        <Logo></Logo>
+      {/* <Header/>
+        <Logo/> */}
         {/* <nav></nav> */}
-      </Header>
+      {/* </Header> */}
       <Outlet />
     </Container>
   );
