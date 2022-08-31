@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="/kapusta-project-6/">
+        <BrowserRouter basename="/kapusta-financial-book/">
           <App />
         </BrowserRouter>
       </PersistGate>

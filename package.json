@@ -1,8 +1,8 @@
 {
-  "name": "kapusta-project-6",
+  "name": "kapusta-financial-book",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://markyatsuk.github.io/kapusta-project-6/",
+  "homepage": "https://markyatsuk.github.io/kapusta-financial-book/",
   "dependencies": {
     "@material-ui/icons": "^4.11.2",
     "@reduxjs/toolkit": "^1.8.5",
