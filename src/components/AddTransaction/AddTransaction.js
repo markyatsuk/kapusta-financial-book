@@ -3,16 +3,20 @@ import { useDispatch } from 'react-redux';
 import transactionsOperations from '../../redux/transactions/transactions-operations';
 // import CalculatorIcon from 'components/SvgIcons/CalculatorIcon/CalculatorIcon';
 import contextProps from '../../context/context';
-import DateForm from '../../components/DateForm';
+
+import DateForm from '../DateForm';
+
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 import { gsap, Power3 } from 'gsap';
 
 import s from './AddTransaction.module.css';
 
-import Dropdown from '../../components/Dropdown';
 
-import CalculatorInput from '../../components/CalculatorInput';
+import Dropdown from '../Dropdown';
+
+import CalculatorInput from '../CalculatorInput';
+
 
 export default function AddTransaction({ onCloseForm }) {
   const { type, picker, handleCalendarClick, closePicker, date } =

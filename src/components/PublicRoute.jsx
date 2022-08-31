@@ -1,7 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { authSelectors } from '../../redux/auth';
+
+import { authSelectors } from '../redux/auth';
 
 export const PublicRoute = ({ redirectPath = '/', children }) => {
   const navigate = useNavigate();

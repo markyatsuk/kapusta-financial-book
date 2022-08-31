@@ -9,7 +9,8 @@ import Balance from '../../components/Balance';
 import ToGoReport from '../../components/ToGoReport';
 import DateForm from '../../components/DateForm';
 
-import useWindowDimensions from 'hooks/useWindowDimensions';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+
 import contextProps from '../../context/context';
 import s from './BalanceView.module.css';
 import { useSelector } from 'react-redux';

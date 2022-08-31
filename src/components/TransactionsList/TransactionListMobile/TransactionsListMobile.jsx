@@ -1,11 +1,13 @@
 import { useEffect, useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as selectors from '../../redux/transactions/transactions-selectors';
-import transactionsOperations from '../../redux/transactions/transactions-operations';
+
+import * as selectors from '../../../redux/transactions/transactions-selectors';
+import transactionsOperations from '../../../redux/transactions/transactions-operations';
 import s from './TransactionsListMobile.module.css';
-import Modal from '../../components/Modal';
-import EditTransaction from '../../components/EditTransaction';
-import contextProps from '../../context/context';
+import Modal from '../../Modal';
+import EditTransaction from '../../EditTransaction';
+import contextProps from '../../../context/context';
+
 
 export default function TransactionsListMobile() {
   const { date, setNewDate } = useContext(contextProps);

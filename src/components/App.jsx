@@ -1,7 +1,7 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { authOperations, authSelectors } from 'redux/auth';
+import { authOperations, authSelectors } from '../redux/auth';
 import { SharedLayout } from './SharedLayout';
 import { ProtectedRoute } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';

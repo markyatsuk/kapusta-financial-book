@@ -5,7 +5,9 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 
 import s from './Report.module.css';
 
-import months from '../../data/month.json';
+
+import months from '../../data/month';
+
 
 const CurrentMonth = ({
   currentMonth,

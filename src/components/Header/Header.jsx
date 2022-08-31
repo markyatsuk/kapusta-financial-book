@@ -3,9 +3,11 @@ import { useMediaQuery } from 'react-responsive';
 import { isDesktop } from '../../services/mediaQuery';
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
-import Logo from '../../components/Logo';
-import UserMenu from '../../components/UserMenu';
-import LogoutButton from '../../components/LogoutButton';
+
+import Logo from '../Logo';
+import UserMenu from '../UserMenu';
+import LogoutButton from '../LogoutButton';
+
 import s from './Header.module.css';
 
 export const Header = ({ isAuthenticated, onLogOut }) => {
