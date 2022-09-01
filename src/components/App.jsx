@@ -2,7 +2,6 @@ import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { authOperations, authSelectors } from '../redux/auth';
-import { SharedLayout } from './SharedLayout';
 import { ProtectedRoute } from './ProtectedRoute';
 import { PublicRoute } from './PublicRoute';
 import { Header } from './Header/Header';
@@ -37,7 +36,7 @@ export const App = () => {
             <Suspense fallback={<p>Download...</p>}>
               <Routes>
                 <Route path="/auth" element={<AuthView />}></Route>
-                <Route path="/" element={<SharedLayout />}>
+
                   <Route
                     path="/auth"
                     element={
@@ -63,7 +62,7 @@ export const App = () => {
                       </ProtectedRoute>
                     }
                   />
-                </Route>
+              
                 <Route
                   path="/balance"
                   element={
