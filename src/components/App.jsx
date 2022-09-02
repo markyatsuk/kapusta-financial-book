@@ -37,32 +37,32 @@ export const App = () => {
               <Routes>
                 <Route path="/auth" element={<AuthView />}></Route>
 
-                  <Route
-                    path="/auth"
-                    element={
-                      <PublicRoute redirectPath={'/home'}>
-                        <AuthView />
-                      </PublicRoute>
-                    }
-                  />
-                  <Route
-                    path="/home"
-                    element={
-                      <ProtectedRoute redirectPath={'/auth'}>
-                        <HomeView />
-                      </ProtectedRoute>
-                    }
-                  />
+                <Route
+                  path="/auth"
+                  element={
+                    <PublicRoute redirectPath={'/home'}>
+                      <AuthView />
+                    </PublicRoute>
+                  }
+                />
+                <Route
+                  path="/home"
+                  element={
+                    <ProtectedRoute redirectPath={'/auth'}>
+                      <HomeView />
+                    </ProtectedRoute>
+                  }
+                />
 
-                  <Route
-                    path="/reports"
-                    element={
-                      <ProtectedRoute redirectPath={'/auth'}>
-                      <ReportsView />
-                      </ProtectedRoute>
-                    }
-                  />
-              
+                <Route
+                  path="/reports"
+                  element={
+                    // <ProtectedRoute redirectPath={'/auth'}>
+                    <ReportsView />
+                    // </ProtectedRoute>
+                  }
+                />
+
                 <Route
                   path="/balance"
                   element={
