@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import AddTransaction from '../../components/AddTransaction/AddTransaction';
-import Container from '../../components/Container';
+// import Container from '../../components/Container';
+import BalanceContainer from '../../components/Container/BalanceContainer';
+
 import TransactionsList from '../../components/TransactionsList/TransactionsList';
 import TransactionsListMobile from '../../components/TransactionsList/TransactionListMobile';
 import Summary from '../../components/Summary';
@@ -78,7 +80,7 @@ const BalanceView = () => {
 
   return (
     <contextProps.Provider value={contextValueBalance}>
-      <Container>
+      <BalanceContainer>
         {loader && <OnLoader />}
         {viewPort.width >= 768 && (
           <>
@@ -176,7 +178,7 @@ const BalanceView = () => {
             )}
           </>
         )}
-      </Container>
+      </BalanceContainer>
     </contextProps.Provider>
   );
 };
