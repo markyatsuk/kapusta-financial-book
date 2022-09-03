@@ -16,7 +16,7 @@ const token = {
 const register = createAsyncThunk('/auth/register', async credentials => {
   try {
     const { data } = await axios.post('/auth/register', credentials);
-    token.set(data.token);
+    // token.set(data.token);
     return data;
   } catch (error) {
     console.log(error);
@@ -39,6 +39,7 @@ const logIn = createAsyncThunk('/auth/login', async credentials => {
     Notiflix.Notify.failure("Wrong login or password ❗", {
       timeout: 2000,
     });
+    return error.rejectWithValue();
   }
 });
 

@@ -40,6 +40,7 @@ export const App = () => {
                 <Route element={<ProtectedRoute redirectTo="/auth/login" />}>
                   <Route path="/users/balance" element={<BalanceView />}></Route>
                 </Route>
+                
                 <Route element={<ProtectedRoute redirectTo="/auth/register" />}>
                   <Route path="/users/balance" element={<BalanceView />}></Route>
                 </Route>
