@@ -39,7 +39,7 @@ export const App = () => {
                 <Route element={<ProtectedRoute redirectTo="auth/login" />}>
                   <Route path="/balance" element={<BalanceView />}></Route>
                 </Route>
-                <Route element={<PublicRoute restricted redirectTo="users/balance" />}>
+                <Route element={<PublicRoute restricted redirectTo="balance" />}>
                   <Route path="/auth/login" element={<AuthView />}></Route>
                 </Route>
                 <Route element={<PublicRoute restricted redirectTo="reports" />}>
