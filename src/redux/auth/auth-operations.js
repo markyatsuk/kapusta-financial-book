@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import Notiflix from 'notiflix';
+axios.defaults.baseURL = 'https://finantial-book-kapusta.herokuapp.com/api';
 
-// axios.defaults.baseURL = 'https://my-site.com/';
 
 const token = {
   set(token) {
@@ -12,29 +13,38 @@ const token = {
   },
 };
 
-const register = createAsyncThunk('auth/register', async credentials => {
+const register = createAsyncThunk('/auth/register', async credentials => {
   try {
-    const { data } = await axios.post('users/signup', credentials);
+    const { data } = await axios.post('/auth/register', credentials);
     token.set(data.token);
     return data;
   } catch (error) {
     console.log(error);
+    Notiflix.Notify.failure("This user is already registered ⚠", {
+      timeout: 2000,
+    });
   }
 });
 
-const logIn = createAsyncThunk('auth/login', async credentials => {
+const logIn = createAsyncThunk('/auth/login', async credentials => {
   try {
-    const { data } = await axios.post('users/login', credentials);
+    const { data } = await axios.post('/auth/login', credentials);
     token.set(data.token);
+    Notiflix.Notify.success("Welcome ✔", {
+      timeout: 2000,
+    });
     return data;
   } catch (error) {
     console.log(error);
+    Notiflix.Notify.failure("Wrong login or password ❗", {
+      timeout: 2000,
+    });
   }
 });
 
-const logOut = createAsyncThunk('auth/logout', async () => {
+const logOut = createAsyncThunk('/auth/logout', async () => {
   try {
-    await axios.post('users/logout');
+    await axios.post('/auth/logout');
     token.unset();
   } catch (error) {
     console.log(error);
@@ -42,7 +52,7 @@ const logOut = createAsyncThunk('auth/logout', async () => {
 });
 
 const fetchCurrentUser = createAsyncThunk(
-  'auth/refresh',
+  '/auth/refresh',
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
@@ -53,7 +63,7 @@ const fetchCurrentUser = createAsyncThunk(
 
     token.set(persistedToken);
     try {
-      const { data } = await axios.get('users/current');
+      const { data } = await axios.get('/auth/current');
       return data;
     } catch (error) {
       console.log(error);

@@ -57,8 +57,8 @@
   margin-bottom: 12px;
 }
 
-.form {
-  margin-bottom: 40px;
+.prompt.promptMargin{
+  margin-top: 20px;
 }
 
 .form__input {
@@ -75,9 +75,6 @@
 .passwordContainer {
   position: relative;
 }
-.form__input.form__inputMargin {
-  margin-bottom: 20px;
-}
 
 .buttonContainer {
   display: flex;
@@ -93,19 +90,16 @@
   cursor: pointer;
   font-weight: 700;
   text-transform: uppercase;
+  color: #52555F;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  height: 44px;
 }
 
-.authBtn:not([disabled]) {
-  background-color: #f5f6fb;
-  color: #52555f;
-}
-
-.authBtn.activeBtn:not([disabled]) {
-  flex-basis: calc((100% - 8px) / 2);
+.activeBtn {
+  composes: authBtn;
   background: #ff751d;
-  border-radius: 16px;
-  padding: 12px 0;
-  border: none;
   color: #ffffff;
 }
 
@@ -117,17 +111,30 @@
   position: relative;
 }
 
-.passwordControl {
+.warning {
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.04em;
+  color: #EB5757;
+  margin-top: 4px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hiddenPassword {
   position: absolute;
   top: 15px;
   right: 15px;
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: url(../../images/eye.svg) 0 0 no-repeat;
+  background: url(../../images/closedEye.svg) 0 0 no-repeat;
 }
-.passwordControl.view {
-  background: url(../../images/eye.svg) 0 0 no-repeat;
+.view {
+  composes: hiddenPassword;
+  background: url(../../images/openedEye.svg) 0 0 no-repeat;
 }
 
 @media screen and (min-width: 768px) {

@@ -71,5 +71,5 @@ export function GoogleIconHome() {
 }
 
 export function EyeIcon() {
-  return <Eye />;
+  return <Eye/>;
 }
