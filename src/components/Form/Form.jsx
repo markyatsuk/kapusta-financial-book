@@ -1,10 +1,41 @@
 import s from './Form.module.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GoogleIconHome } from '../../components/Icons/Icons';
 import Notiflix from 'notiflix';
+import authOperations from '../../redux/auth/auth-operations';
+import { useDispatch } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { authSelectors } from '../../redux/auth';
+import { useSelector } from 'react-redux';
+
+
 export default function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoginBtnActive, setIsLoginBtnActive] = useState(true);
+  const [isRegisterBtnActive, setIsRegisterBtnActive] = useState(false);
+  const [isPromptActive, setIsPromptActive] = useState(false);
+  const [isShownPassword, setIsShownPassword] = useState(false);
+
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  
+  useEffect(() => {
+    if(location.pathname === "/auth/login"){
+      setIsLoginBtnActive(true);
+      setIsRegisterBtnActive(false);
+    }
+    else if(location.pathname === "/auth/register"){
+      setIsLoginBtnActive(false);
+      setIsRegisterBtnActive(true);
+    }
+  },[location.pathname])
+
+
 
   function handleChange({ target: { name, value } }) {
     switch (name) {
@@ -19,34 +50,64 @@ export default function Form() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    let joinedPassword;
+    if(email === '' || password === ''){
+      setIsPromptActive(true);
+      return;
+    }
     const emailArr = email.split('@');
     if (emailArr[0].length < 2) {
-      Notiflix.Notify.warning("Email must contain 2 symbols before '@'!");
+      Notiflix.Notify.warning("Email must contain 2 symbols before '@'!", {
+        timeout: 2000,
+      });
       return;
     }
     const passwordArr = password.split(' ');
-    if (passwordArr.length > 2) {
-      joinedPassword = passwordArr.join('');
+    if (passwordArr.length >= 2) {
+      const joinedPassword = passwordArr.join('')
+      setPassword(joinedPassword);
     }
+    try {
+        if(location.pathname === "/auth/login"){
+          dispatch(authOperations.logIn({ email, password }));
+        }
+        else if(location.pathname === "/auth/register") {
+        dispatch(authOperations.register({ email, password }));
+        }
+      } catch (error) {
+        console.log(error.message)
+      }
+    console.log(isLoggedIn)
     console.log('email', email);
-    console.log('password', joinedPassword);
+    console.log('password', password);
+    
     setEmail('');
     setPassword('');
     e.target.reset();
   }
 
-  const isDisabled = () => {
-    if (email === '' || password === '') return true;
-  };
+  function switchButtons(e){
+    if(e.currentTarget.type === "button"){
+      if(location.pathname === "/auth/login"){
+        navigate("/auth/register");
+      }
+      else{
+        navigate("/auth/login");
+      }
+      setIsLoginBtnActive(!isLoginBtnActive);
+      setIsRegisterBtnActive(!isRegisterBtnActive);
+    }
+  }
 
   function togglePassword(e) {
     e.preventDefault();
-    const inputEl = e.currentTarget.previousSibling;
+    const inputEl = e.currentTarget.parentNode.firstChild;
     if (inputEl.getAttribute('type') === 'password') {
       inputEl.setAttribute('type', 'text');
+      setIsShownPassword(true)
     } else {
       inputEl.setAttribute('type', 'password');
+      setIsShownPassword(false)
+
     }
   }
   return (
@@ -55,7 +116,7 @@ export default function Form() {
       <button className={s.googleBtn}>
         <a
           className={s.googleLink}
-          href="https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?access_type=offline&client_id=530617987889-27act2dq0attad58rnt5j32gapooa5sc.apps.googleusercontent.com&prompt=consent&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fgoogle-redirect&response_type=code&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&flowName=GeneralOAuthFlow"
+          href="https://finantial-book-kapusta.herokuapp.com/api/auth/google"
         >
           {' '}
           <GoogleIconHome /> <span className={s.btn__span}>Google</span>
@@ -65,9 +126,9 @@ export default function Form() {
         Or log in using e-mail and password, after registering:
       </p>
       <form action="" onSubmit={handleFormSubmit} className={s.form}>
-        <p className={s.prompt}>Email:</p>
+        <p className={s.prompt}><span className={isPromptActive ? s.warning : s.hidden}>*</span>Email:</p>
         <input
-          className={s.form__input + ' ' + s.form__inputMargin}
+          className={s.form__input}
           type="email"
           name="email"
           title=""
@@ -78,7 +139,10 @@ export default function Form() {
           minLength="10"
           maxLength="63"
         />
-        <p className={s.prompt}>Password:</p>
+        <p className={isPromptActive ? s.warning : s.hidden}>
+          this is a required field
+          </p>
+        <p className={s.prompt + ' ' + s.promptMargin}><span className={isPromptActive ? s.warning : s.hidden}>*</span>Password:</p>
         <div className={s.passwordContainer}>
           <input
             className={s.form__input + ' ' + s.password}
@@ -91,19 +155,21 @@ export default function Form() {
             id="current-password"
             onChange={handleChange}
           />
-          <a href="!" className={s.passwordControl} onClick={togglePassword}>
-            .
-          </a>
+          <p className={isPromptActive ? s.warning : s.hidden}>
+          this is a required field
+            </p>
+          <a href="!" className={isShownPassword ? s.view : s.hiddenPassword} onClick={togglePassword}> </a>
         </div>
 
-        <div className={s.buttonContainer}>
+        <div  className={s.buttonContainer}>
           <button
-            className={s.authBtn + ' ' + s.activeBtn}
-            disabled={isDisabled()}
+            className={isLoginBtnActive ? s.activeBtn : s.authBtn}
+            onClick={switchButtons}
+            type={isLoginBtnActive ? "submit" : "button"}
           >
             Login
           </button>
-          <button className={s.authBtn} disabled={isDisabled()}>
+          <button type={isRegisterBtnActive ? "submit" : "button"} className={isRegisterBtnActive ? s.activeBtn : s.authBtn} onClick={switchButtons}>
             Sign up
           </button>
         </div>

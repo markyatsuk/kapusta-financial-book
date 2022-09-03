@@ -4,7 +4,7 @@ import { isMobile } from '../../services/mediaQuery';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import AuthView from '../../pages/AuthView/AuthView';
-import HomeView from '../../pages/HomeView/HomeView';
+import HomeView from '../../pages/HomeView/HomeView'
 import ReportsView from '../../pages/ReportsView/ReportsView';
 import s from './Logo.module.css';
 
