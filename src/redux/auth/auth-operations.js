@@ -3,7 +3,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 axios.defaults.baseURL = 'https://finantial-book-kapusta.herokuapp.com/api';
 
-
 const token = {
   set(token) {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -13,6 +12,14 @@ const token = {
   },
 };
 
+const googleApi = createAsyncThunk('/auth/google', credentials => {
+  try {
+    return credentials;
+  } catch (error) {
+    console.log('все плохо');
+  }
+});
+
 const register = createAsyncThunk('/auth/register', async credentials => {
   try {
     const { data } = await axios.post('/auth/register', credentials);
@@ -20,7 +27,7 @@ const register = createAsyncThunk('/auth/register', async credentials => {
     return data;
   } catch (error) {
     console.log(error);
-    Notiflix.Notify.failure("This user is already registered ⚠", {
+    Notiflix.Notify.failure('This user is already registered ⚠', {
       timeout: 2000,
     });
   }
@@ -30,13 +37,13 @@ const logIn = createAsyncThunk('/auth/login', async credentials => {
   try {
     const { data } = await axios.post('/auth/login', credentials);
     token.set(data.token);
-    Notiflix.Notify.success("Welcome ✔", {
+    Notiflix.Notify.success('Welcome ✔', {
       timeout: 2000,
     });
     return data;
   } catch (error) {
     console.log(error);
-    Notiflix.Notify.failure("Wrong login or password ❗", {
+    Notiflix.Notify.failure('Wrong login or password ❗', {
       timeout: 2000,
     });
     return error.rejectWithValue();
@@ -77,5 +84,6 @@ const authOperations = {
   logOut,
   logIn,
   fetchCurrentUser,
+  googleApi,
 };
 export default authOperations;

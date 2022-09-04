@@ -17,6 +17,10 @@ export const authSlice = createSlice({
       // state.token = payload.token;
       // state.isLoggedIn = true;
     },
+    [authOperations.googleApi.fulfilled](state, { payload }) {
+      state.token = payload.token;
+      state.isLoggedIn = true;
+    },
     [authOperations.logIn.fulfilled](state, { payload }) {
       state.user = payload.user;
       state.token = payload.token;
