@@ -7,9 +7,9 @@
     justify-content: center;
   }
   .holst p {
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 12px;
-    color: #52555fb2;
+    /* color: #52555fb2; */
   }
   .balanceContainer {
     display: flex;

@@ -1,6 +1,6 @@
 import { useState, useContext, useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import transactionsOperations from '../../redux/transactions/transactions-operations';
+// import transactionsOperations from '../../redux/transactions/transactions-operations';
 // import CalculatorIcon from 'components/SvgIcons/CalculatorIcon/CalculatorIcon';
 import contextProps from '../../context/context';
 
@@ -12,11 +12,9 @@ import { gsap, Power3 } from 'gsap';
 
 import s from './AddTransaction.module.css';
 
-
 import Dropdown from '../Dropdown';
 
 import CalculatorInput from '../CalculatorInput';
-
 
 export default function AddTransaction({ onCloseForm }) {
   const { type, picker, handleCalendarClick, closePicker, date } =
@@ -40,7 +38,7 @@ export default function AddTransaction({ onCloseForm }) {
       subCategory: description,
       sum,
     };
-    dispatch(transactionsOperations.addTransaction(transaction));
+    // dispatch(transactionsOperations.addTransaction(transaction));
     cleanState();
   };
 

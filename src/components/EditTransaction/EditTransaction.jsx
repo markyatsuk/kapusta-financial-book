@@ -6,7 +6,7 @@ import CalculatorInput from '../CalculatorInput';
 // import CalculatorIcon from 'components/SvgIcons/CalculatorIcon/CalculatorIcon';
 import DateForm from '../DateForm';
 
-import transactionsOperations from '../../redux/transactions/transactions-operations';
+// import transactionsOperations from '../../redux/transactions/transactions-operations';
 import s from './EditTransaction.module.css';
 import { useDispatch } from 'react-redux';
 
@@ -71,7 +71,7 @@ export default function EditTransaction({
     );
 
     onDateChange(date);
-    dispatch(transactionsOperations.editTransaction(editedTransaction));
+    // dispatch(transactionsOperations.editTransaction(editedTransaction));
     cancelChanges();
   };
 

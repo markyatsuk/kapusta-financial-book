@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import * as selectors from '../../redux/transactions/transactions-selectors';
-import transactionsOperations from '../../redux/transactions/transactions-operations';
+// import transactionsOperations from '../../redux/transactions/transactions-operations';
 import styles from './TransactionsList.module.css';
 
 import Modal from '../Modal';
@@ -22,7 +22,7 @@ export default function TransactionsList() {
 
   useEffect(() => {
     if (date) {
-      dispatch(transactionsOperations.getTransactionsDay(date));
+      // dispatch(transactionsOperations.getTransactionsDay(date));
     }
   }, [date, dispatch]);
 
@@ -40,7 +40,7 @@ export default function TransactionsList() {
     const transactionToDel = transactions.find(
       item => item._id === transaction,
     );
-    dispatch(transactionsOperations.deleteTransaction(transactionToDel));
+    // dispatch(transactionsOperations.deleteTransaction(transactionToDel));
     setTransaction('');
   };
 

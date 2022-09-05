@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import s from './Report.module.css';
 import { ReactComponent as Strip } from './strip.svg';
-import transactionsOperations from '../../redux/transactions/transactions-operations';
+// import transactionsOperations from '../../redux/transactions/transactions-operations';
 import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
 
 const CurrentAmount = ({ currentMonth, currentYear }) => {
@@ -14,12 +14,12 @@ const CurrentAmount = ({ currentMonth, currentYear }) => {
 
   useEffect(() => {
     if ((monthToString, yearToString)) {
-      dispatch(
-        transactionsOperations.getTransactionsMonthYear(
-          monthToString,
-          yearToString,
-        ),
-      );
+      // dispatch(
+      //   transactionsOperations.getTransactionsMonthYear(
+      //     monthToString,
+      //     yearToString,
+      //   ),
+      // );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentMonth, currentYear]);

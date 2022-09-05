@@ -101,7 +101,7 @@ const BalanceView = () => {
                   onClick={typeToggle}
                   title="expense"
                 >
-                  CONSUMPTION
+                  EXPENSE
                 </button>
                 <button
                   className={`${s.buttonSpentIncome} ${
@@ -116,12 +116,12 @@ const BalanceView = () => {
               <AddTransaction />
               <div className={s.dataContainer}>
                 <TransactionsList transactionType={type} date={date} />
-                {viewPort.width > 1280 && <Summary year={year} />}
+                {viewPort.width > 1280 && <Summary type={type} />}
               </div>
             </div>
             <div className={s.containerSummary768}>
               {viewPort.width <= 1279 && viewPort.width > 768 && (
-                <Summary year={year} />
+                <Summary type={type} />
               )}
             </div>
           </>
