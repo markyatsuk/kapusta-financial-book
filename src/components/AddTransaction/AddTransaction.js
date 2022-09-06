@@ -19,7 +19,7 @@ import CalculatorInput from '../CalculatorInput';
 export default function AddTransaction({ onCloseForm }) {
   const { type, picker, handleCalendarClick, closePicker, date } =
     useContext(contextProps);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');

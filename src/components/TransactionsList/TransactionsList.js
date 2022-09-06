@@ -12,19 +12,19 @@ import contextProps from '../../context/context';
 
 export default function TransactionsList() {
   const { type, date, setNewDate } = useContext(contextProps);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const transactions = useSelector(selectors.getTransactionsPerDay);
-  const filteredTransactions = transactions.filter(item => item.type === type);
+  // const transactions = useSelector(selectors.getTransactionsPerDay);
+  // const filteredTransactions = transactions.filter(item => item.type === type);
   const [modalDel, setModalDel] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
   const [transaction, setTransaction] = useState('');
 
-  useEffect(() => {
-    if (date) {
-      // dispatch(transactionsOperations.getTransactionsDay(date));
-    }
-  }, [date, dispatch]);
+  // useEffect(() => {
+  //   if (date) {
+  //     // dispatch(transactionsOperations.getTransactionsDay(date));
+  //   }
+  // }, [date, dispatch]);
 
   const handleDeteteClick = transaction => {
     setModalDel(true);
@@ -37,9 +37,10 @@ export default function TransactionsList() {
 
   const onDelOk = () => {
     setModalDel(false);
-    const transactionToDel = transactions.find(
-      item => item._id === transaction,
-    );
+    const transactionToDel = [];
+    //   transactions.find(
+    //   item => item._id === transaction,
+    // );
     // dispatch(transactionsOperations.deleteTransaction(transactionToDel));
     setTransaction('');
   };
@@ -67,7 +68,8 @@ export default function TransactionsList() {
       {modalEdit && (
         <EditTransaction
           onDateChange={setNewDate}
-          transaction={transactions.find(item => item._id === transaction)}
+          transaction={[]}
+          // transaction={transactions.find(item => item._id === transaction)}
           cancelChanges={onEditCalcel}
         />
       )}
@@ -88,7 +90,7 @@ export default function TransactionsList() {
         <div className={styles.bodyTableScroll}>
           <table className={`${styles.main} ${styles.mainTbody}`}>
             <tbody className={styles.tbodyTable}>
-              {filteredTransactions.map(transaction => (
+              {/* {filteredTransactions.map(transaction => (
                 <tr key={transaction._id} className={styles.td}>
                   <td className={styles.thData}>{transaction.date}</td>
                   <td className={styles.tdDesc}> {transaction.subCategory}</td>
@@ -147,7 +149,7 @@ export default function TransactionsList() {
                     </button>
                   </td>
                 </tr>
-              ))}
+              ))} */}
             </tbody>
           </table>
         </div>
