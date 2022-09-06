@@ -47,6 +47,10 @@ export const transactionsApi = createApi({
       query: type => `transactions/report/${type}`,
       providesTags: ['Transaction'],
     }),
+    fetchByDate: builder.query({
+      query: date => `transactions/${date}`,
+      providesTags: ['Transaction'],
+    }),
   }),
 });
 
@@ -56,4 +60,5 @@ export const {
   useDeleteTransactionMutation,
   useUpdateTransactionMutation,
   useFetchSummaryQuery,
+  useFetchByDateQuery,
 } = transactionsApi;
