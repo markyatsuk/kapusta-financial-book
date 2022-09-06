@@ -1,25 +1,17 @@
 import { useState, useContext, useRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-// import transactionsOperations from '../../redux/transactions/transactions-operations';
-// import CalculatorIcon from 'components/SvgIcons/CalculatorIcon/CalculatorIcon';
+import { useCreateTransactionMutation } from '../../redux/transactions/transactionsApi';
+import { FaCalculator } from 'react-icons/fa';
 import contextProps from '../../context/context';
-
 import DateForm from '../DateForm';
-
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-
 import { gsap, Power3 } from 'gsap';
-
 import s from './AddTransaction.module.css';
-
 import Dropdown from '../Dropdown';
-
 import CalculatorInput from '../CalculatorInput';
 
 export default function AddTransaction({ onCloseForm }) {
   const { type, picker, handleCalendarClick, closePicker, date } =
     useContext(contextProps);
-  // const dispatch = useDispatch();
 
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
@@ -27,18 +19,24 @@ export default function AddTransaction({ onCloseForm }) {
   const [calc, setCalc] = useState(false);
   const [sum, setSum] = useState('');
 
+  const [createTransaction] = useCreateTransactionMutation();
+
   const viewPort = useWindowDimensions();
 
   const handleSubmit = e => {
     e.preventDefault();
     const transaction = {
-      type: type,
-      date,
+      type,
+      date: {
+        day: '06',
+        month: '09',
+        year: '2022',
+      },
       category,
       subCategory: description,
       sum,
     };
-    // dispatch(transactionsOperations.addTransaction(transaction));
+    createTransaction(transaction);
     cleanState();
   };
 
@@ -154,7 +152,7 @@ export default function AddTransaction({ onCloseForm }) {
                   />
                   <div onClick={handleCalcClick}>
                     <div className={s.calculatorIcon}>
-                      {/* <CalculatorIcon /> */}
+                      <FaCalculator />
                     </div>
                     {calc && <CalculatorInput onCloseCalculator={closeCalc} />}
                   </div>
@@ -226,7 +224,7 @@ export default function AddTransaction({ onCloseForm }) {
                         onChange={handleChangeSum}
                       />
                       <div onClick={handleCalcClick}>
-                        {/* <CalculatorIcon /> */}
+                        <FaCalculator />
                         {calc && (
                           <CalculatorInput onCloseCalculator={closeCalc} />
                         )}
@@ -301,7 +299,7 @@ export default function AddTransaction({ onCloseForm }) {
                       </div>
                       <div className={s.positionIcon}>
                         <div onClick={handleCalcClick}>
-                          {/* <CalculatorIcon /> */}
+                          <FaCalculator />
                           {calc && (
                             <CalculatorInput onCloseCalculator={closeCalc} />
                           )}
