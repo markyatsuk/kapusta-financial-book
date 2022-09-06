@@ -5,37 +5,32 @@ import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
 
 import Logo from '../Logo';
-// import UserMenu from '../UserMenu';
+import UserMenu from '../UserMenu/UserMenu';
 import LogoutButton from '../LogoutButton';
-
+import { useSelector } from 'react-redux';
 import s from './Header.module.css';
 
-export const Header = ({ isAuthenticated, onLogOut }) => {
+export const Header = () => {
   const Desktop = isDesktop(useMediaQuery);
-
+  const isLoggegIn = useSelector(authSelectors.getIsLoggedIn);
   return (
     <div className={Desktop ? s.desk : s.tab}>
       <div className={s.logo}>
         <Logo />
       </div>
 
-      {isAuthenticated ? (
+      {isLoggegIn ? (
         <div className={s.userEmail}>
-          {/* <UserMenu /> */}
-          <LogoutButton onLogOut={onLogOut} />
+          <UserMenu />
+          <LogoutButton />
         </div>
       ) : null}
     </div>
   );
 };
 
-Header.propTypes = {
-  isAuthenticated: PropTypes.bool,
-  onLogOut: PropTypes.func,
-};
-
 const stateProps = state => ({
-  isAuthenticated: authSelectors.getIsLoggedIn(state),
+  isLoggegIn: authSelectors.getIsLoggedIn(state),
 });
 
 const dispatchProps = {

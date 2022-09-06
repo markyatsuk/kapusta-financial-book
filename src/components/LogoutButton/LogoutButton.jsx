@@ -1,31 +1,34 @@
-import PropTypes from 'prop-types';
 import { Mobile, Default } from '../../services/mediaQuery';
 import logoutsvg from '../../images/svg/header/logout-btn.svg';
 import s from './LogoutButton.module.css';
+import Modal from '../Modal/Modal';
+import { useState } from 'react';
 
-const LogoutButton = ({ isRender, onLogOut }) => {
-  return isRender ? (
-    <button type="button" className={s.btn} onClick={onLogOut}>
-      <Mobile>
-        <svg className={s.icon}>
-          <use href={`${logoutsvg}#Capa_1`} />
-        </svg>
-      </Mobile>
+const LogoutButton = () => {
+  const [showModal, setShowModal] = useState(false);
 
-      <Default>
-        <p className={s.text}>Log out</p>
-      </Default>
-    </button>
-  ) : null;
-};
+  return (
+    <div>
+      <button
+        type="button"
+        className={s.btn}
+        onClick={() => setShowModal(true)}
+      >
+        <Mobile>
+          <svg className={s.icon}>
+            <use href={`${logoutsvg}#Capa_1`} />
+          </svg>
+        </Mobile>
 
-LogoutButton.propTypes = {
-  isRender: PropTypes.bool,
-  onLogOut: PropTypes.func.isRequired,
-};
-
-LogoutButton.defaultProps = {
-  isRender: true,
+        <Default>
+          <p className={s.text}>Log out</p>
+        </Default>
+      </button>
+      {showModal ? (
+        <Modal setShowModal={setShowModal}>Do you really want to leave?</Modal>
+      ) : null}
+    </div>
+  );
 };
 
 export default LogoutButton;
