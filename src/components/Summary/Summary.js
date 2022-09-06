@@ -1,43 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useFetchSummaryQuery } from '../../redux/transactions/transactionsApi';
+import months from '../../services/months.json';
+import s from './Summary.module.css';
 
-import data from '../../data/month.json';
-import styles from './Summary.module.css';
-import * as selectors from '../../redux/transactions/transactions-selectors';
-import transactionsOperations from '../../redux/transactions/transactions-operations';
-
-import OnLoader from '../OnLoader';
-
-import { getLoader } from '../../redux/transactions';
-
-const Summary = ({ year }) => {
-  const dispatch = useDispatch();
-  const totalBalance = useSelector(selectors.getTotalBalance);
-  const loader = useSelector(getLoader);
-
-  useEffect(() => {
-    if (year > 0) {
-      dispatch(transactionsOperations.getMonthlyBalancesYear(year));
-    }
-  }, [totalBalance, year, dispatch]);
-
-  const balances = useSelector(selectors.getMonthlyBalances);
-
-  const sortedBalances = [...balances].sort((a, b) => b.month - a.month);
+const Summary = ({ type = 'expense' }) => {
+  const { data } = useFetchSummaryQuery(type);
 
   return (
-    <div className={styles.summaryContainer}>
-      {loader && <OnLoader />}
-      <h4 className={styles.summaryTitle}>Summary</h4>
-      <ul className={styles.summaryList}>
-        {sortedBalances.map(({ month, value }, index) => (
-          <li key={index} className={styles.summaryItem}>
-            <p className={styles.summaryDescription}>
-              {data.find(monthData => monthData.id === month).name}
-            </p>
-            <p className={styles.summaryDescription}>{value}</p>
-          </li>
-        ))}
+    <div className={s.container}>
+      <p className={s.title}>Summary</p>
+      <ul className={s.list}>
+        {data?.transactions &&
+          data.transactions.map(({ _id, total }, index) => {
+            return (
+              index < 6 && (
+                <li key={_id.month} className={s.item}>
+                  <p className={s.description}>{months[_id.month]}</p>
+                  <p className={s.description}>{total}</p>
+                </li>
+              )
+            );
+          })}
       </ul>
     </div>
   );

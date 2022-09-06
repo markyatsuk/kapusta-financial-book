@@ -13,7 +13,7 @@ import categories from '../../data/categories';
 
 import sprite from './icon.svg';
 import ArrowToGoBack from '../ArrowToGoBack';
-import transactionsOperations from '../../redux/transactions/transactions-operations';
+// import transactionsOperations from '../../redux/transactions/transactions-operations';
 
 const Report = ({
   month,
@@ -27,7 +27,7 @@ const Report = ({
   const dispatch = useDispatch();
   useEffect(() => {
     if ((month, year)) {
-      dispatch(transactionsOperations.getTransactionsMonthYear(month, year));
+      // dispatch(transactionsOperations.getTransactionsMonthYear(month, year));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [month, year]);

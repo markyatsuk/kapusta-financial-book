@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const transactionsApi = createApi({
   reducerPath: 'transactions',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'https://my-site.com/',
+    baseUrl: 'https://finantial-book-kapusta.herokuapp.com/api/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -43,6 +43,10 @@ export const transactionsApi = createApi({
       }),
       invalidatesTags: ['Transaction'],
     }),
+    fetchSummary: builder.query({
+      query: type => `transactions/report/${type}`,
+      providesTags: ['Transaction'],
+    }),
   }),
 });
 
@@ -51,4 +55,5 @@ export const {
   useCreateTransactionMutation,
   useDeleteTransactionMutation,
   useUpdateTransactionMutation,
+  useFetchSummaryQuery,
 } = transactionsApi;
