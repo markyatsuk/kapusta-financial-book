@@ -24,6 +24,9 @@ const register = createAsyncThunk('/auth/register', async credentials => {
   try {
     const { data } = await axios.post('/auth/register', credentials);
     // token.set(data.token);
+    Notiflix.Notify.success('Success! Now you can login ✔', {
+      timeout: 2000,
+    });
     return data;
   } catch (error) {
     console.log(error);

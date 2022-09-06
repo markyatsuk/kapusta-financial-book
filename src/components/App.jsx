@@ -49,8 +49,21 @@ export const App = () => {
             <Suspense fallback={<p>Download...</p>}>
               <Routes>
                 <Route path="/" element={<Navigate to="auth/login" />}></Route>
+                {/* <Route path="/auth/register" element={<AuthView />}></Route> */}
+                {/* <Route element={<ProtectedRoute redirectTo="auth/login" />}>
+                  <Route path="/balance" element={<BalanceView />}></Route>
+                </Route> */}
                 <Route element={<ProtectedRoute redirectTo="auth/login" />}>
                   <Route path="/balance" element={<BalanceView />}></Route>
+                </Route>
+                <Route element={<ProtectedRoute redirectTo="auth/register" />}>
+                  <Route path="/balance" element={<BalanceView />}></Route>
+                </Route>
+                <Route element={<ProtectedRoute redirectTo="auth/login" />}>
+                  <Route path="/reports" element={<ReportsView />}></Route>
+                </Route>
+                <Route element={<ProtectedRoute redirectTo="auth/register" />}>
+                  <Route path="/reports" element={<BalanceView />}></Route>
                 </Route>
                 <Route
                   element={<PublicRoute restricted redirectTo="balance" />}
@@ -58,13 +71,22 @@ export const App = () => {
                   <Route path="/auth/login" element={<AuthView />}></Route>
                 </Route>
                 <Route
+                  element={<PublicRoute restricted redirectTo="balance" />}
+                >
+                  <Route path="/auth/register" element={<AuthView />}></Route>
+                </Route>
+                <Route
+                  element={<PublicRoute restricted redirectTo="reports" />}
+                >
+                  <Route path="/auth/register" element={<AuthView />}></Route>
+                </Route>
+
+                <Route
                   element={<PublicRoute restricted redirectTo="reports" />}
                 >
                   <Route path="/auth/login" element={<AuthView />}></Route>
                 </Route>
-                <Route element={<ProtectedRoute redirectTo="auth/login" />}>
-                  <Route path="/reports" element={<ReportsView />}></Route>
-                </Route>
+
                 {/* <Route path="*" element={<Navigate to="/auth/login" />} /> */}
               </Routes>
             </Suspense>
