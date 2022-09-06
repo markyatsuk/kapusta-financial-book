@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import transactionsSelectors from '../../redux/transactions/transactions-selectors';
 import s from './Balance.module.css';
 import Notiflix from 'notiflix';
-// import transactionOp from '../../redux/transactions/transactions-operations';
 import transactionsOperations from '../../redux/transactions/transactions-operations';
 import Notification from '../../components/Notification/Notification';
 
@@ -17,9 +16,6 @@ const Balance = ({ hide, width }) => {
   };
 
   const onHandleChange = e => setSum(e.currentTarget.value);
-  // useEffect(() => {
-  //   setSum(balance);
-  // }, [balance]);
 
   const onhandleSubmit = e => {
     e.preventDefault();
