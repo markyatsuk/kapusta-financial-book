@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+// import { useSelector, useDispatch } from 'react-redux';
 
 import s from './Balance.module.css';
-import { getTotalBalance } from '../../redux/transactions/transactions-selectors';
+// import { getTotalBalance } from '../../redux/transactions/transactions-selectors';
 // import transactionOp from '../../redux/transactions/transactions-operations';
 
 import Notification from '../../components/Notification/Notification';
 
 const Balance = ({ hide, width }) => {
-  const balance = useSelector(getTotalBalance);
-  const dispatch = useDispatch();
+  // const balance = useSelector(getTotalBalance);
+  // const dispatch = useDispatch();
   const [sum, setSum] = useState('');
   const [setPromptClose, setClosePrompt] = useState(true);
   const toggleWindow = () => {
@@ -17,9 +17,9 @@ const Balance = ({ hide, width }) => {
   };
 
   const onHandleChange = e => setSum(e.currentTarget.value);
-  useEffect(() => {
-    setSum(balance);
-  }, [balance]);
+  // useEffect(() => {
+  //   setSum(balance);
+  // }, [balance]);
 
   const onhandleSubmit = e => {
     e.preventDefault();
@@ -30,7 +30,9 @@ const Balance = ({ hide, width }) => {
       <label htmlFor="balans" className={s.balanceLabel}>
         Balance:
         <div className={s.buttonsGroup}>
-          {balance === 0 ? (
+          {
+            // balance
+            //  0 === 0 ?
             <>
               {setPromptClose && <Notification onClose={toggleWindow} />}
               <input
@@ -58,22 +60,23 @@ const Balance = ({ hide, width }) => {
                 CONFIRM
               </button>
             </>
-          ) : (
-            <>
-              <p
-                className={
-                  width
-                    ? `${s.balanceInput} ${s.balanceInputReport}`
-                    : `${s.balanceInput}`
-                }
-              >
-                {`${balance.toLocaleString('ru')}.00`} UAH
-              </p>
-              <button className={`${s.balanceButton} ${hide}`} disabled>
-                CONFIRM
-              </button>
-            </>
-          )}
+            // : (
+            //   <>
+            //     <p
+            //       className={
+            //         width
+            //           ? `${s.balanceInput} ${s.balanceInputReport}`
+            //           : `${s.balanceInput}`
+            //       }
+            //     >
+            //       {`${balance.toLocaleString('ru')}.00`} UAH
+            //     </p>
+            //     <button className={`${s.balanceButton} ${hide}`} disabled>
+            //       CONFIRM
+            //     </button>
+            //   </>
+            // )
+          }
         </div>
       </label>
     </form>

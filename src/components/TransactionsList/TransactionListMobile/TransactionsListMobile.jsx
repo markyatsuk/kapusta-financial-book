@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as selectors from '../../../redux/transactions/transactions-selectors';
+// import * as selectors from '../../../redux/transactions/transactions-selectors';
 // import transactionsOperations from '../../../redux/transactions/transactions-operations';
 import s from './TransactionsListMobile.module.css';
 import Modal from '../../Modal';
@@ -10,17 +10,17 @@ import contextProps from '../../../context/context';
 
 export default function TransactionsListMobile() {
   const { date, setNewDate } = useContext(contextProps);
-  const dispatch = useDispatch();
-  const transactions = useSelector(selectors.getTransactionsPerDay);
+  // const dispatch = useDispatch();
+  // const transactions = useSelector(selectors.getTransactionsPerDay);
   const [modalDel, setModalDel] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
   const [transaction, setTransaction] = useState('');
 
-  useEffect(() => {
-    if (date) {
-      // dispatch(transactionsOperations.getTransactionsDay(date));
-    }
-  }, [dispatch, date]);
+  // useEffect(() => {
+  //   if (date) {
+  //     // dispatch(transactionsOperations.getTransactionsDay(date));
+  //   }
+  // }, [dispatch, date]);
 
   const handleDeteteClick = transaction => {
     setModalDel(true);
@@ -33,9 +33,11 @@ export default function TransactionsListMobile() {
 
   const onDelOk = () => {
     setModalDel(false);
-    const transactionToDel = transactions.find(
-      item => item._id === transaction,
-    );
+    const transactionToDel = [];
+    //   = transactions.find(
+    //   item => item._id === transaction,
+    // );
+
     // dispatch(transactionsOperations.deleteTransaction(transactionToDel));
     setTransaction('');
   };
@@ -63,13 +65,14 @@ export default function TransactionsListMobile() {
       {modalEdit && (
         <EditTransaction
           onDateChange={setNewDate}
-          transaction={transactions.find(item => item._id === transaction)}
+          transaction={[]}
+          // transaction={transactions.find(item => item._id === transaction)}
           cancelChanges={onEditCalcel}
         />
       )}
       <div className={s.tsList__container}>
         <ul style={{ width: '100%', padding: 0 }}>
-          {transactions.map(transaction => (
+          {/* {transactions.map(transaction => (
             <div key={transaction._id} className={s.firstWrapper}>
               <li className={s.listItem}>
                 <div className={s.listItem__wrapper}>
@@ -140,7 +143,7 @@ export default function TransactionsListMobile() {
                 </div>
               </li>
             </div>
-          ))}
+          ))} */}
         </ul>
       </div>
     </>

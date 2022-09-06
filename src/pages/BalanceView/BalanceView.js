@@ -15,9 +15,9 @@ import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 import contextProps from '../../context/context';
 import s from './BalanceView.module.css';
-import { useSelector } from 'react-redux';
-import { getLoader } from '../../redux/transactions';
-import OnLoader from '../../components/OnLoader';
+// import { useSelector } from 'react-redux';
+// import { getLoader } from '../../redux/transactions';
+// import OnLoader from '../../components/OnLoader';
 
 const BalanceView = () => {
   const [type, setType] = useState('income');
@@ -25,7 +25,7 @@ const BalanceView = () => {
   const [year, setYear] = useState('');
   const [picker, setPicker] = useState(false);
   const [listRender, setListRender] = useState(true);
-  const loader = useSelector(getLoader);
+  // const loader = useSelector(getLoader);
 
   useEffect(() => {
     setDate(startDate);
@@ -81,7 +81,7 @@ const BalanceView = () => {
   return (
     <contextProps.Provider value={contextValueBalance}>
       <BalanceContainer>
-        {loader && <OnLoader />}
+        {/* {loader && <OnLoader />} */}
         {viewPort.width >= 768 && (
           <>
             <div className={s.balanceContainer}>

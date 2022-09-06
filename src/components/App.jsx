@@ -4,9 +4,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { authOperations, authSelectors } from '../redux/auth';
 
 import { useSearchParams } from 'react-router-dom';
-
-// import { ProtectedRoute } from './ProtectedRoute';
-// import { PublicRoute } from './PublicRoute';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
 import { Header } from './Header/Header';
@@ -24,7 +21,6 @@ export const App = () => {
   const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
 
   const [searchParams] = useSearchParams();
-  // const { token } = queryString.parse(location.search);
 
   const token = searchParams.get('token');
 
