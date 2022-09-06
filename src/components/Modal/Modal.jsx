@@ -9,7 +9,7 @@ const Modal = ({ children, setShowModal }) => (
       <Button type="button" className="modalYes">
         Yes
       </Button>
-      <Button type="button" onClick={setShowModal(false)} className="modalNo">
+      <Button type="button" className="modalNo">
         No
       </Button>
     </div>
