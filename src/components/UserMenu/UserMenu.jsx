@@ -1,23 +1,22 @@
 // import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-
-// import { authSelectors } from '../../redux/auth';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 // import { isDesktop, isTablet, isMobile } from '../../services/mediaQuery';
 import { Desktop, Tablet, Mobile, Default } from '../../services/mediaQuery';
 import s from './UserMenu.module.css';
 import { authSelectors } from '../../redux/auth';
 
 const UserMenu = () => {
-  const userName = useSelector(authSelectors.getUserEmail);
-  // const Desktop = isDesktop(useMediaQuery);
-  // const Tablet = isTablet(useMediaQuery);
-  // const Mobile = isMobile(useMediaQuery);
-  return <div className={s.username}>{userName[0]}</div>;
-  //   <div className={[Tablet || Mobile ? s.tab : s.desk, s.container].join(' ')}>
-  //     <div>jbhfjghk</div>
+  const email = useSelector(authSelectors.getUserEmail);
+  const array = email.split('@');
+  const userName = array[0];
 
-  //     {Tablet || Desktop ? <p className={s.text}>{userName}</p> : null}
-  //   </div>;
+  return (
+    <div>
+      <div className={s.username}>{userName[0]}</div>
+      <p className={s.text}>{userName}</p>
+    </div>
+  );
 };
 
 // UserMenu.propTypes = {

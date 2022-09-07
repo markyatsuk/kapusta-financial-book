@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 import { isDesktop } from '../../services/mediaQuery';
 import { connect } from 'react-redux';
