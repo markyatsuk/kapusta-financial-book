@@ -81,12 +81,13 @@ const fetchCurrentUser = createAsyncThunk(
     }
   },
 );
-
+const logout = createAsyncThunk('/auth/logout', async () => {});
 const authOperations = {
   register,
   logOut,
   logIn,
   fetchCurrentUser,
   googleApi,
+  logout,
 };
 export default authOperations;
