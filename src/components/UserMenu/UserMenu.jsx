@@ -10,7 +10,7 @@ const UserMenu = () => {
   const email = useSelector(authSelectors.getUserEmail);
   const array = email.split('@');
   const userName = array[0];
-
+  //   useEffect(() => {});
   return (
     <div>
       <div className={s.username}>{userName[0]}</div>
