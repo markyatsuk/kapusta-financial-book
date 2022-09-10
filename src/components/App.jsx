@@ -1,22 +1,20 @@
 import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { authOperations, authSelectors } from 'redux/auth';
+import { authOperations, authSelectors } from '../redux/auth';
+
 import { useSearchParams } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
-import { Header } from './Header';
-
+import { Header } from './Header/Header';
 const AuthView = lazy(() =>
-  import('pages/AuthView' /* webpackChunkName: "auth" */),
+  import('../pages/AuthView/AuthView' /* webpackChunkName: "auth" */),
 );
-
 const ReportsView = lazy(() =>
-  import('pages/ReportsView' /* webpackChunkName: "reports" */),
+  import('../pages/ReportsView/ReportsView' /* webpackChunkName: "reports" */),
 );
-
 const BalanceView = lazy(() =>
-  import('pages/BalanceView' /* webpackChunkName: "balance" */),
+  import('../pages/BalanceView/BalanceView' /* webpackChunkName: "balance" */),
 );
 
 export const App = () => {

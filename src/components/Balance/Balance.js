@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import transactionsSelectors from '../../redux/transactions/transactions-selectors';
+import transactionsSelectors from '../../redux/transactions/transactions-selectors';
 import s from './Balance.module.css';
 import Notiflix from 'notiflix';
-// import transactionsOperations from '../../redux/transactions/transactions-operations';
+import transactionsOperations from '../../redux/transactions/transactions-operations';
 import Notification from '../../components/Notification/Notification';
 
 const Balance = ({ hide, width }) => {
-  // const balance = useSelector(transactionsSelectors.getTotalBalance);
-  const balance = 0;
+  const balance = useSelector(transactionsSelectors.getTotalBalance);
+  // const balance = 0;
   const dispatch = useDispatch();
   const [sum, setSum] = useState(null);
   const [setPromptClose, setClosePrompt] = useState(true);
@@ -26,7 +26,7 @@ const Balance = ({ hide, width }) => {
       });
       return;
     }
-    // dispatch(transactionsOperations.setBalance({ balance: sum }));
+    dispatch(transactionsOperations.setBalance({ balance: sum }));
   };
   return (
     <form onSubmit={onhandleSubmit} className={s.reportBalance}>
