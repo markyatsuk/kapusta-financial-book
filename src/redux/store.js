@@ -13,7 +13,6 @@ import storage from 'redux-persist/lib/storage';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { transactionsApi } from './transactions/transactionsApi';
 import authReducer from './auth/auth-slice';
-import transactionsSlice from './transactions/transactions-slice';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -30,16 +29,10 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-const transactionsPersistConfig = {
-  key: 'wallet',
-  storage,
-};
-
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     [transactionsApi.reducerPath]: transactionsApi.reducer,
-    wallet: persistReducer(transactionsPersistConfig, transactionsSlice),
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

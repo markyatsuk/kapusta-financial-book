@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import { authSelectors } from '../../redux/auth';
 import { useSelector } from 'react-redux';
 
-
 export default function Form() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,19 +22,16 @@ export default function Form() {
   const navigate = useNavigate();
 
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
-  
+
   useEffect(() => {
-    if(location.pathname === "/auth/login"){
+    if (location.pathname === '/auth/login') {
       setIsLoginBtnActive(true);
       setIsRegisterBtnActive(false);
-    }
-    else if(location.pathname === "/auth/register"){
+    } else if (location.pathname === '/auth/register') {
       setIsLoginBtnActive(false);
       setIsRegisterBtnActive(true);
     }
-  },[location.pathname])
-
-
+  }, [location.pathname]);
 
   function handleChange({ target: { name, value } }) {
     switch (name) {
@@ -50,7 +46,7 @@ export default function Form() {
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    if(email === '' || password === ''){
+    if (email === '' || password === '') {
       setIsPromptActive(true);
       return;
     }
@@ -63,35 +59,30 @@ export default function Form() {
     }
     const passwordArr = password.split(' ');
     if (passwordArr.length >= 2) {
-      const joinedPassword = passwordArr.join('')
+      const joinedPassword = passwordArr.join('');
       setPassword(joinedPassword);
     }
     try {
-        if(location.pathname === "/auth/login"){
-          dispatch(authOperations.logIn({ email, password }));
-        }
-        else if(location.pathname === "/auth/register") {
+      if (location.pathname === '/auth/login') {
+        dispatch(authOperations.logIn({ email, password }));
+      } else if (location.pathname === '/auth/register') {
         dispatch(authOperations.register({ email, password }));
-        }
-      } catch (error) {
-        console.log(error.message)
       }
-    console.log(isLoggedIn)
-    console.log('email', email);
-    console.log('password', password);
-    
+    } catch (error) {
+      console.log(error.message);
+    }
+
     setEmail('');
     setPassword('');
     e.target.reset();
   }
 
-  function switchButtons(e){
-    if(e.currentTarget.type === "button"){
-      if(location.pathname === "/auth/login"){
-        navigate("/auth/register");
-      }
-      else{
-        navigate("/auth/login");
+  function switchButtons(e) {
+    if (e.currentTarget.type === 'button') {
+      if (location.pathname === '/auth/login') {
+        navigate('/auth/register');
+      } else {
+        navigate('/auth/login');
       }
       setIsLoginBtnActive(!isLoginBtnActive);
       setIsRegisterBtnActive(!isRegisterBtnActive);
@@ -103,11 +94,10 @@ export default function Form() {
     const inputEl = e.currentTarget.parentNode.firstChild;
     if (inputEl.getAttribute('type') === 'password') {
       inputEl.setAttribute('type', 'text');
-      setIsShownPassword(true)
+      setIsShownPassword(true);
     } else {
       inputEl.setAttribute('type', 'password');
-      setIsShownPassword(false)
-
+      setIsShownPassword(false);
     }
   }
   return (
@@ -126,7 +116,9 @@ export default function Form() {
         Or log in using e-mail and password, after registering:
       </p>
       <form action="" onSubmit={handleFormSubmit} className={s.form}>
-        <p className={s.prompt}><span className={isPromptActive ? s.warning : s.hidden}>*</span>Email:</p>
+        <p className={s.prompt}>
+          <span className={isPromptActive ? s.warning : s.hidden}>*</span>Email:
+        </p>
         <input
           className={s.form__input}
           type="email"
@@ -141,8 +133,11 @@ export default function Form() {
         />
         <p className={isPromptActive ? s.warning : s.hidden}>
           this is a required field
-          </p>
-        <p className={s.prompt + ' ' + s.promptMargin}><span className={isPromptActive ? s.warning : s.hidden}>*</span>Password:</p>
+        </p>
+        <p className={s.prompt + ' ' + s.promptMargin}>
+          <span className={isPromptActive ? s.warning : s.hidden}>*</span>
+          Password:
+        </p>
         <div className={s.passwordContainer}>
           <input
             className={s.form__input + ' ' + s.password}
@@ -156,20 +151,30 @@ export default function Form() {
             onChange={handleChange}
           />
           <p className={isPromptActive ? s.warning : s.hidden}>
-          this is a required field
-            </p>
-          <a href="!" className={isShownPassword ? s.view : s.hiddenPassword} onClick={togglePassword}> </a>
+            this is a required field
+          </p>
+          <a
+            href="!"
+            className={isShownPassword ? s.view : s.hiddenPassword}
+            onClick={togglePassword}
+          >
+            {' '}
+          </a>
         </div>
 
-        <div  className={s.buttonContainer}>
+        <div className={s.buttonContainer}>
           <button
             className={isLoginBtnActive ? s.activeBtn : s.authBtn}
             onClick={switchButtons}
-            type={isLoginBtnActive ? "submit" : "button"}
+            type={isLoginBtnActive ? 'submit' : 'button'}
           >
             Login
           </button>
-          <button type={isRegisterBtnActive ? "submit" : "button"} className={isRegisterBtnActive ? s.activeBtn : s.authBtn} onClick={switchButtons}>
+          <button
+            type={isRegisterBtnActive ? 'submit' : 'button'}
+            className={isRegisterBtnActive ? s.activeBtn : s.authBtn}
+            onClick={switchButtons}
+          >
             Sign up
           </button>
         </div>

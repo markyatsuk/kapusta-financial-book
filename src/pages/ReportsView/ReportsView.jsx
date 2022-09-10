@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-
-import ChartReport from '../../components/ChartReport';
-import { Report } from '../../components/Report';
-
+import ChartReport from 'components/ChartReport';
+import { Report } from 'components/Report';
+import Container from 'components/Container';
 import s from './ReportView.module.css';
-import Container from '../../components/Container';
 
 const ReportsView = () => {
   let date = new Date();

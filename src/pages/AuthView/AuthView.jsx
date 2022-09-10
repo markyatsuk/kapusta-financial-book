@@ -1,4 +1,4 @@
-import HomeContainer from '../../components/Container/HomeContainer';
+import HomeContainer from 'components/Container/HomeContainer';
 import {
   IconHomeKapustaMobile,
   IconHomeKapustaTablet,
@@ -7,15 +7,15 @@ import {
   CabbageIconBottom,
   CabbagePairBottom,
   CabbageGroupTop,
-} from '../../components/Icons/Icons';
-import Form from '../../components/Form/Form';
+} from 'components/Icons/Icons';
+import Form from 'components/Form/Form';
 import s from './AuthView.module.css';
 import {
   isMobile,
   isTablet,
   isDesktop,
   isNotMobile,
-} from '../../services/mediaQuery';
+} from 'services/mediaQuery';
 const AuthView = () => (
   <section className={s.homeSection}>
     <div className={s.background}>

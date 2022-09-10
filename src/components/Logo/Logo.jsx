@@ -4,7 +4,7 @@ import { isMobile } from '../../services/mediaQuery';
 import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/auth';
 import AuthView from '../../pages/AuthView/AuthView';
-import HomeView from '../../pages/HomeView/HomeView'
+import BalanceView from 'pages/BalanceView';
 import ReportsView from '../../pages/ReportsView/ReportsView';
 import s from './Logo.module.css';
 
@@ -13,7 +13,9 @@ const Logo = () => {
   const isAuth = useSelector(authSelectors.getIsLoggedIn);
 
   return (
-    <Link to={isAuth ? <AuthView /> : Mobile ? <HomeView /> : <ReportsView />}>
+    <Link
+      to={isAuth ? <AuthView /> : Mobile ? <BalanceView /> : <ReportsView />}
+    >
       <div className={s.logo}></div>
     </Link>
   );
