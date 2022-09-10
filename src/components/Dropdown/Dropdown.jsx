@@ -3,17 +3,13 @@ import { useState, useContext } from 'react';
 import s from './Dropdown.module.css';
 import st from '../EditTransaction/EditTransaction.module.css';
 import contextProps from '../../context/context';
-import optionsIncome from '../../data/categoriesIncome.json';
-import optionsExpense from '../../data/categoriesExpense.json';
+import categories from '../../data/categories.json';
 
 function Dropdown({ category, setCategory }) {
   const [isActive, setIsActive] = useState(false);
 
   const { type } = useContext(contextProps);
-  const options =
-    type === 'expense'
-      ? optionsExpense.optionsExpense
-      : optionsIncome.optionsIncome;
+  const options = type === 'expense' ? categories.expense : categories.income;
   return (
     <div className={s.dropdown}>
       <div

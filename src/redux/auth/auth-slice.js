@@ -6,6 +6,7 @@ export const authSlice = createSlice({
   initialState: {
     user: {
       email: null,
+      balance: 0,
     },
     token: null,
     isLoggedIn: false,
@@ -22,17 +23,17 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
-      state.user.email = payload.email;
+      state.user = payload.user;
       state.token = payload.token;
       state.isLoggedIn = true;
     },
     [authOperations.logIn.rejected](state) {
-      state.user = { name: null, email: null };
+      state.user = { email: null, balance: null };
       state.token = null;
       state.isLoggedIn = false;
     },
     [authOperations.logOut.fulfilled](state) {
-      state.user = { email: null };
+      state.user = { email: null, balance: null };
       state.token = null;
       state.isLoggedIn = false;
     },
