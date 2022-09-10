@@ -23,7 +23,7 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
-      state.user = payload.user;
+      state.user = payload.email;
       state.token = payload.token;
       state.isLoggedIn = true;
     },
@@ -47,6 +47,9 @@ export const authSlice = createSlice({
     },
     [authOperations.fetchCurrentUser.rejected](state) {
       state.isFetchingCurrentUser = false;
+    },
+    [authOperations.updateBalance.fulfilled](state, { payload }) {
+      state.user = payload.data;
     },
   },
 });
