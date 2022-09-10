@@ -20,12 +20,11 @@ export const authSlice = createSlice({
     },
     [authOperations.googleApi.fulfilled](state, { payload }) {
       state.token = payload.token;
+      state.user.email = payload.email;
       state.isLoggedIn = true;
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
-
       state.user.email = payload.email;
-
       state.token = payload.token;
       state.isLoggedIn = true;
     },

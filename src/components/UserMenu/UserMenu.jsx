@@ -7,12 +7,10 @@ import s from './UserMenu.module.css';
 import { authSelectors } from '../../redux/auth';
 
 const UserMenu = () => {
-  //   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const email = useSelector(authSelectors.getUserEmail);
   const array = email.split('@');
   const userName = array[0];
 
-  //   useEffect(() => {});
   return (
     <div>
       <div className={s.username}>{userName[0]}</div>
@@ -20,18 +18,5 @@ const UserMenu = () => {
     </div>
   );
 };
-
-// UserMenu.propTypes = {
-//   isRender: PropTypes.bool,
-//   userName: PropTypes.string.isRequired,
-// };
-
-// UserMenu.defaultProps = {
-//   isRender: true,
-// };
-
-// const userProps = store => ({
-//   userName: authSelectors.getUserEmail(store),
-// });
 
 export default UserMenu;
