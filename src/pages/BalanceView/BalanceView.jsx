@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import AddTransaction from '../../components/AddTransaction/AddTransaction';
+// import Container from '../../components/Container';
+import BalanceContainer from '../../components/Container/BalanceContainer';
 
-import AddTransaction from 'components/AddTransaction';
-// import Container from 'components/Container';
-import BalanceContainer from 'components/Container/BalanceContainer';
+import TransactionsList from '../../components/TransactionsList/TransactionsList';
+import TransactionsListMobile from '../../components/TransactionsList/TransactionListMobile';
+import Summary from '../../components/Summary';
+import Balance from '../../components/Balance';
+import ToGoReport from '../../components/ToGoReport';
+import DateForm from '../../components/DateForm';
 
-import TransactionsList from 'components/TransactionsList/TransactionsList';
-import TransactionsListMobile from 'components/TransactionsList/TransactionListMobile';
-import Summary from 'components/Summary';
-import Balance from 'components/Balance';
-import ToGoReport from 'components/ToGoReport';
-import DateForm from 'components/DateForm';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
-import useWindowDimensions from 'hooks/useWindowDimensions';
-
-import contextProps from 'context/context';
+import contextProps from '../../context/context';
 import s from './BalanceView.module.css';
 // import { useSelector } from 'react-redux';
 // import { getLoader } from '../../redux/transactions';
