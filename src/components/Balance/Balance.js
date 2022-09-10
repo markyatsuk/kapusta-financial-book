@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import transactionsSelectors from '../../redux/transactions/transactions-selectors';
+import { authSelectors } from 'redux/auth';
 import s from './Balance.module.css';
 import Notiflix from 'notiflix';
-// import transactionsOperations from '../../redux/transactions/transactions-operations';
+import authOperations from 'redux/auth/auth-operations';
 import Notification from '../../components/Notification/Notification';
 
 const Balance = ({ hide, width }) => {
-  // const balance = useSelector(transactionsSelectors.getTotalBalance);
-  const balance = 0;
+  const balance = useSelector(authSelectors.getUserBalance);
+
   const dispatch = useDispatch();
   const [sum, setSum] = useState(null);
   const [setPromptClose, setClosePrompt] = useState(true);
@@ -18,7 +18,7 @@ const Balance = ({ hide, width }) => {
 
   const onHandleChange = e => setSum(e.currentTarget.value);
 
-  const onhandleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (sum === null) {
       Notiflix.Notify.info('You should earn some money and come back))', {
@@ -26,11 +26,11 @@ const Balance = ({ hide, width }) => {
       });
       return;
     }
-    // dispatch(transactionsOperations.setBalance({ balance: sum }));
+    dispatch(authOperations.updateBalance({ balance: sum }));
   };
   return (
-    <form onSubmit={onhandleSubmit} className={s.reportBalance}>
-      <label htmlFor="balans" className={s.balanceLabel}>
+    <form onSubmit={handleSubmit} className={s.reportBalance}>
+      <label htmlFor="balance" className={s.balanceLabel}>
         Balance:
         <div className={s.buttonsGroup}>
           {balance === 0 ? (
@@ -47,7 +47,6 @@ const Balance = ({ hide, width }) => {
                     ? `${s.balanceInputReport} ${s.balanceInput}`
                     : `${s.balanceInput}`
                 }
-                // className={s.balanceInput}
                 autoComplete="off"
               />
               <button

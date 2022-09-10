@@ -1,12 +1,11 @@
 import { NavLink } from 'react-router-dom';
-
 import s from './ToGoReport.module.css';
 
 const ToGoReport = () => {
   return (
     <div className={s.toGoReport}>
       <NavLink to="/reports" className={s.link}>
-        <p style={{ marginRight: 20 }}>Go to reports</p>
+        <p style={{ marginRight: 20 }}>Reports</p>
         <svg
           width="14"
           height="14"

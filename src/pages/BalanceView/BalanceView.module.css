@@ -142,10 +142,9 @@
 @media screen and (min-width: 1280px) {
   .balanceContainer {
     display: flex;
-    justify-content: flex-end;
     align-items: baseline;
-    margin-top: 40px;
     width: 1060px;
+    margin: 40px auto 48px;
   }
 
   .holst {
