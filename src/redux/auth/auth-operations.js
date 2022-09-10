@@ -82,6 +82,29 @@ const fetchCurrentUser = createAsyncThunk(
   },
 );
 
+const updateBalance = createAsyncThunk(
+  '/users/balance',
+  async (credentials, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedToken = state.auth.token;
+
+    if (persistedToken === null) {
+      return thunkAPI.rejectWithValue();
+    }
+
+    token.set(persistedToken);
+    try {
+      const { data } = await axios.put('/users/balance', credentials);
+      Notiflix.Notify.success('Balance updated', {
+        timeout: 2000,
+      });
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+);
+
 // const getCurrentUser = createAsyncThunk('/auth/current', async () => {
 //   try {
 //     await axios.get('/auth/current');
@@ -97,7 +120,7 @@ const authOperations = {
   logIn,
   fetchCurrentUser,
   googleApi,
-  // getCurrentUser,
+  updateBalance,
 };
 
 export default authOperations;
