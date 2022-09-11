@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
+import Notiflix from 'notiflix';
 axios.defaults.baseURL = 'https://finantial-book-kapusta.herokuapp.com/api';
 
 const setBalance = createAsyncThunk('/users/balance', async credentials => {
@@ -62,12 +62,19 @@ const getTransactionsByType = createAsyncThunk(
 
 const getFullTransactions = createAsyncThunk(
   '/transactions/report/full',
-  async credentials => {
+  async (credentials, thunkAPI) => {
     try {
       const { data } = await axios.get(
         `/transactions/report/full?month=${credentials.month}&year=${credentials.year}`,
         credentials,
       );
+      console.log(data);
+      if (data.transactions.length === 0) {
+        Notiflix.Notify.warning('You have no transactions for this month ⚠', {
+          timeout: 1500,
+        });
+        return thunkAPI.rejectWithValue();
+      }
       return data;
     } catch (error) {
       console.log(error);

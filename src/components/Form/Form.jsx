@@ -53,7 +53,7 @@ export default function Form() {
     const emailArr = email.split('@');
     if (emailArr[0].length < 2) {
       Notiflix.Notify.warning("Email must contain 2 symbols before '@'!", {
-        timeout: 2000,
+        timeout: 1500,
       });
       return;
     }

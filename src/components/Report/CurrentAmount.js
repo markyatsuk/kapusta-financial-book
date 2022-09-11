@@ -7,24 +7,34 @@ import { ReactComponent as Strip } from './strip.svg';
 // import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
 // import transactions-operations from "../../"
 import transactionsOperations from '../../redux/transactions/transactions-operations';
-
+import transactionsSelectors from '../../redux/transactions/transactions-selectors';
 const CurrentAmount = ({ currentMonth, currentYear }) => {
   const dispatch = useDispatch();
-  // const transactions = useSelector(getTransactionsPerMonth);
+  const expenses = useSelector(transactionsSelectors.getExpencesPerMonth);
+  const income = useSelector(transactionsSelectors.getIncomePerMonth);
+
   let monthToString = String(currentMonth);
   let yearToString = String(currentYear);
 
   useEffect(() => {
     if ((monthToString, yearToString)) {
-      dispatch(
-        transactionsOperations.getFullTransactions({
-          month: '09',
-          year: '2022',
-        }),
-      );
+      if (currentMonth < 10) {
+        dispatch(
+          transactionsOperations.getFullTransactions({
+            month: `0${monthToString}`,
+            year: yearToString,
+          }),
+        );
+      } else {
+        dispatch(
+          transactionsOperations.getFullTransactions({
+            month: monthToString,
+            year: yearToString,
+          }),
+        );
+      }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
+  }, [currentMonth, currentYear, dispatch, monthToString, yearToString]);
 
   // const findTotalSum = type => {
   //   let totalSum = 0;
@@ -40,14 +50,14 @@ const CurrentAmount = ({ currentMonth, currentYear }) => {
       <div className={`${s.transactionWrapper} ${s.amountWrapper}`}>
         <p className={s.amountTitle}>Expenses:</p>
         <span className={`${s.amountText} ${s.amountExpense}`}>
-          {/* /*{`- ${findTotalSum('expense').toLocaleString('en')}.00 UAH.`}*/}
+          {`- ${expenses} UAH.`}
         </span>
       </div>
       <Strip className={s.amountStrip} />
       <div className={`${s.transactionWrapper} ${s.amountWrapper}`}>
         <p className={s.amountTitle}>Income:</p>
         <span className={`${s.amountText} ${s.amountIncome}`}>
-          {/* {`+ ${findTotalSum('income').toLocaleString('en')}.00 UAH.`} */}
+          {`+ ${income} UAH.`}
         </span>
       </div>
     </div>
