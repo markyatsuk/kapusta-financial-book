@@ -11,6 +11,7 @@ const UserMenu = () => {
   const email = useSelector(authSelectors.getUserEmail);
   const googleEmail = useSelector(authSelectors.getUserGoogleEmail);
 
+
   return email ? (
     <div>
       <div className={s.username}>{email.split('@')[0][0]}</div>
@@ -21,6 +22,7 @@ const UserMenu = () => {
       <div className={s.username}>{googleEmail.split('@')[0][0]}</div>
       <p className={s.text}>{googleEmail.split('@')[0]}</p>
     </div>
+
   );
 };
 
