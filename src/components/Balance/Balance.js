@@ -4,6 +4,9 @@ import s from './Balance.module.css';
 import Notiflix from 'notiflix';
 import { authOperations, authSelectors } from '../../redux/auth';
 import Notification from '../../components/Notification/Notification';
+
+
+
 const Balance = ({ hide, width }) => {
   const dispatch = useDispatch();
 

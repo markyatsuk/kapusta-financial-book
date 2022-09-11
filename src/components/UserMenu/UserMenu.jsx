@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 // import { isDesktop, isTablet, isMobile } from '../../services/mediaQuery';
 // import { Desktop, Tablet, Mobile, Default } from '../../services/mediaQuery';
+import { authSelectors } from '../../redux/auth';
 import s from './UserMenu.module.css';
 import authSelectors from '../../redux/auth/auth-selectors';
 
