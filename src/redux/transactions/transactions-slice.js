@@ -15,7 +15,6 @@ export const transactionsSlice = createSlice({
   },
   extraReducers: {
     [transactionsOperations.setBalance.fulfilled](state, { payload }) {
-      console.log(payload);
       state.wallet.balance = payload.data.balance;
     },
   },

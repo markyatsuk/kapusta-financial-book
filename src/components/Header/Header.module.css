@@ -16,17 +16,17 @@
 
 .userEmail {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  /* justify-content: space-between; */
 }
 
 .desk {
-  composes: header;
   padding-right: 36px;
   padding-left: 36px;
 }
 
 .tab {
-  composes: header;
   padding-right: 20px;
   padding-left: 20px;
 }

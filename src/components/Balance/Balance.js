@@ -6,13 +6,14 @@ import s from './Balance.module.css';
 import Notiflix from 'notiflix';
 import transactionsOperations from '../../redux/transactions/transactions-operations';
 import Notification from '../../components/Notification/Notification';
-
+import { authOperations } from '../../redux/auth';
 const Balance = ({ hide, width }) => {
   const balance = useSelector(transactionsSelectors.getTotalBalance);
   // const balance = 0;
 
   const dispatch = useDispatch();
   const [sum, setSum] = useState(null);
+  console.log(sum);
   const [setPromptClose, setClosePrompt] = useState(true);
   const toggleWindow = () => {
     setClosePrompt(setClosePrompt => !setClosePrompt);
@@ -29,7 +30,6 @@ const Balance = ({ hide, width }) => {
       return;
     }
     dispatch(transactionsOperations.setBalance({ balance: sum }));
-
   };
   return (
     <form onSubmit={handleSubmit} className={s.reportBalance}>
