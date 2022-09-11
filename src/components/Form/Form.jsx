@@ -108,7 +108,6 @@ export default function Form() {
           className={s.googleLink}
           href="https://finantial-book-kapusta.herokuapp.com/api/auth/google"
         >
-          {' '}
           <GoogleIconHome /> <span className={s.btn__span}>Google</span>
         </a>
       </button>
