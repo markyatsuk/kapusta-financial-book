@@ -4,7 +4,7 @@ import s from './Balance.module.css';
 import Notiflix from 'notiflix';
 import { authOperations, authSelectors } from '../../redux/auth';
 import Notification from '../../components/Notification/Notification';
-import { authOperations } from '../../redux/auth';
+
 const Balance = ({ hide, width }) => {
   const dispatch = useDispatch();
 
@@ -30,8 +30,6 @@ const Balance = ({ hide, width }) => {
     }
 
     dispatch(authOperations.updateBalance({ balance: sum }));
-
-
   };
   return (
     <form onSubmit={handleSubmit} className={s.reportBalance}>

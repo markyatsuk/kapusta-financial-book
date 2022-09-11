@@ -40,11 +40,11 @@ const register = createAsyncThunk('/auth/register', async credentials => {
 const logIn = createAsyncThunk('/auth/login', async credentials => {
   try {
     const { data } = await axios.post('/auth/login', credentials);
-    token.set(data.token);
+    token.set(data.data.token);
     Notiflix.Notify.success('Welcome ✔', {
       timeout: 2000,
     });
-    return data;
+    return data.data;
   } catch (error) {
     console.log(error);
     Notiflix.Notify.failure('Wrong login or password ❗', {
