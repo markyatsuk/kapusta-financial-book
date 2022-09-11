@@ -1,9 +1,6 @@
-import s from './DateForm.module.css';
-
-
+import { FcCalendar } from 'react-icons/fc';
 import CalendarPicker from '../DayPicker/DayPicker';
-
-// import СalendarIcon from 'components/SvgIcons/СalendarIcon';
+import s from './DateForm.module.css';
 
 const DateForm = ({
   date,
@@ -15,7 +12,7 @@ const DateForm = ({
   return (
     <div className={s.dateForm} onClick={handleCalendarClick}>
       <div className={s.calendarOverley}>
-        {/* <СalendarIcon /> */}
+        <FcCalendar />
         {picker && (
           <CalendarPicker
             closeHandler={closePicker}

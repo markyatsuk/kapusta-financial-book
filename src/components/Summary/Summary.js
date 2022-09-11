@@ -1,5 +1,5 @@
-import { useFetchSummaryQuery } from 'redux/transactions/transactionsApi';
-import months from 'data/months.json';
+import { useFetchSummaryQuery } from '../../redux/transactions/transactionsApi';
+import months from '../../data/months.json';
 import s from './Summary.module.css';
 
 const Summary = ({ type = 'expense' }) => {

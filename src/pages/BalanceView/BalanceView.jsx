@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import AddTransaction from '../../components/AddTransaction/AddTransaction';
-// import Container from '../../components/Container';
 import BalanceContainer from '../../components/Container/BalanceContainer';
-
 import TransactionsList from '../../components/TransactionsList/TransactionsList';
 import TransactionsListMobile from '../../components/TransactionsList/TransactionListMobile';
 import Summary from '../../components/Summary';
 import Balance from '../../components/Balance';
 import ToGoReport from '../../components/ToGoReport';
 import DateForm from '../../components/DateForm';
-
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-
 import contextProps from '../../context/context';
 import s from './BalanceView.module.css';
-// import { useSelector } from 'react-redux';
-// import { getLoader } from '../../redux/transactions';
-// import OnLoader from '../../components/OnLoader';
 
 const BalanceView = () => {
   const [type, setType] = useState('income');
@@ -24,11 +17,10 @@ const BalanceView = () => {
   const [year, setYear] = useState('');
   const [picker, setPicker] = useState(false);
   const [listRender, setListRender] = useState(true);
-  // const loader = useSelector(getLoader);
 
   useEffect(() => {
-    setDate(startDate);
-    setYear(startDate.split('.')[2]);
+    setDate(startDate());
+    setYear(startDate().split('.')[2]);
     /* eslint-disable-next-line */
   }, []);
 
@@ -41,9 +33,9 @@ const BalanceView = () => {
   };
 
   const closePicker = dateNew => {
-    const newDate = `${dateNew.getUTCDate()}.${
-      dateNew.getUTCMonth() + 1
-    }.${dateNew.getUTCFullYear()}`;
+    const newDate = `${dateNew.split('.')[0]}.${dateNew.split('.')[1]}.${
+      dateNew.split('.')[2]
+    }`;
 
     setDate(newDate);
     setYear(newDate.split('.')[2]);
@@ -57,6 +49,7 @@ const BalanceView = () => {
     date,
     setNewDate,
   };
+
   const typeToggle = e => {
     setType(`${e.target.title}`);
   };
@@ -73,9 +66,17 @@ const BalanceView = () => {
 
   const day = new Date();
 
-  const startDate = `${day.getDate()}.${
-    day.getMonth() + 1
-  }.${day.getFullYear()}`;
+  function startDate() {
+    const d =
+      day.getDate().length === 1 ? `${'0' + day.getDate()}` : day.getDate();
+    const m =
+      String(day.getMonth() + 1).length === 1
+        ? `${'0' + (day.getMonth() + 1)}`
+        : day.getMonth();
+    const y = day.getFullYear();
+
+    return `${d}.${m}.${y}`;
+  }
 
   return (
     <contextProps.Provider value={contextValueBalance}>

@@ -9,15 +9,14 @@ import { authSelectors } from '../../redux/auth';
 const UserMenu = () => {
   //   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const email = useSelector(authSelectors.getUserEmail);
-  const array = email.split('@');
-  const userName = array[0];
 
-  //   useEffect(() => {});
   return (
-    <div>
-      <div className={s.username}>{userName[0]}</div>
-      <p className={s.text}>{userName}</p>
-    </div>
+    email && (
+      <div>
+        <div className={s.username}>{email.split('@')[0][0]}</div>
+        <p className={s.text}>{email.split('@')[0]}</p>
+      </div>
+    )
   );
 };
 

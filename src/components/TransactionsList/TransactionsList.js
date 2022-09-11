@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import {
   useFetchByDateQuery,
   useDeleteTransactionMutation,
@@ -7,26 +7,27 @@ import styles from './TransactionsList.module.css';
 import Modal from '../Modal';
 import EditTransaction from '../EditTransaction';
 import contextProps from '../../context/context';
-// import id from 'date-fns/esm/locale/id/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations, authSelectors } from '../../redux/auth';
 
 export default function TransactionsList() {
+  const dispatch = useDispatch();
+  const balance = useSelector(authSelectors.getUserBalance);
   const { type, date, setNewDate } = useContext(contextProps);
 
   const [deleteTransaction] = useDeleteTransactionMutation();
-  const { data } = useFetchByDateQuery('20.08.2022');
+  const { data } = useFetchByDateQuery(date);
 
   const [modalDel, setModalDel] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
   const [transaction, setTransaction] = useState('');
 
-  // useEffect(() => {
-  //   if (date) {
-  //     // dispatch(transactionsOperations.getTransactionsDay(date));
-  //   }
-  // }, [date, dispatch]);
-
   const handleDeleteClick = id => {
     // setModalDel(true);
+    const trans = data.result.find(item => item._id === id);
+    const newBalance =
+      trans.type === 'income' ? balance - trans.sum : balance + trans.sum;
+    dispatch(authOperations.updateBalance({ balance: newBalance }));
     deleteTransaction(id);
     setTransaction(id);
   };
@@ -79,7 +80,7 @@ export default function TransactionsList() {
               <th className={`${styles.th} ${styles.thCateg}`}>Category</th>
               <th className={`${styles.th} ${styles.thSum}`}>Sum</th>
               <th className={`${styles.th} ${styles.thIcon}`}></th>
-              <th className={`${styles.th} ${styles.thIcon}`}></th>
+              {/* <th className={`${styles.th} ${styles.thIcon}`}></th> */}
             </tr>
           </thead>
         </table>

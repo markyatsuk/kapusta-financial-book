@@ -16,10 +16,6 @@ export const transactionsApi = createApi({
   }),
   tagTypes: ['Transaction'],
   endpoints: builder => ({
-    fetchTransactions: builder.query({
-      query: () => 'transactions',
-      providesTags: ['Transaction'],
-    }),
     createTransaction: builder.mutation({
       query: newTransaction => ({
         url: 'transactions',
