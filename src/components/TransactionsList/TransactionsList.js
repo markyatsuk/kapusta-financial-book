@@ -31,17 +31,6 @@ export default function TransactionsList() {
     deleteTransaction(id);
     setTransaction(id);
   };
-  const onDelCancel = () => {
-    setTransaction('');
-    setModalDel(false);
-  };
-
-  const onDelOk = () => {
-    setModalDel(false);
-
-    deleteTransaction(data.result.find(item => item._id === transaction));
-    setTransaction('');
-  };
 
   // const handleEditClick = transaction => {
   //   setModalEdit(true);
@@ -55,14 +44,6 @@ export default function TransactionsList() {
 
   return (
     <>
-      {modalDel && (
-        <Modal
-          modalTitle="Are you sure you want to delete this entry?"
-          handleClickRight={onDelCancel}
-          handleClickLeft={onDelOk}
-          onClose={onDelCancel}
-        />
-      )}
       {modalEdit && (
         <EditTransaction
           onDateChange={setNewDate}
