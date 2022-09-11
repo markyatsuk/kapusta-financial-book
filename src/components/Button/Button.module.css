@@ -17,14 +17,12 @@
 }
 
 .clear {
-  composes: button;
   background-color: inherit;
   color: #52555f;
   border: 2px solid #f6f7fc;
 }
 
 .confirm {
-  composes: button;
   width: 125px;
   font-weight: 400;
   color: rgba(82, 85, 95, 0.7);
@@ -33,13 +31,11 @@
 }
 
 .login {
-  composes: button;
   width: 122.17px;
   filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
 }
 
 .register {
-  composes: button;
   width: 122.17px;
   color: #52555f;
   background-color: #f5f6fb;
@@ -47,13 +43,26 @@
 }
 
 .modalYes {
-  composes: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 136px;
+  height: 44px;
+  font-family: 'Roboto';
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #ff751d;
+  border: none;
+  border-radius: 16px;
   width: 125px;
   margin-right: 15px;
 }
 
 .modalNo {
-  composes: button;
   width: 125px;
   color: #52555f;
   background-color: inherit;

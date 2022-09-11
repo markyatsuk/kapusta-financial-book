@@ -23,6 +23,8 @@
 }
 
 .text {
+  display: none;
+
   display: block;
   width: fit-content;
 }
