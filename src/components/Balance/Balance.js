@@ -5,8 +5,6 @@ import Notiflix from 'notiflix';
 import { authOperations, authSelectors } from '../../redux/auth';
 import Notification from '../../components/Notification/Notification';
 
-
-
 const Balance = ({ hide, width }) => {
   const dispatch = useDispatch();
 
@@ -26,7 +24,7 @@ const Balance = ({ hide, width }) => {
     e.preventDefault();
     if (sum === null) {
       Notiflix.Notify.info('You should earn some money and come back))', {
-        timeout: 2000,
+        timeout: 1500,
       });
       return;
     }

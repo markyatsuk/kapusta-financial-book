@@ -26,13 +26,13 @@ const register = createAsyncThunk('/auth/register', async credentials => {
     const { data } = await axios.post('/auth/register', credentials);
     // token.set(data.token);
     Notiflix.Notify.success('Success! Now you can login ✔', {
-      timeout: 2000,
+      timeout: 1500,
     });
     return data;
   } catch (error) {
     console.log(error);
     Notiflix.Notify.failure('This user is already registered ⚠', {
-      timeout: 2000,
+      timeout: 1500,
     });
   }
 });
@@ -42,13 +42,13 @@ const logIn = createAsyncThunk('/auth/login', async credentials => {
     const { data } = await axios.post('/auth/login', credentials);
     token.set(data.data.token);
     Notiflix.Notify.success('Welcome ✔', {
-      timeout: 2000,
+      timeout: 1500,
     });
     return data.data;
   } catch (error) {
     console.log(error);
     Notiflix.Notify.failure('Wrong login or password ❗', {
-      timeout: 2000,
+      timeout: 1500,
     });
   }
 });
