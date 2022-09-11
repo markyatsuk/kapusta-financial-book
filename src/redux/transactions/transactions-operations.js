@@ -65,7 +65,7 @@ const getFullTransactions = createAsyncThunk(
   async credentials => {
     try {
       const { data } = await axios.get(
-        '/transactions/report/full',
+        `/transactions/report/full?month=${credentials.month}&year=${credentials.year}`,
         credentials,
       );
       return data;

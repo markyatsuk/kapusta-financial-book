@@ -23,6 +23,15 @@ export const transactionsSlice = createSlice({
     ) {
       console.log(payload);
     },
+    [transactionsOperations.getTransactionsByType.fulfilled](
+      state,
+      { payload },
+    ) {
+      console.log(payload);
+    },
+    [transactionsOperations.getFullTransactions.fulfilled](state, { payload }) {
+      console.log(payload);
+    },
   },
 });
 
