@@ -1,28 +1,30 @@
 import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import s from './Report.module.css';
 import { ReactComponent as Strip } from './strip.svg';
 // import transactionsOperations from '../../redux/transactions/transactions-operations';
 // import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
+// import transactions-operations from "../../"
+import transactionsOperations from '../../redux/transactions/transactions-operations';
 
 const CurrentAmount = ({ currentMonth, currentYear }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // const transactions = useSelector(getTransactionsPerMonth);
   let monthToString = String(currentMonth);
   let yearToString = String(currentYear);
 
   useEffect(() => {
     if ((monthToString, yearToString)) {
-      // dispatch(
-      //   transactionsOperations.getTransactionsMonthYear(
-      //     monthToString,
-      //     yearToString,
-      //   ),
-      // );
+      dispatch(
+        transactionsOperations.getFullTransactions({
+          month: '09',
+          year: '2022',
+        }),
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentMonth, currentYear]);
+  });
 
   // const findTotalSum = type => {
   //   let totalSum = 0;
