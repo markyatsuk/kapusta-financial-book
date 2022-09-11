@@ -12,7 +12,7 @@ const UserMenu = () => {
   const userName = array[0];
 
   return (
-    <div>
+    <div className={s.userMenu}>
       <div className={s.username}>{userName[0]}</div>
       <p className={s.text}>{userName}</p>
     </div>
