@@ -10,7 +10,7 @@
 .tsList__container {
   width: 90%;
   padding-top: 45px;
-  margin-bottom: 15%;
+  /* margin-bottom: 15%; */
 }
 
 .listItem {

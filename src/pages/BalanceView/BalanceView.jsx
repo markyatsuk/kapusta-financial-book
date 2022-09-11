@@ -80,10 +80,11 @@ const BalanceView = () => {
 
   return (
     <contextProps.Provider value={contextValueBalance}>
-      <BalanceContainer>
-        {/* {loader && <OnLoader />} */}
-        {viewPort.width >= 768 && (
-          <>
+      {/* <BalanceContainer> */}
+      {/* {loader && <OnLoader />} */}
+      {viewPort.width >= 768 && (
+        <>
+          <div className={s.wrapper}>
             <div className={s.balanceContainer}>
               <div>
                 <Balance />
@@ -92,44 +93,46 @@ const BalanceView = () => {
                 <ToGoReport />
               </div>
             </div>
-            <div className={s.holst}>
-              <div className={s.buttonContainer}>
-                <button
-                  className={`${s.buttonSpentIncome} ${
-                    type === 'expense' && s.buttonSpentIncomeActive
-                  }`}
-                  onClick={typeToggle}
-                  title="expense"
-                >
-                  EXPENSE
-                </button>
-                <button
-                  className={`${s.buttonSpentIncome} ${
-                    type === 'income' && s.buttonSpentIncomeActive
-                  }`}
-                  onClick={typeToggle}
-                  title="income"
-                >
-                  INCOME
-                </button>
-              </div>
-              <AddTransaction />
-              <div className={s.dataContainer}>
-                <TransactionsList transactionType={type} date={date} />
-                {viewPort.width > 1280 && <Summary type={type} />}
-              </div>
+          </div>
+          <div className={s.holst}>
+            <div className={s.buttonContainer}>
+              <button
+                className={`${s.buttonSpentIncome} ${
+                  type === 'expense' && s.buttonSpentIncomeActive
+                }`}
+                onClick={typeToggle}
+                title="expense"
+              >
+                EXPENSE
+              </button>
+              <button
+                className={`${s.buttonSpentIncome} ${
+                  type === 'income' && s.buttonSpentIncomeActive
+                }`}
+                onClick={typeToggle}
+                title="income"
+              >
+                INCOME
+              </button>
             </div>
-            <div className={s.containerSummary768}>
-              {viewPort.width <= 1279 && viewPort.width > 768 && (
-                <Summary type={type} />
-              )}
+            <AddTransaction />
+            <div className={s.dataContainer}>
+              <TransactionsList transactionType={type} date={date} />
+              {viewPort.width > 1280 && <Summary type={type} />}
             </div>
-          </>
-        )}
-        {viewPort.width < 768 && (
-          <>
-            {listRender ? (
-              <>
+          </div>
+          <div className={s.containerSummary768}>
+            {viewPort.width <= 1279 && viewPort.width > 768 && (
+              <Summary type={type} />
+            )}
+          </div>
+        </>
+      )}
+      {viewPort.width < 768 && (
+        <>
+          {listRender ? (
+            <>
+              <div className={s.wrapper}>
                 <div className={s.holst}>
                   <ToGoReport />
                 </div>
@@ -141,44 +144,45 @@ const BalanceView = () => {
                   handleCalendarClick={handleCalendarClick}
                   closePicker={closePicker}
                   picker={picker}
-                />
-                <TransactionsListMobile transactionType={type} date={date} />
-                <div className={s.buttonContainer}>
-                  <button
-                    className={`${s.buttonExpense} ${
-                      type === 'expense' && s.buttonSpentIncomeActive
-                    }`}
-                    onClick={onArrow}
-                    title="expense"
-                  >
-                    CONSUMPTION
-                  </button>
-                  <button
-                    className={`${s.buttonIncome} ${
-                      type === 'income' && s.buttonSpentIncomeActive
-                    }`}
-                    onClick={onArrow}
-                    title="income"
-                  >
-                    INCOME
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
-                <button className={s.buttonArrowGoBack} onClick={onArrow}>
-                  &#8592;
+                />{' '}
+              </div>
+              <TransactionsListMobile transactionType={type} date={date} />
+              <div className={s.buttonContainer}>
+                <button
+                  className={`${s.buttonExpense} ${
+                    type === 'expense' && s.buttonSpentIncomeActive
+                  }`}
+                  onClick={onArrow}
+                  title="expense"
+                >
+                  CONSUMPTION
                 </button>
-                <AddTransaction
-                  onCloseForm={onBack}
-                  transactionType={type}
-                  date={date}
-                />
-              </>
-            )}
-          </>
-        )}
-      </BalanceContainer>
+                <button
+                  className={`${s.buttonIncome} ${
+                    type === 'income' && s.buttonSpentIncomeActive
+                  }`}
+                  onClick={onArrow}
+                  title="income"
+                >
+                  INCOME
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <button className={s.buttonArrowGoBack} onClick={onArrow}>
+                &#8592;
+              </button>
+              <AddTransaction
+                onCloseForm={onBack}
+                transactionType={type}
+                date={date}
+              />
+            </>
+          )}
+        </>
+      )}
+      {/* </BalanceContainer> */}
     </contextProps.Provider>
   );
 };
