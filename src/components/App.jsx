@@ -24,16 +24,16 @@ export const App = () => {
   const [searchParams] = useSearchParams();
 
   const token = searchParams.get('token');
-
+  const email = searchParams.get('email');
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   useEffect(() => {
     if (token) {
-      dispatch(authOperations.googleApi({ token }));
+      dispatch(authOperations.googleApi({ token, email }));
     }
-  }, [token, dispatch]);
+  }, [token, email, dispatch]);
 
   return (
     <>

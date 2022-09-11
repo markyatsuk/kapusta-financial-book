@@ -8,6 +8,7 @@ export const authSlice = createSlice({
       email: null,
       balance: 0,
     },
+    googleEmail: null,
     token: null,
     isLoggedIn: false,
     isFetchingCurrentUser: false,
@@ -20,12 +21,11 @@ export const authSlice = createSlice({
     },
     [authOperations.googleApi.fulfilled](state, { payload }) {
       state.token = payload.token;
+      state.googleEmail = payload.email;
       state.isLoggedIn = true;
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
-
       state.user.email = payload.email;
-
       state.token = payload.token;
       state.isLoggedIn = true;
     },

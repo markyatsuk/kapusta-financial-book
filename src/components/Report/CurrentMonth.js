@@ -14,7 +14,9 @@ const CurrentMonth = ({
   onHandleClickLeft,
 }) => {
   const monthToString = String(currentMonth);
-  const selectMonth = months.filter(el => el.id === monthToString);
+  const selectMonth = Object.values(months).filter(
+    el => el.id === monthToString,
+  );
   return (
     <div className={s.reportMonth}>
       <p className={s.title}>Current period:</p>
@@ -26,7 +28,7 @@ const CurrentMonth = ({
         {
           <span
             className={s.reportMonthTitle}
-          >{`${selectMonth[0].name} ${currentYear}`}</span>
+          >{`${selectMonth[0]} ${currentYear}`}</span>
         }
 
         <ArrowForwardIosIcon

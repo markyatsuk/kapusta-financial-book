@@ -4,13 +4,14 @@ import s from './Balance.module.css';
 import Notiflix from 'notiflix';
 import { authOperations, authSelectors } from '../../redux/auth';
 import Notification from '../../components/Notification/Notification';
-
+import { authOperations } from '../../redux/auth';
 const Balance = ({ hide, width }) => {
   const dispatch = useDispatch();
 
   const balance = useSelector(authSelectors.getUserBalance);
 
   const [sum, setSum] = useState(null);
+
   const [setPromptClose, setClosePrompt] = useState(true);
 
   const toggleWindow = () => {
@@ -27,7 +28,10 @@ const Balance = ({ hide, width }) => {
       });
       return;
     }
+
     dispatch(authOperations.updateBalance({ balance: sum }));
+
+
   };
   return (
     <form onSubmit={handleSubmit} className={s.reportBalance}>

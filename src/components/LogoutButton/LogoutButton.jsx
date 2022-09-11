@@ -1,7 +1,5 @@
-import { Mobile, Default } from '../../services/mediaQuery';
-import logoutsvg from '../../images/svg/header/logout-btn.svg';
 import s from './LogoutButton.module.css';
-import Modal from '../Modal/Modal';
+import Modal from '../Modal';
 import { useState } from 'react';
 
 const LogoutButton = () => {
@@ -14,15 +12,10 @@ const LogoutButton = () => {
         className={s.btn}
         onClick={() => setShowModal(true)}
       >
-        <Mobile>
-          <svg className={s.icon}>
-            <use href={`${logoutsvg}#Capa_1`} />
-          </svg>
-        </Mobile>
-
-        <Default>
-          <p className={s.text}>Log out</p>
-        </Default>
+        {/* <svg className="icon">
+          <use href="./sprite.svg#icon-logout"></use>
+        </svg> */}
+        Exit
       </button>
       {showModal ? (
         <Modal setShowModal={setShowModal}>Do you really want to leave?</Modal>
