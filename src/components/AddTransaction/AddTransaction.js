@@ -8,8 +8,12 @@ import { gsap, Power3 } from 'gsap';
 import s from './AddTransaction.module.css';
 import Dropdown from '../Dropdown';
 import CalculatorInput from '../CalculatorInput';
+import { authOperations, authSelectors } from '../../redux/auth';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function AddTransaction({ onCloseForm }) {
+  const dispatch = useDispatch();
+  const balance = useSelector(authSelectors.getUserBalance);
   const { type, picker, handleCalendarClick, closePicker, date } =
     useContext(contextProps);
 
@@ -25,18 +29,26 @@ export default function AddTransaction({ onCloseForm }) {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const transaction = {
       type,
       date: {
-        day: '06',
-        month: '09',
-        year: '2022',
+        day: date.split('.')[0],
+        month: date.split('.')[1],
+        year: date.split('.')[2],
       },
       category,
       subCategory: description,
-      sum,
+      sum: Number(sum),
     };
     createTransaction(transaction);
+
+    const newBalance =
+      transaction.type === 'income'
+        ? balance + transaction.sum
+        : balance - transaction.sum;
+    dispatch(authOperations.updateBalance({ balance: newBalance }));
+
     cleanState();
   };
 

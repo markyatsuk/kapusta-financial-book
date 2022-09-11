@@ -6,16 +6,19 @@ import { useSelector } from 'react-redux';
 import s from './UserMenu.module.css';
 
 const UserMenu = () => {
-  const email = useSelector(state => state.auth.googleEmail);
 
-  const array = email.split('@');
-  const userName = array[0];
+  //   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+  const email = useSelector(authSelectors.getUserEmail);
 
   return (
-    <div className={s.userMenu}>
-      <div className={s.username}>{userName[0]}</div>
-      <p className={s.text}>{userName}</p>
-    </div>
+    email && (
+      <div>
+        <div className={s.username}>{email.split('@')[0][0]}</div>
+        <p className={s.text}>{email.split('@')[0]}</p>
+      </div>
+    )
+
+
   );
 };
 

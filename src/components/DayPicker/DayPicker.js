@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { DayPicker } from 'react-day-picker';
-// import 'react-day-picker/lib/style.css';
+import 'react-day-picker/dist/style.css';
 import styles from './DayPicker.module.css';
 import useOnClickOutside from '../../hooks/useOnClickOutside';
 
@@ -8,26 +8,19 @@ export default function CalendarPicker({ startDate, closeHandler, align }) {
   const ref = useRef();
   const [selectedDay, setSelectedDay] = useState();
   const [close, setClose] = useState(false);
+
   useOnClickOutside(ref, () => closeHandler(selectedDay));
   useEffect(() => {
-    setSelectedDay(formatDate(startDate));
+    setSelectedDay(startDate);
     if (close) {
       closeHandler(selectedDay);
     }
     /*eslint-disable-next-line*/
   }, [close, startDate]);
 
-  const formatDate = date => {
-    const splittedDate = date.split('.');
-    return new Date(
-      Number(splittedDate[2]),
-      Number(splittedDate[1] - 1),
-      Number(splittedDate[0]),
-    );
-  };
-
   const handleDayClick = day => {
-    setSelectedDay(day);
+    setSelectedDay(day.toLocaleString().split(',')[0]);
+
     setClose(true);
   };
 
@@ -55,7 +48,6 @@ export default function CalendarPicker({ startDate, closeHandler, align }) {
         weekdaysLong={WEEKDAYS_LONG}
         weekdaysShort={WEEKDAYS_SHORT}
         firstDayOfWeek={1}
-        locale="ru"
         modifiers={modifiers}
         modifiersStyles={modifiersStyles}
         showOutsideDays

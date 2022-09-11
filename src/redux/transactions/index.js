@@ -1,3 +1,3 @@
-export { default as authOperations } from './transactions-operations';
-export { default as authSelectors } from './transactions-selectors';
-export { default as authReducer } from './transactions-slice';
+export { default as transOperations } from './transactions-operations';
+export { default as transSelectors } from './transactions-selectors';
+export { default as transReducer } from './transactions-slice';
