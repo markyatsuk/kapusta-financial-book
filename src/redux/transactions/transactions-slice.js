@@ -17,6 +17,12 @@ export const transactionsSlice = createSlice({
     [transactionsOperations.setBalance.fulfilled](state, { payload }) {
       state.wallet.balance = payload.data.balance;
     },
+    [transactionsOperations.getTransactionsByType.fulfilled](
+      state,
+      { payload },
+    ) {
+      console.log(payload);
+    },
   },
 });
 

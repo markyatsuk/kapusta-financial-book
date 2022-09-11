@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 // import { Desktop, Tablet, Mobile, Default } from '../../services/mediaQuery';
 import { authSelectors } from '../../redux/auth';
 import s from './UserMenu.module.css';
+import authSelectors from '../../redux/auth/auth-selectors';
 
 const UserMenu = () => {
   //   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
