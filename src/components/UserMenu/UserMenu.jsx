@@ -9,14 +9,18 @@ import authSelectors from '../../redux/auth/auth-selectors';
 const UserMenu = () => {
   //   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
   const email = useSelector(authSelectors.getUserEmail);
+  const googleEmail = useSelector(authSelectors.getUserGoogleEmail);
 
-  return (
-    email && (
-      <div>
-        <div className={s.username}>{email.split('@')[0][0]}</div>
-        <p className={s.text}>{email.split('@')[0]}</p>
-      </div>
-    )
+  return email ? (
+    <div>
+      <div className={s.username}>{email.split('@')[0][0]}</div>
+      <p className={s.text}>{email.split('@')[0]}</p>
+    </div>
+  ) : (
+    <div>
+      <div className={s.username}>{googleEmail.split('@')[0][0]}</div>
+      <p className={s.text}>{googleEmail.split('@')[0]}</p>
+    </div>
   );
 };
 
