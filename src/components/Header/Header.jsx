@@ -13,7 +13,7 @@ export const Header = () => {
   const Desktop = isDesktop(useMediaQuery);
   const isLoggegIn = useSelector(authSelectors.getIsLoggedIn);
   return (
-    <div className={Desktop ? s.desk : s.tab}>
+    <div className={s.header}>
       <div className={s.logo}>
         <Logo />
       </div>

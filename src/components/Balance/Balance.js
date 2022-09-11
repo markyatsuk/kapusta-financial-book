@@ -13,7 +13,7 @@ const Balance = ({ hide, width }) => {
 
   const dispatch = useDispatch();
   const [sum, setSum] = useState(null);
-  console.log(sum);
+
   const [setPromptClose, setClosePrompt] = useState(true);
   const toggleWindow = () => {
     setClosePrompt(setClosePrompt => !setClosePrompt);

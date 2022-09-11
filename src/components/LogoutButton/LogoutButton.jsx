@@ -12,7 +12,10 @@ const LogoutButton = () => {
         className={s.btn}
         onClick={() => setShowModal(true)}
       >
-        Log out
+        {/* <svg className="icon">
+          <use href="./sprite.svg#icon-logout"></use>
+        </svg> */}
+        Exit
       </button>
       {showModal ? (
         <Modal setShowModal={setShowModal}>Do you really want to leave?</Modal>

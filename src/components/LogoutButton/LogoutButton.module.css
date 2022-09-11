@@ -17,20 +17,7 @@
   fill: var(--btn-logout);
 }
 
-.text {
+.btn {
   position: relative;
   display: block;
-}
-
-.text::before {
-  content: '';
-  position: absolute;
-  display: block;
-
-  width: 1px;
-  height: 36px;
-  top: -8px;
-  left: -18px;
-
-  border: 1px solid #e0e5eb;
 }
