@@ -1,6 +1,6 @@
 import { useState, useContext, useRef, useEffect } from 'react';
 import { useCreateTransactionMutation } from '../../redux/transactions/transactionsApi';
-import { FaCalculator } from 'react-icons/fa';
+import { ReactComponent as CalcIcon } from '../../images/svg/calculator.svg';
 import contextProps from '../../context/context';
 import DateForm from '../DateForm';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
@@ -164,7 +164,7 @@ export default function AddTransaction({ onCloseForm }) {
                   />
                   <div className={s.calculatorIcon}>
                     <div onClick={handleCalcClick}>
-                      <FaCalculator />
+                      <CalcIcon />
                       {calc && (
                         <CalculatorInput onCloseCalculator={closeCalc} />
                       )}
@@ -237,11 +237,13 @@ export default function AddTransaction({ onCloseForm }) {
                         required
                         onChange={handleChangeSum}
                       />
-                      <div onClick={handleCalcClick}>
-                        <FaCalculator />
-                        {calc && (
-                          <CalculatorInput onCloseCalculator={closeCalc} />
-                        )}
+                      <div className={s.calculatorIcon}>
+                        <div onClick={handleCalcClick}>
+                          <CalcIcon />
+                          {calc && (
+                            <CalculatorInput onCloseCalculator={closeCalc} />
+                          )}
+                        </div>
                       </div>
                     </div>
                   </label>
@@ -313,7 +315,7 @@ export default function AddTransaction({ onCloseForm }) {
                       </div>
                       <div className={s.positionIcon}>
                         <div onClick={handleCalcClick}>
-                          <FaCalculator />
+                          <CalcIcon className={s.icon} />
                           {calc && (
                             <CalculatorInput onCloseCalculator={closeCalc} />
                           )}
