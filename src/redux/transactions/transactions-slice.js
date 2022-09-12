@@ -25,7 +25,7 @@ export const transactionsSlice = createSlice({
       state,
       { payload },
     ) {
-      console.log(payload);
+      // console.log(payload);
     },
     [transactionsOperations.getFullTransactions.fulfilled](state, { payload }) {
       console.log(payload.transactions);
