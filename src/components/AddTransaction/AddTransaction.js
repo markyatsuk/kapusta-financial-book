@@ -39,8 +39,9 @@ export default function AddTransaction({ onCloseForm }) {
       },
       category,
       subCategory: description,
-      sum: Number(sum),
+      sum: Math.round(Number(sum)),
     };
+
     createTransaction(transaction);
 
     const newBalance =
@@ -135,6 +136,8 @@ export default function AddTransaction({ onCloseForm }) {
                   name="description"
                   id="description"
                   type="text"
+                  minLength={3}
+                  maxLength={20}
                   placeholder={
                     type === 'expense'
                       ? 'Product description'
@@ -156,8 +159,9 @@ export default function AddTransaction({ onCloseForm }) {
                     value={sum}
                     name="sum"
                     id="sum"
-                    type="string"
-                    maxLength="10"
+                    type="number"
+                    minLength={1}
+                    maxLength={10}
                     placeholder="0.00"
                     required
                     onChange={handleChangeSum}
