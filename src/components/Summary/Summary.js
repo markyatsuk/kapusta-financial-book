@@ -9,6 +9,7 @@ const Summary = ({ type = 'expense' }) => {
     <div className={s.container}>
       <p className={s.title}>Summary</p>
       <table className={s.list}>
+
         <>
           <tbody>
             {data?.transactions &&
@@ -26,6 +27,7 @@ const Summary = ({ type = 'expense' }) => {
                 })}
           </tbody>
         </>
+
       </table>
     </div>
   );
