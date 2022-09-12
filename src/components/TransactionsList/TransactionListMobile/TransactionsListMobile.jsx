@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   useFetchByDateQuery,
@@ -50,16 +50,16 @@ export default function TransactionsListMobile() {
             data.result
               .filter(item => item.type === type)
               .map(transaction => (
-                <li className={s.listItem}>
+                <li className={s.listItem} key={transaction._id}>
                   <p className={s.listItem__subCategory}>
                     {transaction.subCategory}
-                    <p className={s.listItem__date}>
+                    <span className={s.listItem__date}>
                       {transaction.date.day +
                         '.' +
                         transaction.date.month +
                         '.' +
                         transaction.date.year}
-                    </p>
+                    </span>
                   </p>
                   <p className={s.listItem__category}>{transaction.category}</p>
 

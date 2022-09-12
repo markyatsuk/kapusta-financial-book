@@ -8,7 +8,7 @@ const Summary = ({ type = 'expense' }) => {
   return (
     <div className={s.container}>
       <p className={s.title}>Summary</p>
-      <ul className={s.list}>
+      <table className={s.list}>
         {data?.transactions &&
           [...data.transactions]
             .sort((a, b) => b._id.month - a._id.month)
@@ -22,7 +22,7 @@ const Summary = ({ type = 'expense' }) => {
                 )
               );
             })}
-      </ul>
+      </table>
     </div>
   );
 };
