@@ -46,7 +46,7 @@ const deleteTransaction = createAsyncThunk(
 );
 
 const getTransactionsByType = createAsyncThunk(
-  '/transactions/report/:type',
+  '/transactions/report/type',
   async credentials => {
     try {
       const { data } = await axios.get(
@@ -68,7 +68,6 @@ const getFullTransactions = createAsyncThunk(
         `/transactions/report/full?month=${credentials.month}&year=${credentials.year}`,
         credentials,
       );
-      console.log(data);
       if (data.transactions.length === 0) {
         Notiflix.Notify.warning('You have no transactions for this month ⚠', {
           timeout: 1500,

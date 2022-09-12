@@ -11,6 +11,8 @@ export const transactionsSlice = createSlice({
       getTransactionsPerMonth: 25000,
       getIncomePerMonth: 0,
       getExpencesPerMonth: 0,
+      expensesReportPerMonth: [],
+      incomeReportPerMonth: [],
       //   getLoader,
       //   getTransactionError,
     },
@@ -25,20 +27,18 @@ export const transactionsSlice = createSlice({
     ) {
       console.log(payload);
     },
-    [transactionsOperations.getTransactionsByType.fulfilled](
-      state,
-      { payload },
-    ) {
-      console.log(payload);
-    },
     [transactionsOperations.getFullTransactions.fulfilled](state, { payload }) {
       console.log(payload.transactions);
       state.wallet.getIncomePerMonth = payload.transactions[0].total;
       state.wallet.getExpencesPerMonth = payload.transactions[1].total;
+      state.wallet.incomeReportPerMonth = payload.transactions[0].reports;
+      state.wallet.expensesReportPerMonth = payload.transactions[1].reports;
     },
     [transactionsOperations.getFullTransactions.rejected](state, { payload }) {
       state.wallet.getIncomePerMonth = 0;
       state.wallet.getExpencesPerMonth = 0;
+      state.wallet.incomeReportPerMonth = [];
+      state.wallet.expensesReportPerMonth = [];
     },
   },
 });

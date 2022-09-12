@@ -7,6 +7,9 @@
     margin-right: auto;
     align-items: center;
   }
+  .summary {
+    margin-bottom: 5px;
+  }
   .ArrowBackIosIcon {
     fill: #ff751d;
   }
@@ -69,6 +72,15 @@
   .transactionWrapper {
     display: flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    text-align: 1.17;
+  }
+  .titleWrapper {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 14px;
@@ -170,6 +182,9 @@
   .buttonWidth {
     min-width: 183px;
     border-radius: 16px;
+  }
+  .titleContainer {
+    display: flex;
   }
 }
 @media screen and (min-width: 768px) {
