@@ -11,6 +11,7 @@ export const transactionsSlice = createSlice({
       getTransactionsPerMonth: 25000,
       getIncomePerMonth: 0,
       getExpencesPerMonth: 0,
+      fullReport: [],
       expensesReportPerMonth: [],
       incomeReportPerMonth: [],
       //   getLoader,
@@ -29,8 +30,7 @@ export const transactionsSlice = createSlice({
     },
     [transactionsOperations.getFullTransactions.fulfilled](state, { payload }) {
       console.log(payload.transactions);
-      state.wallet.getIncomePerMonth = payload.transactions[0].total;
-      state.wallet.getExpencesPerMonth = payload.transactions[1].total;
+      state.wallet.fullReport = payload.transactions;
       state.wallet.incomeReportPerMonth = payload.transactions[0].reports;
       state.wallet.expensesReportPerMonth = payload.transactions[1].reports;
     },

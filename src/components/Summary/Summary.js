@@ -8,21 +8,23 @@ const Summary = ({ type = 'expense' }) => {
   return (
     <div className={s.container}>
       <p className={s.title}>Summary</p>
-      <ul className={s.list}>
+      <table className={s.list}>
         {data?.transactions &&
           [...data.transactions]
             .sort((a, b) => b._id.month - a._id.month)
             .map(({ _id, total }, index) => {
               return (
                 index < 6 && (
-                  <tr key={_id.month} className={s.item}>
-                    <td className={s.description}>{months[_id.month]}</td>
-                    <td className={s.description}>{total}</td>
-                  </tr>
+                  <tbody key={_id.month}>
+                    <tr className={s.item}>
+                      <td className={s.description}>{months[_id.month]}</td>
+                      <td className={s.description}>{total}</td>
+                    </tr>
+                  </tbody>
                 )
               );
             })}
-      </ul>
+      </table>
     </div>
   );
 };
