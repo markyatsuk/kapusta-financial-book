@@ -1,3 +1,10 @@
+.reportContainer {
+  display: block;
+  /* padding-top: 40px; */
+  max-width: 280px;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 320px) {
   .section {
     display: flex;
@@ -25,8 +32,8 @@
   .reportContainer {
     display: block;
     padding-top: 40px;
-    /* max-width: 1098px;
-    margin: 0 auto; */
+    max-width: 704px;
+    margin: 0 auto;
   }
 
   .buttonNone {
@@ -285,6 +292,12 @@
     min-width: 125px;
     max-width: 100%;
   }
+
+  .reportContainer {
+    display: block;
+    /* padding-top: 40px; */
+    max-width: 704px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -321,5 +334,11 @@
 
   .navigationWrapper {
     width: 69%;
+  }
+
+  .reportContainer {
+    display: block;
+    /* padding-top: 40px; */
+    max-width: 1098px;
   }
 }
