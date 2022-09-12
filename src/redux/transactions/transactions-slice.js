@@ -30,9 +30,10 @@ export const transactionsSlice = createSlice({
     },
     [transactionsOperations.getFullTransactions.fulfilled](state, { payload }) {
       console.log(payload.transactions);
-      state.wallet.fullReport = payload.transactions;
-      state.wallet.incomeReportPerMonth = payload.transactions[0].reports;
-      state.wallet.expensesReportPerMonth = payload.transactions[1].reports;
+      state.wallet.getIncomePerMonth = payload.transactions[1].total;
+      state.wallet.getExpencesPerMonth = payload.transactions[0].total;
+      state.wallet.incomeReportPerMonth = payload.transactions[1].reports;
+      state.wallet.expensesReportPerMonth = payload.transactions[0].reports;
     },
     [transactionsOperations.getFullTransactions.rejected](state, { payload }) {
       state.wallet.getIncomePerMonth = 0;

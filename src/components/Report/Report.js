@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import s from './Report.module.css';
 import Balance from '../Balance';
 import { CurrentAmount, CurrentMonth } from './';
-import { useDispatch, useSelector } from 'react-redux';
-import transactionsOperations from '../../redux/transactions/transactions-operations';
 import ArrowToGoBack from '../ArrowToGoBack';
-import transactionsSelectors from '../../redux/transactions/transactions-selectors';
 import { IconsKeeper } from '../Icons/Icons';
 
 const Report = ({
@@ -16,61 +13,12 @@ const Report = ({
   onHandleClickRight,
   onHandleClickLeft,
   getCategory,
+  expenses,
+  incomes,
+  expensesReport,
+  incomeReport,
 }) => {
-  const dispatch = useDispatch();
   const [type, setType] = useState('expense');
-  let monthToString = String(month);
-  let yearToString = String(year);
-  const fullReport = useSelector(transactionsSelectors.getFullReport);
-  console.log(fullReport);
-  let expenses = [];
-  let incomes = [];
-  if (fullReport) {
-    fullReport.map(el => {
-      if (fullReport[0]._id.type === 'expense') {
-        expenses = fullReport[0];
-        incomes = fullReport[1];
-      } else {
-        incomes = fullReport[0];
-        expenses = fullReport[1];
-      }
-    });
-  }
-
-  useEffect(() => {
-    if (monthToString < 10) {
-      dispatch(
-        transactionsOperations.getFullTransactions({
-          month: `0${monthToString}`,
-          year: yearToString,
-        }),
-      );
-    } else {
-      dispatch(
-        transactionsOperations.getFullTransactions({
-          month: monthToString,
-          year: yearToString,
-        }),
-      );
-    }
-  }, [dispatch, monthToString, yearToString]);
-
-  // const getTransactionByType = type => {
-  //   const filteredByType = transaction.filter(
-  //     transaction => transaction.type === type,
-  //   );
-  //   return filteredByType;
-  // };
-
-  // const findeTotalSumByCategiry = (type, category) => {
-  //   let totalExpense = 0;
-  //   getTransactionByType(type)
-  //     .filter(tr => tr.category === category)
-  //     .map(el => {
-  //       return (totalExpense += el.sum);
-  //     });
-  //   return totalExpense;
-  // };
 
   const onClick = () => {
     if (type === 'expense') {
@@ -94,7 +42,12 @@ const Report = ({
           />
         </div>
       </div>
-      <CurrentAmount currentMonth={month} currentYear={year} />
+      <CurrentAmount
+        currentMonth={month}
+        currentYear={year}
+        expenses={expenses}
+        incomes={incomes}
+      />
       <div className={`${s.reportWrapper} ${s.section}`}>
         <div className={`${s.titleWrapper} ${s.sectionReportTitle}`}>
           <div className={s.titleContainer}>
@@ -115,13 +68,13 @@ const Report = ({
             />
           </div>
           <ul className={s.reportList}>
-            {expenses.reports?.length === 0 || incomes.reports?.length === 0 ? (
+            {incomeReport?.length === 0 || expensesReport?.length === 0 ? (
               <p>
                 The report will be available after you enter data on your income
                 and expenses for the selected period.
               </p>
             ) : type === 'income' ? (
-              incomes.reports?.map(el => {
+              incomeReport?.map(el => {
                 switch (el._id) {
                   case 'Additional income':
                     return (
@@ -152,7 +105,7 @@ const Report = ({
                 }
               })
             ) : (
-              expenses.reports?.map(el => {
+              expensesReport?.map(el => {
                 switch (el._id) {
                   case 'Alcohol':
                     return (
