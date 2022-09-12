@@ -1,20 +1,45 @@
 import React, { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { Bar } from 'react-chartjs-2';
+import { useSelector, useDispatch } from 'react-redux';
+import { Bar } from 'react-chartjs-2';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-// import transactionsOperations from '../../redux/transactions/transactions-operations';
-// import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
+import transactionsOperations from '../../redux/transactions/transactions-operations'; // import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
 import s from './ChartReport.module.css';
+import transactionsSelectors from '../../redux/transactions/transactions-selectors';
+import { VictoryBar } from 'victory';
 
 export default function ChartReport({ month, year, category }) {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const { width } = useWindowDimensions();
+  const expensesReport = useSelector(
+    transactionsSelectors.getExpencesReportPerMonth,
+  );
+  const incomeReport = useSelector(
+    transactionsSelectors.getIncomeReportPerMonth,
+  );
 
-  // useEffect(() => {
-  //   if ((month, year)) {
-  //     // dispatch(transactionsOperations.getTransactionsMonthYear(month, year));
-  //   }
-  // }, [dispatch, month, year]);
+  let monthToString = String(month);
+  let yearToString = String(year);
+
+  useEffect(() => {
+    if (monthToString < 10) {
+      dispatch(
+        transactionsOperations.getFullTransactions({
+          month: `0${monthToString}`,
+          year: yearToString,
+        }),
+      );
+    } else {
+      dispatch(
+        transactionsOperations.getFullTransactions({
+          month: monthToString,
+          year: yearToString,
+        }),
+      );
+    }
+  }, [dispatch, monthToString, yearToString]);
+
+  const [chosenCategory] = expensesReport.filter(el => el._id === category);
+  // console.log(chosenCategory)
 
   // const transactions = useSelector(getTransactionsPerMonth);
 
@@ -110,6 +135,7 @@ export default function ChartReport({ month, year, category }) {
 
   return (
     <div className={s.chartContainer}>
+      {chosenCategory && <VictoryBar />}
       {/* <Bar options={options}/> */}
       {/* <Bar data={data} options={options} /> */}
     </div>

@@ -11,7 +11,7 @@ const ReportsView = () => {
   let selectedYear = date.getFullYear();
   const [month, setMonth] = useState(selectedMonth);
   const [year, setYear] = useState(selectedYear);
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Alcohol');
   const onHandleClickRight = () => {
     if (month < 12) {
       setMonth(prev => (prev += 1));
@@ -28,8 +28,8 @@ const ReportsView = () => {
       setMonth(prev => (prev -= 1));
     }
   };
-  const getCategory = e => {
-    setCategory(e.target.attributes.title.nodeValue);
+  const getCategory = category => {
+    setCategory(category);
   };
 
   return (

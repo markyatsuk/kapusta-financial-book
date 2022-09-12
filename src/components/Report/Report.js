@@ -27,7 +27,7 @@ const Report = ({
   const incomeReport = useSelector(
     transactionsSelectors.getIncomeReportPerMonth,
   );
-  console.log(expensesReport);
+  // console.log(expensesReport);
 
   useEffect(() => {
     if (monthToString < 10) {
