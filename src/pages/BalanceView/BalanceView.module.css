@@ -7,6 +7,9 @@
     align-items: center;
     justify-content: center;
   }
+  .bg {
+    background-color: #fff;
+  }
   .holst p {
     /* display: inline-block; */
     font-size: 12px;
