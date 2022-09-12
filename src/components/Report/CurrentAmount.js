@@ -33,6 +33,8 @@ const CurrentAmount = ({ currentMonth, currentYear }) => {
           }),
         );
       }
+      // dispatch(transactionsOperations.getTransactionsByType({type: "expense"}))
+      // dispatch(transactionsOperations.getTransactionsByType({type: "income"}))
     }
   }, [currentMonth, currentYear, dispatch, monthToString, yearToString]);
 

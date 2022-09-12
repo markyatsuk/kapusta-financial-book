@@ -15,14 +15,14 @@ export default function TransactionsListMobile() {
   const { type, date, setNewDate } = useContext(contextProps);
   const [deleteTransaction] = useDeleteTransactionMutation();
   const { data } = useFetchByDateQuery(date);
-  console.log(data);
+  // console.log(data);
   const [modalEdit, setModalEdit] = useState(false);
   const [transaction, setTransaction] = useState('');
   const dispatch = useDispatch();
   const balance = useSelector(authSelectors.getUserBalance);
   const handleDeleteClick = id => {
     const trans = data.result.find(item => item._id === id);
-    console.log(trans);
+    // console.log(trans);
     const newBalance =
       trans.type === 'income' ? balance - trans.sum : balance + trans.sum;
     dispatch(authOperations.updateBalance({ balance: newBalance }));
