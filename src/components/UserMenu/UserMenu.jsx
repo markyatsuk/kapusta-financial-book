@@ -16,12 +16,12 @@ const UserMenu = () => {
       <div className={s.username}>{email.split('@')[0][0]}</div>
       <p className={s.text}>{email.split('@')[0]}</p>
     </div>
-  ) : (
+  ) : googleEmail ? (
     <div className={s.userMenu}>
       <div className={s.username}>{googleEmail.split('@')[0][0]}</div>
       <p className={s.text}>{googleEmail.split('@')[0]}</p>
     </div>
-  );
+  ) : null;
 };
 
 export default UserMenu;

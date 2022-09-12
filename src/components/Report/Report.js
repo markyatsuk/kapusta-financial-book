@@ -21,13 +21,21 @@ const Report = ({
   const [type, setType] = useState('expense');
   let monthToString = String(month);
   let yearToString = String(year);
-  const expensesReport = useSelector(
-    transactionsSelectors.getExpencesReportPerMonth,
-  );
-  const incomeReport = useSelector(
-    transactionsSelectors.getIncomeReportPerMonth,
-  );
-  // console.log(expensesReport);
+  const fullReport = useSelector(transactionsSelectors.getFullReport);
+  console.log(fullReport);
+  let expenses = [];
+  let incomes = [];
+  if (fullReport) {
+    fullReport.map(el => {
+      if (fullReport[0]._id.type === 'expense') {
+        expenses = fullReport[0];
+        incomes = fullReport[1];
+      } else {
+        incomes = fullReport[0];
+        expenses = fullReport[1];
+      }
+    });
+  }
 
   useEffect(() => {
     if (monthToString < 10) {
@@ -107,13 +115,13 @@ const Report = ({
             />
           </div>
           <ul className={s.reportList}>
-            {expensesReport.length === 0 || incomeReport.length === 0 ? (
+            {expenses.reports?.length === 0 || incomes.reports?.length === 0 ? (
               <p>
                 The report will be available after you enter data on your income
                 and expenses for the selected period.
               </p>
             ) : type === 'income' ? (
-              incomeReport.map(el => {
+              incomes.reports?.map(el => {
                 switch (el._id) {
                   case 'Additional income':
                     return (
@@ -144,7 +152,7 @@ const Report = ({
                 }
               })
             ) : (
-              expensesReport.map(el => {
+              expenses.reports?.map(el => {
                 switch (el._id) {
                   case 'Alcohol':
                     return (

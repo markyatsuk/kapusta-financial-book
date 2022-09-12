@@ -10,8 +10,21 @@ import transactionsOperations from '../../redux/transactions/transactions-operat
 import transactionsSelectors from '../../redux/transactions/transactions-selectors';
 const CurrentAmount = ({ currentMonth, currentYear }) => {
   const dispatch = useDispatch();
-  const expenses = useSelector(transactionsSelectors.getExpencesPerMonth);
-  const income = useSelector(transactionsSelectors.getIncomePerMonth);
+  const fullReport = useSelector(transactionsSelectors.getFullReport);
+  console.log(fullReport);
+  let expenses;
+  let incomes;
+  if (fullReport) {
+    fullReport.map(el => {
+      if (fullReport[0]._id.type === 'expense') {
+        expenses = fullReport[0];
+        incomes = fullReport[1];
+      } else {
+        incomes = fullReport[0];
+        expenses = fullReport[1];
+      }
+    });
+  }
 
   let monthToString = String(currentMonth);
   let yearToString = String(currentYear);
@@ -52,14 +65,14 @@ const CurrentAmount = ({ currentMonth, currentYear }) => {
       <div className={`${s.transactionWrapper} ${s.amountWrapper}`}>
         <p className={s.amountTitle}>Expenses:</p>
         <span className={`${s.amountText} ${s.amountExpense}`}>
-          {`- ${expenses} UAH.`}
+          {`- ${expenses?.total} UAH.`}
         </span>
       </div>
       <Strip className={s.amountStrip} />
       <div className={`${s.transactionWrapper} ${s.amountWrapper}`}>
         <p className={s.amountTitle}>Income:</p>
         <span className={`${s.amountText} ${s.amountIncome}`}>
-          {`+ ${income} UAH.`}
+          {`+ ${incomes?.total} UAH.`}
         </span>
       </div>
     </div>

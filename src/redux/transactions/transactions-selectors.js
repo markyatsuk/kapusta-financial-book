@@ -11,6 +11,7 @@ const getExpencesReportPerMonth = state =>
   state.wallet.wallet.expensesReportPerMonth;
 const getIncomeReportPerMonth = state =>
   state.wallet.wallet.incomeReportPerMonth;
+const getFullReport = state => state.wallet.wallet.fullReport;
 
 const transactionsSelectors = {
   getTotalBalance,
@@ -21,6 +22,7 @@ const transactionsSelectors = {
   getExpencesPerMonth,
   getExpencesReportPerMonth,
   getIncomeReportPerMonth,
+  getFullReport,
   // getLoader,
   // getTransactionError,
 };

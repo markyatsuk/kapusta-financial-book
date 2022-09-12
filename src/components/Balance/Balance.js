@@ -36,7 +36,7 @@ const Balance = ({ hide, width }) => {
       <label htmlFor="balance" className={s.balanceLabel}>
         Balance:
         <div className={s.buttonsGroup}>
-          {balance === 0 ? (
+          {balance === 0 || balance === null ? (
             <>
               {setPromptClose && <Notification onClose={toggleWindow} />}
               <input
@@ -75,9 +75,6 @@ const Balance = ({ hide, width }) => {
               >
                 {`${balance}.00`} UAH
               </p>
-              <button className={`${s.balanceButton} ${hide}`} disabled>
-                CONFIRM
-              </button>
             </>
           )}
         </div>
