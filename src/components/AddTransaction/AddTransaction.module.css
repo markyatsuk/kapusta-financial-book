@@ -23,6 +23,7 @@
     top: 50%;
     right: 20px;
   }
+
   .inputDescriptions {
     border: 2px solid #fff;
     background-color: #f5f6fb;
@@ -41,24 +42,28 @@
     font-size: 12px;
     line-height: 14px;
   }
+
   .inputDescriptions::-moz-placeholder {
     /* Mozilla Firefox 4 to 18 */
     color: #c7ccdc;
     font-size: 12px;
     line-height: 14px;
   }
+
   .inputDescriptions::-moz-placeholder {
     /* Mozilla Firefox 19+ */
     color: #c7ccdc;
     font-size: 12px;
     line-height: 14px;
   }
+
   .inputDescriptions:-ms-input-placeholder {
     /* Internet Explorer 10+ */
     color: #c7ccdc;
     font-size: 12px;
     line-height: 14px;
   }
+
   .inputSum {
     border: 2px solid #fff;
     border-right: 0px;
@@ -92,6 +97,7 @@
     font-size: 12px;
     line-height: 14px;
   }
+
   .inputSum::-ms-input-placeholder {
     /* Internet Explorer 10+ */
     color: #c7ccdc;
@@ -113,6 +119,7 @@
     border: 2px solid #fff;
     border-radius: 0 22px 22px 0;
   }
+
   .button {
     width: 125px;
     height: 44px;
@@ -139,6 +146,7 @@
     filter: drop-shadow(1px 3px 5px rgba(255, 107, 8, 0.35));
     transition: 0.5s linear;
   }
+
   .buttonRight {
     color: #52555f;
     background-color: #f5f6fb;
@@ -162,6 +170,7 @@
     display: flex;
     flex-direction: column;
   }
+
   .containerFormTablet {
     display: flex;
     align-items: center;
@@ -174,6 +183,7 @@
     display: flex;
     width: 75%;
   }
+
   .inputDescriptions {
     border: 2px solid #f5f6fb;
     background-color: #fff;
@@ -181,6 +191,7 @@
     width: 192px;
     border-radius: 16px 0 0 0;
   }
+
   .labelDescriptions {
     width: 192px;
     padding-top: 2px;
@@ -230,9 +241,11 @@
   .labelDescriptions {
     width: 289px;
   }
+
   .labelSelect {
     width: 189px;
   }
+
   .inputDescriptions {
     width: 289px;
   }

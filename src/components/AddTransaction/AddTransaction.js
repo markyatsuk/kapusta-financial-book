@@ -162,11 +162,13 @@ export default function AddTransaction({ onCloseForm }) {
                     required
                     onChange={handleChangeSum}
                   />
-                  <div onClick={handleCalcClick}>
-                    <div className={s.calculatorIcon}>
+                  <div className={s.calculatorIcon}>
+                    <div onClick={handleCalcClick}>
                       <FaCalculator />
+                      {calc && (
+                        <CalculatorInput onCloseCalculator={closeCalc} />
+                      )}
                     </div>
-                    {calc && <CalculatorInput onCloseCalculator={closeCalc} />}
                   </div>
                 </div>
               </label>

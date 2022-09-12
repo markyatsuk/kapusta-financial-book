@@ -72,6 +72,7 @@ html {
   box-sizing: inherit;
 }
 
+/*
 body {
   font-family: 'Roboto';
   letter-spacing: 0.02em;
@@ -83,7 +84,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
   background-attachment: fixed;
-}
+} */
 
 a {
   text-decoration: none;

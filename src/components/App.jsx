@@ -2,7 +2,7 @@ import { useEffect, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { authOperations, authSelectors } from '../redux/auth';
-
+import Container from '../components/Container';
 import { useSearchParams } from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
@@ -42,44 +42,46 @@ export const App = () => {
           <p>Download...</p>
         ) : (
           <>
-            <Header />
-            <Suspense fallback={<p>Download...</p>}>
-              <Routes>
-                <Route
-                  path="/auth/register"
-                  element={
-                    <PublicRoute restricted redirectPath={'/balance'}>
-                      <AuthView />
-                    </PublicRoute>
-                  }
-                />
-                <Route
-                  path="/auth/login"
-                  element={
-                    <PublicRoute restricted redirectPath={'/balance'}>
-                      <AuthView />
-                    </PublicRoute>
-                  }
-                />
-                <Route
-                  path="/balance"
-                  element={
-                    <ProtectedRoute redirectPath={'/auth/login'}>
-                      <BalanceView />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="/reports"
-                  element={
-                    <ProtectedRoute redirectPath={'/auth/login'}>
-                      <ReportsView />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route path="*" element={<Navigate to="/auth/login" />} />
-              </Routes>
-            </Suspense>
+            <Container>
+              <Header />
+              <Suspense fallback={<p>Download...</p>}>
+                <Routes>
+                  <Route
+                    path="/auth/register"
+                    element={
+                      <PublicRoute restricted redirectPath={'/balance'}>
+                        <AuthView />
+                      </PublicRoute>
+                    }
+                  />
+                  <Route
+                    path="/auth/login"
+                    element={
+                      <PublicRoute restricted redirectPath={'/balance'}>
+                        <AuthView />
+                      </PublicRoute>
+                    }
+                  />
+                  <Route
+                    path="/balance"
+                    element={
+                      <ProtectedRoute redirectPath={'/auth/login'}>
+                        <BalanceView />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/reports"
+                    element={
+                      <ProtectedRoute redirectPath={'/auth/login'}>
+                        <ReportsView />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route path="*" element={<Navigate to="/auth/login" />} />
+                </Routes>
+              </Suspense>
+            </Container>
           </>
         )}
       </div>

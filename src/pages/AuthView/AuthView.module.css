@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   z-index: -100;
-  border-bottom-left-radius: 25%;
+  border-bottom-left-radius: 90px;
   overflow: hidden;
 }
 
@@ -52,13 +52,16 @@
     letter-spacing: 0.18em;
     margin-left: 53px;
   }
+
   .homeSection {
     padding-top: 80px;
     padding-bottom: 155px;
   }
+
   .background {
     height: 582px;
   }
+
   .preformContainer {
     margin-bottom: 80px;
   }
@@ -69,9 +72,11 @@
     padding-top: 117px;
     padding-bottom: 125px;
   }
+
   .afterTitle {
     margin-left: 72px;
   }
+
   .preformContainer {
     margin-bottom: 0;
     margin-right: 157px;

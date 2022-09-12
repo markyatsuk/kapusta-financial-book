@@ -7,23 +7,29 @@
     margin-right: auto;
     align-items: center;
   }
+
   .summary {
     margin-bottom: 5px;
   }
+
   .ArrowBackIosIcon {
     fill: #ff751d;
   }
+
   .container {
     width: 668px;
   }
+
   .reportContainer {
     display: block;
     width: 100%;
     padding-top: 40px;
   }
+
   .buttonNone {
     display: none;
   }
+
   .navigation {
     display: block;
   }
@@ -32,13 +38,16 @@
     display: inline-block;
     margin-top: 10px;
   }
+
   .reportWrapper {
     margin-bottom: 30px;
     display: block;
   }
+
   .amountText {
     min-width: 120px;
   }
+
   .reportCard {
     text-align: center;
     height: 135px;
@@ -49,6 +58,7 @@
     box-sizing: border-box;
     flex-basis: calc((100% - 20px) / 3);
   }
+
   .reportTitle {
     font-weight: bold;
     font-style: normal;
@@ -59,6 +69,7 @@
     color: #000000;
     min-width: 96px;
   }
+
   .reportMonthTitle {
     width: 110px;
     height: 20px;
@@ -77,6 +88,7 @@
     font-size: 14px;
     text-align: 1.17;
   }
+
   .titleWrapper {
     display: flex;
     text-align: center;
@@ -88,8 +100,8 @@
   }
   .transactionWrapper.amountWrapper {
     display: block;
-    /* flex-basis: calc(100% / 2); */
   }
+
   .reportList {
     padding: 0px;
     display: flex;
@@ -102,12 +114,14 @@
     margin: 0px;
     padding-top: 20px;
   }
+
   .iconSvg {
     max-width: 56px;
     max-height: 56px;
     margin-top: 5px;
     margin-bottom: 5px;
   }
+
   .iconSvg:hover {
     fill: #ff751d;
     background-image: radial-gradient(
@@ -137,16 +151,19 @@
     transform: rotate(10deg);
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+
   .reportCardTitle {
     text-transform: uppercase;
     font-size: 12px;
     line-height: 14px;
     padding-top: 10px;
   }
+
   .title {
     color: rgba(82, 85, 95, 0.7);
     margin-bottom: 5px;
   }
+
   .reportMonth {
     font-size: 12px;
     line-height: 1.17;
@@ -166,19 +183,24 @@
     border-radius: 30px;
     margin-bottom: 30px;
   }
+
   .amountTitle {
     color: #52555f;
   }
+
   .amountExpense {
     color: #e53935;
   }
+
   .amountIncome {
     color: #407946;
   }
+
   .amountStrip {
     margin-left: 12px;
     margin-right: 12px;
   }
+
   .buttonWidth {
     min-width: 183px;
     border-radius: 16px;
@@ -187,16 +209,16 @@
     display: flex;
   }
 }
+
 @media screen and (min-width: 768px) {
   .section {
     margin-bottom: 30px;
-    /* border-radius: 30px;
-    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4); */
   }
 
   .navigation {
     display: flex;
   }
+
   .navigationWrapper {
     display: flex;
     margin-top: 0px;
@@ -214,18 +236,21 @@
     font-size: 12px;
     align-items: 1.17;
   }
+
   .reportWrapper {
     background: #ffffff;
     box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
     border-radius: 30px;
     padding: 20px;
   }
+
   .transactionWrapper {
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
   }
+
   .reportMonth {
     margin-left: auto;
   }
@@ -234,49 +259,61 @@
     padding-top: 15px;
     padding-bottom: 15px;
   }
+
   .amountTitle {
     margin-right: 15px;
   }
+
   .amountStrip {
     margin-left: 20px;
     margin-right: 20px;
   }
+
   .transactionWrapper.amountWrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
+
   .buttonWidth {
     min-width: 125px;
     max-width: 100%;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .reportCard {
     text-align: center;
     flex-basis: calc((100% - 100px) / 6);
   }
+
   .reportCard:not(:nth-child(6n)).reportCard:not(:last-child) {
     margin-right: 20px;
   }
+
   .iconSvg {
     max-width: 58px;
     max-height: 58px;
   }
+
   .reportWrapper {
     padding-left: 37px;
     padding-right: 37px;
   }
+
   .buttonNone {
     display: block;
   }
+
   .reportMonth {
     margin-left: auto;
   }
+
   .navigation {
     justify-content: space-between;
   }
+
   .navigationWrapper {
     width: 69%;
   }

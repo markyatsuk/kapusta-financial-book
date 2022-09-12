@@ -51,7 +51,7 @@ const Balance = ({ hide, width }) => {
                     : `${s.balanceInput}`
                 }
                 autoComplete="off"
-                id="balance"
+                // id="balance"
               />
               <button
                 className={
