@@ -1,17 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ChartReport from '../../components/ChartReport';
 import { Report } from '../../components/Report';
-
+import { useSelector, useDispatch } from 'react-redux';
 import s from './ReportView.module.css';
 import Container from '../../components/Container';
-
+import transactionsSelectors from '../../redux/transactions/transactions-selectors';
+import transactionsOperations from '../../redux/transactions/transactions-operations';
 const ReportsView = () => {
   let date = new Date();
   let selectedMonth = date.getMonth() + 1;
   let selectedYear = date.getFullYear();
   const [month, setMonth] = useState(selectedMonth);
   const [year, setYear] = useState(selectedYear);
-  const [category, setCategory] = useState('Alcohol');
+  const [category, setCategory] = useState('Products');
+
+  let monthToString = String(month);
+  let yearToString = String(year);
+
+  const dispatch = useDispatch();
+
+  const expensesReport = useSelector(
+    transactionsSelectors.getExpencesReportPerMonth,
+  );
+  const incomeReport = useSelector(
+    transactionsSelectors.getIncomeReportPerMonth,
+  );
+  const expenses = useSelector(transactionsSelectors.getExpencesPerMonth);
+  const incomes = useSelector(transactionsSelectors.getIncomePerMonth);
+
+  useEffect(() => {
+    if (monthToString < 10) {
+      dispatch(
+        transactionsOperations.getFullTransactions({
+          month: `0${monthToString}`,
+          year: yearToString,
+        }),
+      );
+    } else {
+      dispatch(
+        transactionsOperations.getFullTransactions({
+          month: monthToString,
+          year: yearToString,
+        }),
+      );
+    }
+  }, [dispatch, monthToString, yearToString]);
+
   const onHandleClickRight = () => {
     if (month < 12) {
       setMonth(prev => (prev += 1));
@@ -41,8 +75,18 @@ const ReportsView = () => {
           onHandleClickRight={onHandleClickRight}
           onHandleClickLeft={onHandleClickLeft}
           getCategory={getCategory}
+          expenses={expenses}
+          incomes={incomes}
+          expensesReport={expensesReport}
+          incomeReport={incomeReport}
         />
-        <ChartReport month={month} year={year} category={category} />
+        <ChartReport
+          month={month}
+          year={year}
+          category={category}
+          expensesReport={expensesReport}
+          incomeReport={incomeReport}
+        />
       </div>
     </Container>
   );

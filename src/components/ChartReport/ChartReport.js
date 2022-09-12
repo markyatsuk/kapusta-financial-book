@@ -1,143 +1,60 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Bar } from 'react-chartjs-2';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
-import transactionsOperations from '../../redux/transactions/transactions-operations'; // import { getTransactionsPerMonth } from '../../redux/transactions/transactions-selectors';
+import React from 'react';
 import s from './ChartReport.module.css';
-import transactionsSelectors from '../../redux/transactions/transactions-selectors';
-import { VictoryBar } from 'victory';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
-export default function ChartReport({ month, year, category }) {
-  const dispatch = useDispatch();
+import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
+
+export default function ChartReport({
+  month,
+  year,
+  category,
+  expensesReport,
+  incomeReport,
+}) {
   const { width } = useWindowDimensions();
-  const expensesReport = useSelector(
-    transactionsSelectors.getExpencesReportPerMonth,
-  );
-  const incomeReport = useSelector(
-    transactionsSelectors.getIncomeReportPerMonth,
-  );
-
-  let monthToString = String(month);
-  let yearToString = String(year);
-
-  useEffect(() => {
-    if (monthToString < 10) {
-      dispatch(
-        transactionsOperations.getFullTransactions({
-          month: `0${monthToString}`,
-          year: yearToString,
-        }),
-      );
-    } else {
-      dispatch(
-        transactionsOperations.getFullTransactions({
-          month: monthToString,
-          year: yearToString,
-        }),
-      );
-    }
-  }, [dispatch, monthToString, yearToString]);
-
   const [chosenCategory] = expensesReport.filter(el => el._id === category);
-  // console.log(chosenCategory)
-
-  // const transactions = useSelector(getTransactionsPerMonth);
-
-  // const filteredByDate = transactions.filter(
-  //   transaction =>
-  //     transaction.month === String(month) && transaction.year === String(year),
-  // );
-
-  // const filteredByCategoryTransactions = filteredByDate.filter(transaction =>
-  //   !!category ? transaction.category === category : transaction,
-  // );
-
-  // const sortedSubCategoryTransactions = [
-  //   ...filteredByCategoryTransactions,
-  // ].sort((a, b) => b.sum - a.sum);
-
-  // const sortedLables = [...sortedSubCategoryTransactions].map(
-  //   label => label.subCategory,
-  // );
-
-  // const sortedSum = [...sortedSubCategoryTransactions].map(data => data.sum);
-
-  const getNextColor = color => {
-    const colors = ['#FF751D', '#FFDAC0', '#FFDAC0'];
-
-    if (!color) {
-      return colors[0];
+  let elArray = [];
+  let nameArray = [];
+  let pricesArray = [];
+  if (chosenCategory?.data) {
+    for (let i = 0; i < chosenCategory.data.length; i++) {
+      elArray.push(i);
+      nameArray.push(chosenCategory.data[i].subCategory);
+      pricesArray.push(chosenCategory.data[i].sum);
     }
-
-    const colorIdx = colors.findIndex(item => color === item);
-
-    return colors[colorIdx + 1] ? colors[colorIdx + 1] : colors[0];
-  };
-
-  // const colorsArray = array => {
-  //   let prev = null;
-
-  //   return sortedSum.map(item => {
-  //     const currentColor = getNextColor(prev);
-
-  //     prev = currentColor;
-
-  //     return currentColor;
-  //   });
-  // };
-
-  const barWidth = width < 425 ? 15 : 38;
-
-  // const data = {
-  //   labels: sortedLables,
-  //   datasets: [
-  //     {
-  //       label: 'Расход',
-  //       data: sortedSum,
-  //       backgroundColor: colorsArray(sortedSum),
-  //       borderColor: colorsArray(sortedSum),
-  //       borderWidth: 1,
-  //       borderRadius: 10,
-  //       barThickness: barWidth,
-  //     },
-  //   ],
-  // };
-
-  const optionsVertical = {
-    responsive: true,
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
-    },
-  };
-
-  const optionsHorizontal = {
-    indexAxis: 'y',
-    elements: {
-      bar: {
-        borderWidth: 1,
-      },
-    },
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-    },
-  };
-
-  const options = width < 425 ? optionsHorizontal : optionsVertical;
-
+  }
   return (
     <div className={s.chartContainer}>
-      {chosenCategory && <VictoryBar />}
-      {/* <Bar options={options}/> */}
-      {/* <Bar data={data} options={options} /> */}
+      {chosenCategory && (
+        <VictoryChart
+          // domainPadding will add space to each side of VictoryBar to
+          // prevent it from overlapping the axis
+          domainPadding={30}
+        >
+          <VictoryAxis
+            // tickValues specifies both the number of ticks and where
+            // they are placed on the axis
+            tickValues={elArray}
+            tickFormat={nameArray}
+          />
+          <VictoryAxis
+            dependentAxis
+            // tickFormat specifies how ticks should be displayed
+          />
+          <VictoryBar
+            data={chosenCategory.data}
+            y="sum"
+            x="subCategory"
+            labels={pricesArray}
+            barRatio={0.4}
+            cornerRadius={3}
+            horizontal={width < 768}
+            style={{
+              data: { fill: '#FF751D' },
+            }}
+          />
+        </VictoryChart>
+      )}
     </div>
   );
 }
