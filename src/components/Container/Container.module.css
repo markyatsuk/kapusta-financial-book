@@ -1,11 +1,12 @@
 .container {
-  width: 100%;
+  /* width: 100%; */
+  margin: 0 auto;
   margin-left: auto;
   margin-right: auto;
 }
 
 .homeContainer {
-  width: 100%;
+  /* width: 100%; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -23,6 +24,7 @@
     padding-right: 20px;
   }
 }
+
 @media screen and (min-width: 768px) {
   .container {
     width: 768px;
@@ -72,8 +74,23 @@
 
 @media screen and (min-width: 1280px) {
   .BalanceContainer {
-    width: 1260px;
+    width: 1280px;
     padding-left: 100px;
     padding-right: 100px;
   }
 }
+
+/* .container {
+  margin: 0 auto;
+  padding: 0px;
+  width: 320px;
+  background-color: #fff;
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+  }
+} */
