@@ -11,10 +11,10 @@
     margin-right: auto;
   }
 
-  .calculatorIcon {
+  .icon {
     position: absolute;
-    top: 13px;
-    right: -40px;
+    top: 8px;
+    right: 15px;
     cursor: pointer;
   }
 
@@ -222,6 +222,13 @@
 
   .positionIcon {
     width: 55%;
+  }
+
+  .calculatorIcon {
+    position: absolute;
+    top: 13px;
+    right: -40px;
+    cursor: pointer;
   }
 }
 

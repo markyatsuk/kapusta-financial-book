@@ -1,6 +1,7 @@
 @media screen and (min-width: 320px) {
   .holst {
     margin-top: 45px;
+    margin-bottom: 45px;
     background-color: #f5f6fb;
     position: relative;
     display: flex;
@@ -160,7 +161,8 @@
 }
 
 .containerSummary768 {
-  margin-right: auto;
+  /* margin-right: auto; */
+  padding-left: 50px;
 }
 
 @media screen and (min-width: 1280px) {

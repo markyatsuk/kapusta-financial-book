@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import AddTransaction from '../../components/AddTransaction/AddTransaction';
-import BalanceContainer from '../../components/Container/BalanceContainer';
+// import BalanceContainer from '../../components/Container/BalanceContainer';
 import TransactionsList from '../../components/TransactionsList/TransactionsList';
 import TransactionsListMobile from '../../components/TransactionsList/TransactionListMobile';
 import Summary from '../../components/Summary';
@@ -122,7 +122,7 @@ const BalanceView = () => {
             </div>
           </div>
           <div className={s.containerSummary768}>
-            {viewPort.width <= 1279 && viewPort.width > 768 && (
+            {viewPort.width <= 1279 && viewPort.width >= 768 && (
               <Summary type={type} />
             )}
           </div>
