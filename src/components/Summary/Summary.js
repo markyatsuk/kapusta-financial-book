@@ -15,12 +15,10 @@ const Summary = ({ type = 'expense' }) => {
             .map(({ _id, total }, index) => {
               return (
                 index < 6 && (
-                  <tbody key={_id.month}>
-                    <tr className={s.item}>
-                      <td className={s.description}>{months[_id.month]}</td>
-                      <td className={s.description}>{total}</td>
-                    </tr>
-                  </tbody>
+                  <li key={_id.month} className={s.item}>
+                    <p className={s.description}>{months[_id.month]}</p>
+                    <p className={s.description}>{total}</p>
+                  </li>
                 )
               );
             })}
