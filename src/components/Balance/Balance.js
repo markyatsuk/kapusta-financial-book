@@ -73,7 +73,7 @@ const Balance = ({ hide, width }) => {
                     : `${s.balanceInput}`
                 }
               >
-                {`${balance}.00`} UAH
+                {balance} UAH
               </p>
             </>
           )}

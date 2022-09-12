@@ -55,8 +55,8 @@ export default function TransactionsListMobile() {
                       }
                     >
                       {transaction.type === 'income'
-                        ? `${transaction.sum}.00 грн.`
-                        : `- ${transaction.sum}.00 грн.`}
+                        ? `${transaction.sum} грн.`
+                        : `- ${transaction.sum} грн.`}
                     </p>
                   </div>
                   <div className={s.buttonWrapper}>

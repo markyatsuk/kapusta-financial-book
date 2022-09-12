@@ -16,7 +16,6 @@ export default function TransactionsList() {
 
   const [deleteTransaction] = useDeleteTransactionMutation();
   const { data } = useFetchByDateQuery(date);
-
   const [modalEdit, setModalEdit] = useState(false);
   const [transaction, setTransaction] = useState('');
 
@@ -78,8 +77,8 @@ export default function TransactionsList() {
                         }`}
                       >
                         {type === 'income'
-                          ? `${transaction.sum.toLocaleString('ru')}.00 грн.`
-                          : `-${transaction.sum.toLocaleString('ru')}.00 грн.`}
+                          ? `${transaction.sum.toLocaleString('ru')} грн.`
+                          : `-${transaction.sum.toLocaleString('ru')} грн.`}
                       </td>
                       <td className={styles.thIcon}>
                         <button
