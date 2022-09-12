@@ -17,7 +17,9 @@
 
 @media screen and (min-width: 1280px) {
   .chartContainer {
-    padding-left: 150px;
-    padding-right: 150px;
+    /* padding-left: 150px;
+        padding-right: 150px; */
+    max-width: 1098px;
+    margin: 0 auto;
   }
 }
