@@ -132,40 +132,43 @@ const BalanceView = () => {
         <>
           {listRender ? (
             <>
-              <div className={s.wrapper}>
-                <div className={s.holst}>
-                  <ToGoReport />
+              <div className={s.bg}>
+                <div className={s.wrapper}>
+                  <div className={s.holst}>
+                    <ToGoReport />
+                  </div>
+                  <div className={s.balanceContainer}>
+                    <Balance />
+                  </div>
+
+                  <DateForm
+                    date={date}
+                    handleCalendarClick={handleCalendarClick}
+                    closePicker={closePicker}
+                    picker={picker}
+                  />
                 </div>
-                <div className={s.balanceContainer}>
-                  <Balance />
+                <TransactionsListMobile transactionType={type} date={date} />
+                <div className={s.buttonContainer}>
+                  <button
+                    className={`${s.buttonExpense} ${
+                      type === 'expense' && s.buttonSpentIncomeActive
+                    }`}
+                    onClick={onArrow}
+                    title="expense"
+                  >
+                    EXPENSES
+                  </button>
+                  <button
+                    className={`${s.buttonIncome} ${
+                      type === 'income' && s.buttonSpentIncomeActive
+                    }`}
+                    onClick={onArrow}
+                    title="income"
+                  >
+                    INCOME
+                  </button>
                 </div>
-                <DateForm
-                  date={date}
-                  handleCalendarClick={handleCalendarClick}
-                  closePicker={closePicker}
-                  picker={picker}
-                />{' '}
-              </div>
-              <TransactionsListMobile transactionType={type} date={date} />
-              <div className={s.buttonContainer}>
-                <button
-                  className={`${s.buttonExpense} ${
-                    type === 'expense' && s.buttonSpentIncomeActive
-                  }`}
-                  onClick={onArrow}
-                  title="expense"
-                >
-                  CONSUMPTION
-                </button>
-                <button
-                  className={`${s.buttonIncome} ${
-                    type === 'income' && s.buttonSpentIncomeActive
-                  }`}
-                  onClick={onArrow}
-                  title="income"
-                >
-                  INCOME
-                </button>
               </div>
             </>
           ) : (

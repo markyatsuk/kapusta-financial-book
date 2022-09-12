@@ -164,6 +164,7 @@
   }
   .containerFormTablet {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 95%;
     margin: 30px auto;
@@ -188,6 +189,7 @@
 
   .labelSelect {
     width: 173px;
+    display: flex;
   }
 
   .inputSum {
