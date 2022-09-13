@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChartReport } from '../../components/ChartReport/ChartReport';
+import ChartReport from '../../components/ChartReport/ChartReport';
 import { Report } from '../../components/Report';
 import { useSelector, useDispatch } from 'react-redux';
 import s from './ReportView.module.css';
