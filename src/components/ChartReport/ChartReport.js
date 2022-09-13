@@ -89,7 +89,7 @@ export default function ChartReport({
         <VictoryChart
           // domainPadding will add space to each side of VictoryBar to
           // prevent it from overlapping the axis
-          domainPadding={30}
+          domainPadding={50}
         >
           <VictoryAxis
             // tickValues specifies both the number of ticks and where
