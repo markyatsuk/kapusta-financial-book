@@ -4,44 +4,42 @@ import authOperations from './auth-operations';
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: {
-      email: null,
-      balance: 0,
-    },
-    googleEmail: null,
+    email: null,
+    balance: 0,
     token: null,
     isLoggedIn: false,
     isFetchingCurrentUser: false,
   },
   extraReducers: {
     [authOperations.register.fulfilled](state, { payload }) {
-      state.user = payload.user;
-      // state.token = payload.token;
-      // state.isLoggedIn = true;
+      state.email = payload.email;
     },
     [authOperations.googleApi.fulfilled](state, { payload }) {
-      // console.log(payload);
       state.token = payload.token;
-      state.googleEmail = payload.email;
+      state.email = payload.email;
       state.isLoggedIn = true;
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
-      state.user = payload.user;
+      state.balance = payload.user.balance;
+      state.email = payload.user.email;
       state.token = payload.token;
       state.isLoggedIn = true;
     },
     [authOperations.logIn.rejected](state) {
-      state.user = { email: null, balance: null };
+      state.email = null;
+      state.balance = null;
       state.token = null;
       state.isLoggedIn = false;
     },
     [authOperations.logOut.fulfilled](state) {
-      state.user = { email: null, balance: null };
+      state.email = null;
+      state.balance = null;
       state.token = null;
       state.isLoggedIn = false;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
-      state.user = payload;
+      state.balance = payload.balance;
+      state.email = payload.email;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
@@ -52,7 +50,7 @@ export const authSlice = createSlice({
       state.isFetchingCurrentUser = false;
     },
     [authOperations.updateBalance.fulfilled](state, { payload }) {
-      state.user = payload.data;
+      state.balance = payload.data.balance;
     },
   },
 });

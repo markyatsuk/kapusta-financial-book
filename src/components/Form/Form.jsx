@@ -6,8 +6,6 @@ import authOperations from '../../redux/auth/auth-operations';
 import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { authSelectors } from '../../redux/auth';
-import { useSelector } from 'react-redux';
 
 export default function Form() {
   const [email, setEmail] = useState('');
@@ -20,8 +18,6 @@ export default function Form() {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
-
-  const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
 
   useEffect(() => {
     if (location.pathname === '/auth/login') {

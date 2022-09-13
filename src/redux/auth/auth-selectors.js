@@ -1,8 +1,8 @@
 const getIsLoggedIn = state => state.auth.isLoggedIn;
 
-const getUserEmail = state => state.auth?.user?.email;
+const getUserEmail = state => state.auth?.email;
 
-const getUserBalance = state => state.auth.user.balance;
+const getUserBalance = state => state.auth?.balance;
 
 const getIsFetchingCurrent = state => state.auth.isFetchingCurrentUser;
 
