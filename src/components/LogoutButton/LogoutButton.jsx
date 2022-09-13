@@ -1,5 +1,5 @@
 import s from './LogoutButton.module.css';
-import Modal from '../Modal';
+import Modal from '../../components/Modal/Modal';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { authOperations } from '../../redux/auth';
