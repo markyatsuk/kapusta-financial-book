@@ -89,7 +89,7 @@ export default function ChartReport({
         <VictoryChart
           // domainPadding will add space to each side of VictoryBar to
           // prevent it from overlapping the axis
-          domainPadding={50}
+          domainPadding={70}
         >
           <VictoryAxis
             // tickValues specifies both the number of ticks and where
@@ -106,8 +106,8 @@ export default function ChartReport({
             y="sum"
             x="subCategory"
             labels={pricesArray}
-            barRatio={0.6}
-            cornerRadius={8}
+            barRatio={0.3}
+            cornerRadius={6}
             horizontal={width < 768}
             style={{
               data: { fill: '#FF751D' },
