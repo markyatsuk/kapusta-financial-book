@@ -17,7 +17,6 @@ const BalanceView = () => {
   const [year, setYear] = useState('');
   const [picker, setPicker] = useState(false);
   const [listRender, setListRender] = useState(true);
-  console.log(date);
   useEffect(() => {
     setDate(startDate());
     setYear(startDate().split('.')[2]);
@@ -117,7 +116,10 @@ const BalanceView = () => {
             </div>
             <AddTransaction />
             <div className={s.dataContainer}>
-              <TransactionsList transactionType={type} date={date} />
+              {date !== '' ? (
+                <TransactionsList transactionType={type} date={date} />
+              ) : null}
+
               {viewPort.width > 1280 && <Summary type={type} />}
             </div>
           </div>

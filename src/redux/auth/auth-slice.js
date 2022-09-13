@@ -39,7 +39,6 @@ export const authSlice = createSlice({
       state.isLoggedIn = false;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
-      console.log(payload);
       state.balance = payload?.balance;
       state.email = payload?.email;
       state.isLoggedIn = true;

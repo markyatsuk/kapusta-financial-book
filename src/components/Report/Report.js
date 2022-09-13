@@ -17,15 +17,19 @@ const Report = ({
   incomes,
   expensesReport,
   incomeReport,
+  setTitle,
+  setHasChanged,
+  category,
 }) => {
   const [type, setType] = useState('expense');
-
   const onClick = () => {
     if (type === 'expense') {
       setType('income');
+      setTitle('income');
     }
     if (type === 'income') {
       setType('expense');
+      setTitle('expense');
     }
   };
   return (
@@ -81,7 +85,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p className={s.summary}>{`${el.summary}UAH`}</p>
                         <IconsKeeper.AddincomeIcon />
@@ -93,7 +101,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.SalaryIcon />
@@ -105,7 +117,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.UtilitiesIcon />
@@ -124,7 +140,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.AlcoholIcon />
@@ -136,7 +156,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.FoodIcon />
@@ -148,7 +172,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.KiteIcon />
@@ -160,7 +188,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.HealthIcon />
@@ -172,7 +204,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.CarIcon />
@@ -184,7 +220,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.ToolsIcon />
@@ -196,7 +236,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.BookIcon />
@@ -208,7 +252,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.SportIcon />
@@ -220,7 +268,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.UtilitiesIcon />
@@ -232,7 +284,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.UfoIcon />
@@ -244,7 +300,11 @@ const Report = ({
                       <li
                         className={s.reportCard}
                         key={el._id}
-                        onClick={() => setCategory(el._id)}
+                        // style={category === el._id && {border: "1px #FF751D solid"}}
+                        onClick={() => {
+                          setCategory(el._id);
+                          setHasChanged(true);
+                        }}
                       >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.CouchIcon />
