@@ -1,10 +1,11 @@
 import s from './LogoutButton.module.css';
 import Modal from '../Modal';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-
+import { authOperations } from '../../redux/auth';
 const LogoutButton = () => {
   const [showModal, setShowModal] = useState(false);
-
+  const dispatch = useDispatch();
   return (
     <div>
       <button
@@ -18,7 +19,12 @@ const LogoutButton = () => {
         Exit
       </button>
       {showModal ? (
-        <Modal setShowModal={setShowModal}>Do you really want to leave?</Modal>
+        <Modal
+          onClick={() => dispatch(authOperations.logOut())}
+          setShowModal={setShowModal}
+        >
+          Do you really want to leave?
+        </Modal>
       ) : null}
     </div>
   );

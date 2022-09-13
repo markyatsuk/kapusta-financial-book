@@ -8,6 +8,7 @@ import EditTransaction from '../EditTransaction';
 import contextProps from '../../context/context';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../../redux/auth';
+import { Modal } from '@material-ui/core';
 // import transactionsOperations from '../../redux/transactions/transactions-operations';
 export default function TransactionsList() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function TransactionsList() {
   console.log(date === '');
   const [deleteTransaction] = useDeleteTransactionMutation();
   const { data } = useFetchByDateQuery(date);
-
+  const [showModal, setShowModal] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
   const [transaction, setTransaction] = useState('');
   const handleDeleteClick = id => {
@@ -83,7 +84,7 @@ export default function TransactionsList() {
                       <td className={styles.thIcon}>
                         <button
                           className={styles.deleteBtn}
-                          onClick={() => handleDeleteClick(transaction._id)}
+                          onClick={() => setShowModal(true)}
                         >
                           <svg
                             className={styles.deleteBtnIcon}
@@ -103,6 +104,16 @@ export default function TransactionsList() {
                             </defs>
                           </svg>
                         </button>
+                        {/* {showModal ? (
+                      <Modal
+                        // onClick={() => handleDeleteClick(transaction._id)}
+   
+                        setShowModal={setShowModal}
+                          >
+                            
+                        Do you really want to delete this transaction?
+                      </Modal>
+                    ) : null} */}
                       </td>
                     </tr>
                   ))}

@@ -2,13 +2,15 @@ import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './TransactionsListMobile.module.css';
 import contextProps from '../../../context/context';
+import Modal from '../../Modal';
 import {
   useFetchByDateQuery,
   useDeleteTransactionMutation,
 } from '../../../redux/transactions/transactionsApi';
 import { authOperations, authSelectors } from '../../../redux/auth';
-
+import { useState } from 'react';
 export default function TransactionsListMobile() {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const { date } = useContext(contextProps);
   const balance = useSelector(authSelectors.getUserBalance);
@@ -62,7 +64,7 @@ export default function TransactionsListMobile() {
                   <div className={s.buttonWrapper}>
                     <button
                       className={s.buttonsGroup}
-                      onClick={() => handleDeleteClick(transaction._id)}
+                      onClick={() => setShowModal(true)}
                     >
                       <svg
                         width="18"
@@ -81,6 +83,14 @@ export default function TransactionsListMobile() {
                         </defs>
                       </svg>
                     </button>
+                    {showModal ? (
+                      <Modal
+                        onClick={() => handleDeleteClick(transaction._id)}
+                        setShowModal={setShowModal}
+                      >
+                        Do you really want to delete this transaction?
+                      </Modal>
+                    ) : null}
                   </div>
                 </li>
               </div>
