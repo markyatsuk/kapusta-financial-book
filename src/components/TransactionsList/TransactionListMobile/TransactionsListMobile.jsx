@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import s from './TransactionsListMobile.module.css';
 import contextProps from '../../../context/context';
-import Modal from '../../Modal';
+import Modal from '../../Modal/Modal';
 import {
   useFetchByDateQuery,
   useDeleteTransactionMutation,

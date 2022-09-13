@@ -8,7 +8,7 @@ import EditTransaction from '../EditTransaction';
 import contextProps from '../../context/context';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../../redux/auth';
-import { Modal } from '@material-ui/core';
+import Modal from '../../components/Modal/Modal';
 // import transactionsOperations from '../../redux/transactions/transactions-operations';
 export default function TransactionsList() {
   const dispatch = useDispatch();
@@ -103,16 +103,15 @@ export default function TransactionsList() {
                             </defs>
                           </svg>
                         </button>
-                        {/* {showModal ? (
-                      <Modal
-                        // onClick={() => handleDeleteClick(transaction._id)}
-   
-                        setShowModal={setShowModal}
+                        {showModal ? (
+                          <Modal
+                            onClick={() => handleDeleteClick(transaction._id)}
+                            setShowModal={setShowModal}
                           >
-                            
-                        Do you really want to delete this transaction?
-                      </Modal>
-                    ) : null} */}
+                            {' '}
+                            Do you really want to delete this transaction?
+                          </Modal>
+                        ) : null}
                       </td>
                     </tr>
                   ))}
