@@ -11,7 +11,7 @@
 @media screen and (min-width: 768px) {
   .toGoReport {
     display: flex;
-    width: 154px;
+    /* width: 154px; */
     height: 24px;
     align-items: center;
 
@@ -38,6 +38,6 @@
 
 @media screen and (min-width: 1280px) {
   .toGoReport {
-    margin-left: 205px;
+    margin-left: 389px;
   }
 }
