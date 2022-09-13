@@ -58,6 +58,8 @@
     position: fixed;
     bottom: 0px;
     height: 53px;
+    display: flex;
+    /* justify-content: center; */
   }
 
   .buttonExpense {
@@ -110,6 +112,11 @@
     color: #ff751d;
     font-size: 36px;
     font-weight: bolder;
+  }
+
+  .buttonContainerMobile {
+    display: flex;
+    justify-content: center;
   }
 }
 

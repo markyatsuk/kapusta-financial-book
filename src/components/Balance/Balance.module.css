@@ -15,6 +15,7 @@
     font-size: 12px;
     line-height: 1.17;
     color: rgba(82, 85, 95, 0.7);
+    margin-top: 32px;
   }
 
   .balanceInput {
@@ -33,10 +34,12 @@
     padding-right: 20px;
     outline: none;
   }
+
   .balanceInputReport {
     min-width: 183px;
     border-radius: 16px 16px 16px 16px;
   }
+
   .balanceButton {
     width: 140px;
     height: 44px;
@@ -106,6 +109,7 @@
     line-height: 1.17;
     margin-left: 15px;
   }
+
   .buttonsGroup {
     margin-top: 0px;
   }
@@ -119,6 +123,7 @@
     font-size: 12px;
     line-height: 1.17;
   }
+
   .balanceInput {
     height: 44px;
     margin-left: 20px;
@@ -143,6 +148,7 @@
     line-height: 1.17;
     margin-left: 0px;
   }
+
   .buttonNun {
     display: block;
   }

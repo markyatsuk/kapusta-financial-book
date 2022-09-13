@@ -83,7 +83,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p className={s.summary}>{`${el.summary}UAH`}</p>
+                        <p className={s.summary}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.AddincomeIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -95,7 +95,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p>{`${el.summary} UAH`}</p>
                         <IconsKeeper.SalaryIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -107,7 +107,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p>{`${el.summary} UAH`}</p>
                         <IconsKeeper.UtilitiesIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -126,7 +126,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.AlcoholIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -138,7 +138,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.FoodIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -150,7 +150,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.KiteIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -162,7 +162,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.HealthIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -174,7 +174,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.CarIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -186,7 +186,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary}UAH`}</p>
                         <IconsKeeper.ToolsIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -198,7 +198,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.BookIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -210,7 +210,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.SportIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -222,7 +222,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.UtilitiesIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -234,7 +234,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.UfoIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
@@ -246,7 +246,7 @@ const Report = ({
                         key={el._id}
                         onClick={() => setCategory(el._id)}
                       >
-                        <p>{`${el.summary}UAH`}</p>
+                        <p className={s.reportCardSum}>{`${el.summary} UAH`}</p>
                         <IconsKeeper.CouchIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
                       </li>
