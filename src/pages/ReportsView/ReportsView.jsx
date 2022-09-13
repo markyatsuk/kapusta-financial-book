@@ -12,8 +12,9 @@ const ReportsView = () => {
   let selectedYear = date.getFullYear();
   const [month, setMonth] = useState(selectedMonth);
   const [year, setYear] = useState(selectedYear);
-  const [category, setCategory] = useState('Products');
-
+  const [category, setCategory] = useState('');
+  const [title, setTitle] = useState('expense');
+  const [hasChanged, setHasChanged] = useState(false);
   let monthToString = String(month);
   let yearToString = String(year);
 
@@ -76,6 +77,9 @@ const ReportsView = () => {
           incomes={incomes}
           expensesReport={expensesReport}
           incomeReport={incomeReport}
+          setTitle={setTitle}
+          setHasChanged={setHasChanged}
+          category={category}
         />
         <ChartReport
           month={month}
@@ -83,6 +87,8 @@ const ReportsView = () => {
           category={category}
           expensesReport={expensesReport}
           incomeReport={incomeReport}
+          title={title}
+          hasChanged={hasChanged}
         />
       </div>
     </Container>

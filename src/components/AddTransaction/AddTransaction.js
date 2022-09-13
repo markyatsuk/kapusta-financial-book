@@ -39,7 +39,7 @@ export default function AddTransaction({ onCloseForm }) {
       },
       category,
       subCategory: description,
-      sum: Math.round(Number(sum)),
+      sum: Number(sum),
     };
 
     createTransaction(transaction);

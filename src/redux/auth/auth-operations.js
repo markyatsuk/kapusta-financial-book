@@ -25,16 +25,23 @@ const googleApi = createAsyncThunk('/auth/google', credentials => {
 const register = createAsyncThunk('/auth/register', async credentials => {
   try {
     const { data } = await axios.post('/auth/register', credentials);
-    // token.set(data.token);
     Notiflix.Notify.success('Success! Now you can login ✔', {
       timeout: 1500,
     });
+    console.log(data.message);
     return data;
   } catch (error) {
-    console.log(error);
-    Notiflix.Notify.failure('This user is already registered ⚠', {
-      timeout: 1500,
-    });
+    console.log(error.message);
+    if (error.message === 'Request failed with status code 409') {
+      Notiflix.Notify.failure('This user is already registered ⚠', {
+        timeout: 1500,
+      });
+    }
+    if (error.message === 'Request failed with status code 400') {
+      Notiflix.Notify.failure('Not valid format of email or password ⚠', {
+        timeout: 1500,
+      });
+    }
   }
 });
 

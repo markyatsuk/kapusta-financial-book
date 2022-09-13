@@ -14,7 +14,6 @@ export default function TransactionsList() {
   const dispatch = useDispatch();
   const balance = useSelector(authSelectors.getUserBalance);
   const { type, date, setNewDate } = useContext(contextProps);
-  console.log(date === '');
   const [deleteTransaction] = useDeleteTransactionMutation();
   const { data } = useFetchByDateQuery(date);
   const [showModal, setShowModal] = useState(false);

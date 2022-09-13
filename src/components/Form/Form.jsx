@@ -126,7 +126,7 @@ export default function Form() {
           autoComplete="on"
           minLength="10"
           maxLength="63"
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"
+          pattern="[a-z0-9.]+@[a-z0-9.]+.[a-z]{2,4}$"
         />
         <p className={isPromptActive ? s.warning : s.hidden}>
           this is a required field
@@ -146,6 +146,7 @@ export default function Form() {
             autoComplete="current-password"
             id="current-password"
             onChange={handleChange}
+            minLength={6}
           />
           <p className={isPromptActive ? s.warning : s.hidden}>
             this is a required field
