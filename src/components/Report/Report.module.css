@@ -292,6 +292,8 @@
   .amountStrip {
     margin-left: 20px;
     margin-right: 20px;
+    height: 36px;
+    border: 1px solid #e0e5eb;
   }
 
   .transactionWrapper.amountWrapper {
