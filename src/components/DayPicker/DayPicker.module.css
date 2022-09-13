@@ -23,7 +23,8 @@
     border: 1px solid #f5f6fb;
   }
 }
-@media screen and (min-width: 1240px) {
+
+@media screen and (min-width: 1280px) {
   .pickerWrapper {
     position: absolute;
     background-color: white;
