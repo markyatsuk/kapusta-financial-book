@@ -15,13 +15,14 @@ export const authSlice = createSlice({
       state.email = payload.email;
     },
     [authOperations.googleApi.fulfilled](state, { payload }) {
+      state.balance = payload.balance;
       state.token = payload.token;
       state.email = payload.email;
       state.isLoggedIn = true;
     },
     [authOperations.logIn.fulfilled](state, { payload }) {
-      state.balance = payload.user.balance;
-      state.email = payload.user.email;
+      state.balance = payload.user?.balance;
+      state.email = payload.user?.email;
       state.token = payload.token;
       state.isLoggedIn = true;
     },
@@ -38,8 +39,9 @@ export const authSlice = createSlice({
       state.isLoggedIn = false;
     },
     [authOperations.fetchCurrentUser.fulfilled](state, { payload }) {
-      state.balance = payload.balance;
-      state.email = payload.email;
+      console.log(payload);
+      state.balance = payload?.balance;
+      state.email = payload?.email;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     },
@@ -48,6 +50,8 @@ export const authSlice = createSlice({
     },
     [authOperations.fetchCurrentUser.rejected](state) {
       state.isFetchingCurrentUser = false;
+      state.isLoggedIn = false;
+      state.token = null;
     },
     [authOperations.updateBalance.fulfilled](state, { payload }) {
       state.balance = payload.data.balance;

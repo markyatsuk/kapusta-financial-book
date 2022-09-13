@@ -15,6 +15,7 @@ const token = {
 
 const googleApi = createAsyncThunk('/auth/google', credentials => {
   try {
+    token.set(credentials.token);
     return credentials;
   } catch (error) {
     console.log(error);
@@ -67,7 +68,6 @@ const fetchCurrentUser = createAsyncThunk(
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-
     if (persistedToken === null) {
       return thunkAPI.rejectWithValue();
     }
@@ -75,10 +75,10 @@ const fetchCurrentUser = createAsyncThunk(
     token.set(persistedToken);
     try {
       const { data } = await axios.get('/auth/current');
-      // console.log(data);
       return data;
     } catch (error) {
       console.log(error);
+      return thunkAPI.rejectWithValue();
     }
   },
 );

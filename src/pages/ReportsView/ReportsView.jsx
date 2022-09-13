@@ -62,9 +62,6 @@ const ReportsView = () => {
       setMonth(prev => (prev -= 1));
     }
   };
-  const getCategory = category => {
-    setCategory(category);
-  };
 
   return (
     <Container>
@@ -74,7 +71,7 @@ const ReportsView = () => {
           year={year}
           onHandleClickRight={onHandleClickRight}
           onHandleClickLeft={onHandleClickLeft}
-          getCategory={getCategory}
+          setCategory={setCategory}
           expenses={expenses}
           incomes={incomes}
           expensesReport={expensesReport}

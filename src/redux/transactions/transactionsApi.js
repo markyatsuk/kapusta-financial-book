@@ -4,6 +4,7 @@ export const transactionsApi = createApi({
   reducerPath: 'transactions',
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://finantial-book-kapusta.herokuapp.com/api/',
+    keepUnusedDataFor: 0,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
 
@@ -42,10 +43,12 @@ export const transactionsApi = createApi({
     fetchSummary: builder.query({
       query: type => `transactions/report/${type}`,
       providesTags: ['Transaction'],
+      keepUnusedDataFor: 0,
     }),
     fetchByDate: builder.query({
       query: date => `transactions/${date}`,
       providesTags: ['Transaction'],
+      keepUnusedDataFor: 0,
     }),
   }),
 });

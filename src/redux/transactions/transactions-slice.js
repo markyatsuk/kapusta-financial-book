@@ -6,9 +6,9 @@ export const transactionsSlice = createSlice({
   initialState: {
     wallet: {
       balance: 0,
-      getMonthlyBalances: 5000,
-      getTransactionsPerDay: 500,
-      getTransactionsPerMonth: 25000,
+      getMonthlyBalances: 0,
+      getTransactionsPerDay: 0,
+      getTransactionsPerMonth: 0,
       getIncomePerMonth: 0,
       getExpencesPerMonth: 0,
       fullReport: [],
@@ -22,6 +22,9 @@ export const transactionsSlice = createSlice({
     [transactionsOperations.setBalance.fulfilled](state, { payload }) {
       state.wallet.balance = payload.data.balance;
     },
+    //  [transactionsOperations.getTransactions.fulfilled](state, { payload }) {
+    //   state.wallet.balance = payload.data.balance;
+    // },
     [transactionsOperations.getTransactionsByType.fulfilled](
       state,
       { payload },
@@ -30,12 +33,13 @@ export const transactionsSlice = createSlice({
     },
     [transactionsOperations.getFullTransactions.fulfilled](state, { payload }) {
       console.log(payload.transactions);
-      state.wallet.getIncomePerMonth = payload.transactions[1].total;
-      state.wallet.getExpencesPerMonth = payload.transactions[0].total;
-      state.wallet.incomeReportPerMonth = payload.transactions[1].reports;
-      state.wallet.expensesReportPerMonth = payload.transactions[0].reports;
+      state.wallet.getIncomePerMonth = payload.transactions[1]?.total ?? 0;
+      state.wallet.getExpencesPerMonth = payload.transactions[0]?.total ?? 0;
+      state.wallet.incomeReportPerMonth = payload.transactions[1]?.reports;
+      state.wallet.expensesReportPerMonth = payload.transactions[0]?.reports;
     },
     [transactionsOperations.getFullTransactions.rejected](state, { payload }) {
+      console.log(payload);
       state.wallet.getIncomePerMonth = 0;
       state.wallet.getExpencesPerMonth = 0;
       state.wallet.incomeReportPerMonth = [];
