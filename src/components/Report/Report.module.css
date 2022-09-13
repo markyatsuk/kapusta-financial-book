@@ -81,7 +81,7 @@
   }
 
   .reportMonthTitle {
-    width: 110px;
+    width: 136px;
     height: 20px;
     text-transform: uppercase;
     justify-content: center;
@@ -124,6 +124,7 @@
     justify-content: center;
     margin: 0px;
     padding-top: 20px;
+    width: 280px;
   }
 
   .iconSvg {
@@ -167,7 +168,11 @@
     text-transform: uppercase;
     font-size: 12px;
     line-height: 14px;
-    padding-top: 10px;
+    padding-top: 5px;
+  }
+
+  .reportCardSum {
+    margin-bottom: 5px;
   }
 
   .title {
@@ -193,6 +198,9 @@
     box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
     border-radius: 30px;
     margin-bottom: 30px;
+    margin-top: 32px;
+    width: 280px;
+    height: 85px;
   }
 
   .amountTitle {
@@ -210,6 +218,9 @@
   .amountStrip {
     margin-left: 12px;
     margin-right: 12px;
+    width: 0px;
+    height: 70.5px;
+    border: 1px solid #e0e5eb;
   }
 
   .buttonWidth {
@@ -270,6 +281,8 @@
   .amountSection {
     padding-top: 15px;
     padding-bottom: 15px;
+    width: 704px;
+    height: 50px;
   }
 
   .amountTitle {
@@ -297,6 +310,10 @@
     display: block;
     /* padding-top: 40px; */
     max-width: 704px;
+  }
+
+  .reportList {
+    width: 704px;
   }
 }
 
@@ -339,6 +356,11 @@
   .reportContainer {
     display: block;
     /* padding-top: 40px; */
-    max-width: 1098px;
+    max-width: 1034px;
+  }
+
+  .amountSection {
+    width: 1034px;
+    height: 50px;
   }
 }

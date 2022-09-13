@@ -46,8 +46,8 @@ export default function ChartReport({
             y="sum"
             x="subCategory"
             labels={pricesArray}
-            barRatio={0.4}
-            cornerRadius={3}
+            barRatio={0.6}
+            cornerRadius={8}
             horizontal={width < 768}
             style={{
               data: { fill: '#FF751D' },

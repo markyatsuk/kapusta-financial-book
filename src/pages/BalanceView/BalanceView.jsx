@@ -149,7 +149,7 @@ const BalanceView = () => {
                   />
                 </div>
                 <TransactionsListMobile transactionType={type} date={date} />
-                <div className={s.buttonContainer}>
+                <div className={s.buttonContainerMobile}>
                   <button
                     className={`${s.buttonExpense} ${
                       type === 'expense' && s.buttonSpentIncomeActive

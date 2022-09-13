@@ -18,7 +18,7 @@
 .listItem {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   border-bottom: 1px solid #f5f6fb;
 }
 
@@ -50,6 +50,7 @@
 
   color: #52555f;
 }
+
 .listItem__date {
   margin-right: 20px;
   margin-top: 3px;
@@ -64,6 +65,7 @@
 
   color: #52555f;
 }
+
 .listItem__category {
   font-family: Roboto;
   font-style: normal;

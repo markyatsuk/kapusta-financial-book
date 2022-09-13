@@ -1,6 +1,7 @@
 @media screen and (min-width: 320px) {
   .chartContainer {
-    width: 100%;
+    max-width: 280px;
+    /* width: 100%; */
     padding: 0;
     margin: 0 auto;
   }
@@ -19,6 +20,6 @@
 
 @media screen and (min-width: 1280px) {
   .chartContainer {
-    max-width: 1098px;
+    max-width: 1034px;
   }
 }
