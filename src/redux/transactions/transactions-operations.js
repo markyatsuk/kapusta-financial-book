@@ -14,7 +14,7 @@ const setBalance = createAsyncThunk('/users/balance', async credentials => {
 
 const getTransactions = createAsyncThunk('/transactions', async credentials => {
   try {
-    const { data } = await axios.get('/transactions', credentials);
+    const { data } = await axios.get(`/transactions${credentials}`);
     return data;
   } catch (error) {
     console.log(error);
@@ -72,11 +72,11 @@ const getFullTransactions = createAsyncThunk(
         Notiflix.Notify.warning('You have no transactions for this month ⚠', {
           timeout: 1500,
         });
-        return thunkAPI.rejectWithValue();
       }
       return data;
     } catch (error) {
       console.log(error);
+      return thunkAPI.rejectWithValue();
     }
   },
 );

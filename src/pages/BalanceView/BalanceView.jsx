@@ -17,7 +17,7 @@ const BalanceView = () => {
   const [year, setYear] = useState('');
   const [picker, setPicker] = useState(false);
   const [listRender, setListRender] = useState(true);
-
+  console.log(date);
   useEffect(() => {
     setDate(startDate());
     setYear(startDate().split('.')[2]);

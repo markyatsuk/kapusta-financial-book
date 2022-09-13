@@ -25,15 +25,17 @@ export const App = () => {
 
   const token = searchParams.get('token');
   const email = searchParams.get('email');
+  const balance = searchParams.get('balance');
+  console.log(balance);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
 
   useEffect(() => {
     if (token) {
-      dispatch(authOperations.googleApi({ token, email }));
+      dispatch(authOperations.googleApi({ token, email, balance }));
     }
-  }, [token, email, dispatch]);
+  }, [token, email, dispatch, balance]);
 
   return (
     <>

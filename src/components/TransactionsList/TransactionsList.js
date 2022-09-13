@@ -8,17 +8,17 @@ import EditTransaction from '../EditTransaction';
 import contextProps from '../../context/context';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../../redux/auth';
-
+// import transactionsOperations from '../../redux/transactions/transactions-operations';
 export default function TransactionsList() {
   const dispatch = useDispatch();
   const balance = useSelector(authSelectors.getUserBalance);
   const { type, date, setNewDate } = useContext(contextProps);
-
+  console.log(date === '');
   const [deleteTransaction] = useDeleteTransactionMutation();
   const { data } = useFetchByDateQuery(date);
+
   const [modalEdit, setModalEdit] = useState(false);
   const [transaction, setTransaction] = useState('');
-
   const handleDeleteClick = id => {
     const trans = data.result.find(item => item._id === id);
     const newBalance =

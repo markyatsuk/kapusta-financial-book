@@ -12,7 +12,7 @@ const Report = ({
   year,
   onHandleClickRight,
   onHandleClickLeft,
-  getCategory,
+  setCategory,
   expenses,
   incomes,
   expensesReport,
@@ -78,7 +78,11 @@ const Report = ({
                 switch (el._id) {
                   case 'Additional income':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p className={s.summary}>{`${el.summary}UAH`}</p>
                         <IconsKeeper.AddincomeIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -86,7 +90,11 @@ const Report = ({
                     );
                   case 'Salary':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.SalaryIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -94,7 +102,11 @@ const Report = ({
                     );
                   case 'Other':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.UtilitiesIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -109,7 +121,11 @@ const Report = ({
                 switch (el._id) {
                   case 'Alcohol':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.AlcoholIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -117,7 +133,11 @@ const Report = ({
                     );
                   case 'Products':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.FoodIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -125,7 +145,11 @@ const Report = ({
                     );
                   case 'Entertainment':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.KiteIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -133,7 +157,11 @@ const Report = ({
                     );
                   case 'Health':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.HealthIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -141,7 +169,11 @@ const Report = ({
                     );
                   case 'Transport':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.CarIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -149,7 +181,11 @@ const Report = ({
                     );
                   case 'Technique':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.ToolsIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -157,7 +193,11 @@ const Report = ({
                     );
                   case 'Education':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.BookIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -165,7 +205,11 @@ const Report = ({
                     );
                   case 'Sport,Hobies':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.SportIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -173,7 +217,11 @@ const Report = ({
                     );
                   case 'Other':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.UtilitiesIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -181,7 +229,11 @@ const Report = ({
                     );
                   case 'Communal, Communication':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.UfoIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
@@ -189,7 +241,11 @@ const Report = ({
                     );
                   case 'Housing':
                     return (
-                      <li className={s.reportCard} key={el._id}>
+                      <li
+                        className={s.reportCard}
+                        key={el._id}
+                        onClick={() => setCategory(el._id)}
+                      >
                         <p>{`${el.summary}UAH`}</p>
                         <IconsKeeper.CouchIcon />
                         <p className={s.reportCardTitle}>{el._id}</p>
