@@ -9,6 +9,7 @@ import {
 } from '../../../redux/transactions/transactionsApi';
 import { authOperations, authSelectors } from '../../../redux/auth';
 import { useState } from 'react';
+
 export default function TransactionsListMobile() {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();

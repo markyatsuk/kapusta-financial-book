@@ -4,6 +4,9 @@
     /* width: 100%; */
     padding: 0;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -21,5 +24,6 @@
 @media screen and (min-width: 1280px) {
   .chartContainer {
     max-width: 1034px;
+    padding: 0 138px;
   }
 }

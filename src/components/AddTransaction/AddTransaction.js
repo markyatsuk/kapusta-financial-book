@@ -10,6 +10,7 @@ import Dropdown from '../Dropdown';
 import CalculatorInput from '../CalculatorInput';
 import { authOperations, authSelectors } from '../../redux/auth';
 import { useDispatch, useSelector } from 'react-redux';
+import Notiflix from 'notiflix';
 
 export default function AddTransaction({ onCloseForm }) {
   const dispatch = useDispatch();
@@ -29,7 +30,18 @@ export default function AddTransaction({ onCloseForm }) {
 
   const handleSubmit = e => {
     e.preventDefault();
-
+    if (category === '') {
+      Notiflix.Notify.warning('Please, choose a category', {
+        timeout: 1500,
+      });
+      return;
+    }
+    if (!Number(sum) || Number(sum) < 1) {
+      Notiflix.Notify.warning('Sum must be a number and equal to at least 1', {
+        timeout: 1500,
+      });
+      return;
+    }
     const transaction = {
       type,
       date: {
@@ -41,7 +53,6 @@ export default function AddTransaction({ onCloseForm }) {
       subCategory: description,
       sum: Number(sum),
     };
-
     createTransaction(transaction);
 
     const newBalance =
@@ -159,7 +170,7 @@ export default function AddTransaction({ onCloseForm }) {
                     value={sum}
                     name="sum"
                     id="sum"
-                    type="number"
+                    type="text"
                     minLength={1}
                     maxLength={10}
                     placeholder="0.00"

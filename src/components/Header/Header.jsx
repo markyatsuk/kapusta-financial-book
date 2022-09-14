@@ -2,7 +2,7 @@ import { useMediaQuery } from 'react-responsive';
 import { isDesktop } from '../../services/mediaQuery';
 import { connect } from 'react-redux';
 import { authSelectors, authOperations } from '../../redux/auth';
-
+// import { useNavigate } from 'react-router-dom';
 import Logo from '../Logo';
 import UserMenu from '../UserMenu/UserMenu';
 import LogoutButton from '../LogoutButton';
@@ -12,6 +12,7 @@ import s from './Header.module.css';
 export const Header = () => {
   const Desktop = isDesktop(useMediaQuery);
   const isLoggegIn = useSelector(authSelectors.getIsLoggedIn);
+
   return (
     <div className={s.header}>
       <div className={s.logo}>
