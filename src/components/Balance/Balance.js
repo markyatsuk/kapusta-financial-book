@@ -10,8 +10,6 @@ const Balance = ({ hide, width }) => {
 
   const balance = useSelector(authSelectors.getUserBalance);
 
-  console.log(balance);
-
   const [sum, setSum] = useState(null);
 
   const [setPromptClose, setClosePrompt] = useState(true);

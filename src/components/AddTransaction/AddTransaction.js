@@ -234,6 +234,8 @@ export default function AddTransaction({ onCloseForm }) {
                       }
                       required
                       onChange={handleChangeDescription}
+                      minLength={3}
+                      maxLength={20}
                     />
                   </label>
                   <label className={s.labelSelect}>
@@ -308,6 +310,8 @@ export default function AddTransaction({ onCloseForm }) {
                       }
                       required
                       onChange={handleChangeDescription}
+                      minLength={3}
+                      maxLength={20}
                     />
                   </label>
                   <label>

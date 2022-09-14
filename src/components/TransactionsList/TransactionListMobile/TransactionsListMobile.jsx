@@ -12,6 +12,8 @@ import { useState } from 'react';
 
 export default function TransactionsListMobile() {
   const [showModal, setShowModal] = useState(false);
+  const [transactionId, setTransactionId] = useState('');
+
   const dispatch = useDispatch();
   const { date } = useContext(contextProps);
   const balance = useSelector(authSelectors.getUserBalance);
@@ -67,7 +69,10 @@ export default function TransactionsListMobile() {
                   <div className={s.buttonWrapper}>
                     <button
                       className={s.buttonsGroup}
-                      onClick={() => setShowModal(true)}
+                      onClick={() => {
+                        setShowModal(true);
+                        setTransactionId(transaction._id);
+                      }}
                     >
                       <svg
                         width="18"
@@ -86,20 +91,21 @@ export default function TransactionsListMobile() {
                         </defs>
                       </svg>
                     </button>
-                    {showModal ? (
-                      <Modal
-                        onClick={() => handleDeleteClick(transaction._id)}
-                        setShowModal={setShowModal}
-                      >
-                        Do you really want to delete this transaction?
-                      </Modal>
-                    ) : null}
                   </div>
                 </li>
               </div>
             ))}
         </ul>
       </div>
+      {showModal ? (
+        <Modal
+          onClick={() => handleDeleteClick(transactionId)}
+          setShowModal={setShowModal}
+        >
+          {' '}
+          Do you really want to delete this transaction?
+        </Modal>
+      ) : null}
     </>
   );
 }
