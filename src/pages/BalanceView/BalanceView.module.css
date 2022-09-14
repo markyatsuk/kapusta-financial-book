@@ -1,6 +1,4 @@
 .wrapper {
-  /* background-color: #f5f6fb; */
-  /* position: absolute; */
   height: 258px;
   width: 100%;
   top: 0;
@@ -26,7 +24,6 @@
   }
 
   .holst p {
-    /* display: inline-block; */
     font-size: 12px;
     color: #52555fb2;
   }
@@ -42,7 +39,6 @@
 
   .wrapper {
     background-color: #f5f6fb;
-    /* position: absolute; */
     height: 258px;
     width: 100%;
     top: 0;
@@ -59,7 +55,6 @@
     bottom: 0px;
     height: 53px;
     display: flex;
-    /* justify-content: center; */
   }
 
   .buttonExpense {
@@ -181,21 +176,13 @@
   }
 
   .wrapper {
-    /* background-color: #f5f6fb; */
-    /* position: absolute; */
     height: 527px;
-    /* width: 100%;
-      top: 0;
-      left: 0;
-      z-index: -100;
-      border-bottom-left-radius: 90px;
-      overflow: hidden; */
   }
 }
 
 .containerSummary768 {
-  /* margin-right: auto; */
-  padding-left: 50px;
+  width: 665px;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 1280px) {
@@ -256,14 +243,6 @@
   }
 
   .wrapper {
-    /* background-color: #f5f6fb; */
-    /* position: absolute; */
     height: 527px;
-    /* width: 100%;
-      top: 0;
-      left: 0;
-      z-index: -100;
-      border-bottom-left-radius: 90px;
-      overflow: hidden; */
   }
 }
