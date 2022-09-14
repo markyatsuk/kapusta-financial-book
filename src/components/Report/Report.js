@@ -19,7 +19,6 @@ const Report = ({
   incomeReport,
   setTitle,
   setHasChanged,
-  category,
 }) => {
   const [type, setType] = useState('expense');
   const onClick = () => {
@@ -72,7 +71,10 @@ const Report = ({
             />
           </div>
           <ul className={s.reportList}>
-            {incomeReport?.length === 0 || expensesReport?.length === 0 ? (
+            {incomeReport?.length === 0 ||
+            expensesReport?.length === 0 ||
+            !incomeReport ||
+            !expensesReport ? (
               <p>
                 The report will be available after you enter data on your income
                 and expenses for the selected period.

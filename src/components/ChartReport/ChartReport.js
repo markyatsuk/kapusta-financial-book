@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ChartReport.module.css';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from 'victory';
 
 export default function ChartReport({
   month,
@@ -29,7 +29,6 @@ export default function ChartReport({
   function checkTitle() {
     if (title === 'expense') {
       chosenCategory = expensesReport ? expensesReport[0] : [];
-      console.log(chosenCategory);
     } else {
       chosenCategory = incomeReport ? incomeReport[0] : [];
     }
@@ -37,6 +36,44 @@ export default function ChartReport({
   let elArray = [];
   let nameArray = [];
   let pricesArray = [];
+
+  //   const arrayOld = [
+  //     { type: 'expense', subCategory: 'bear', sum: 150 },
+  //     { type: 'expense', subCategory: 'apple', sum: 1 },
+  //     { type: 'expense', subCategory: 'apple', sum: 77 },
+  //     { type: 'expense', subCategory: 'bear', sum: 100 }
+  // ];
+
+  const newData = chosenCategory?.data
+    ? chosenCategory?.data.filter(
+        (value, index, self) =>
+          self.findIndex(v => v.subCategory === value.subCategory) === index,
+      )
+    : [];
+
+  // filteredData.map(elem => {
+  //   const b = chosenCategory?.data.filter(element => element.subCategory === elem.subCategory);
+
+  //     elem.sum = b.reduce((total, el) => {
+  //         return total + el.sum;
+  //     }, 0);
+  // });
+
+  //   console.log("filteredData=", filteredData);
+
+  let filteredData = [];
+
+  newData.map(elem => {
+    const b = chosenCategory?.data.filter(
+      element => element.subCategory === elem.subCategory,
+    );
+    let newSum = b.reduce((total, el) => {
+      return total + el.sum;
+    }, 0);
+    filteredData.push({ subCategory: elem.subCategory, sum: newSum });
+  });
+
+  const sortedData = filteredData.sort((a, b) => b.sum - a.sum);
 
   // const filteredData = chosenCategory?.data.reduce((previousObj, obj) => {
   //   return previousObj.map(el =>
@@ -76,20 +113,21 @@ export default function ChartReport({
 
   // console.log('filteredData', filteredData1)
 
-  if (chosenCategory?.data) {
-    for (let i = 0; i < chosenCategory.data.length; i++) {
+  if (sortedData) {
+    for (let i = 0; i < sortedData.length; i++) {
       elArray.push(i);
-      nameArray.push(chosenCategory.data[i].subCategory);
-      pricesArray.push(chosenCategory.data[i].sum);
+      nameArray.push(sortedData[i].subCategory);
+      pricesArray.push(sortedData[i].sum);
     }
   }
   return (
     <div className={s.chartContainer}>
-      {!Array.isArray(chosenCategory) && chosenCategory && (
+      {sortedData.length !== 0 && sortedData && (
         <VictoryChart
           // domainPadding will add space to each side of VictoryBar to
           // prevent it from overlapping the axis
-          domainPadding={50}
+          domainPadding={100}
+          theme={VictoryTheme.material}
         >
           <VictoryAxis
             // tickValues specifies both the number of ticks and where
@@ -102,12 +140,12 @@ export default function ChartReport({
             // tickFormat specifies how ticks should be displayed
           />
           <VictoryBar
-            data={chosenCategory.data}
+            data={sortedData}
             y="sum"
             x="subCategory"
             labels={pricesArray}
-            barRatio={0.6}
-            cornerRadius={8}
+            barRatio={0.5}
+            cornerRadius={6}
             horizontal={width < 768}
             style={{
               data: { fill: '#FF751D' },
