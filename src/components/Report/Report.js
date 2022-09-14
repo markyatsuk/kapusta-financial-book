@@ -31,6 +31,7 @@ const Report = ({
       setTitle('expense');
     }
   };
+
   return (
     <div className={s.reportContainer}>
       <div className={`${s.navigation} ${s.section}`}>
@@ -71,10 +72,7 @@ const Report = ({
             />
           </div>
           <ul className={s.reportList}>
-            {incomeReport?.length === 0 ||
-            expensesReport?.length === 0 ||
-            !incomeReport ||
-            !expensesReport ? (
+            {!incomeReport && !expensesReport ? (
               <p>
                 The report will be available after you enter data on your income
                 and expenses for the selected period.

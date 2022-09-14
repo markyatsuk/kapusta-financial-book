@@ -126,7 +126,6 @@ export default function Form() {
           type="email"
           name="email"
           title=""
-          required
           onChange={handleChange}
           placeholder="your@email.com"
           autoComplete="on"
@@ -147,7 +146,6 @@ export default function Form() {
             type="password"
             name="password"
             title=""
-            required
             placeholder="password"
             autoComplete="current-password"
             id="current-password"
