@@ -59,7 +59,7 @@ export default function AddTransaction({ onCloseForm }) {
       transaction.type === 'income'
         ? balance + transaction.sum
         : balance - transaction.sum;
-    dispatch(authOperations.updateBalance({ balance: +newBalance.toFixed(2) }));
+    dispatch(authOperations.updateBalance({ balance: +newBalance }));
 
     cleanState();
   };
