@@ -23,7 +23,9 @@ export default function TransactionsListMobile() {
     const trans = data.result.find(item => item._id === id);
     const newBalance =
       trans.type === 'income' ? balance - trans.sum : balance + trans.sum;
-    dispatch(authOperations.updateBalance({ balance: +newBalance.toFixed(2) }));
+    dispatch(
+      authOperations.updateBalance({ balance: +newBalance?.toFixed(2) }),
+    );
     deleteTransaction(id);
   };
 

@@ -19,7 +19,7 @@ const Summary = ({ type = 'expense' }) => {
                     index < 6 && (
                       <tr className={s.item} key={_id.month}>
                         <td className={s.description}>{months[_id.month]}</td>
-                        <td className={s.description}>{+total.toFixed(2)}</td>
+                        <td className={s.description}>{total}</td>
                       </tr>
                     )
                   );

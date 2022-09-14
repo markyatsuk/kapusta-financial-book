@@ -31,7 +31,7 @@ const Balance = ({ hide, width }) => {
       return;
     }
 
-    dispatch(authOperations.updateBalance({ balance: +sum.toFixed(2) }));
+    dispatch(authOperations.updateBalance({ balance: +sum }));
   };
   return (
     <form onSubmit={handleSubmit} className={s.reportBalance}>
@@ -75,7 +75,7 @@ const Balance = ({ hide, width }) => {
                     : `${s.balanceInput}`
                 }
               >
-                {+balance.toFixed(2)} UAH
+                {balance} UAH
               </p>
             </>
           )}
