@@ -9,16 +9,22 @@ import contextProps from '../../context/context';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../../redux/auth';
 import Modal from '../../components/Modal/Modal';
-// import transactionsOperations from '../../redux/transactions/transactions-operations';
+
 export default function TransactionsList() {
   const dispatch = useDispatch();
+
   const balance = useSelector(authSelectors.getUserBalance);
+
   const { type, date, setNewDate } = useContext(contextProps);
+
   const [deleteTransaction] = useDeleteTransactionMutation();
   const { data } = useFetchByDateQuery(date);
+
   const [showModal, setShowModal] = useState(false);
   const [modalEdit, setModalEdit] = useState(false);
+  const [transactionId, setTransactionId] = useState('');
   const [transaction, setTransaction] = useState('');
+
   const handleDeleteClick = id => {
     const trans = data.result.find(item => item._id === id);
     const newBalance =
@@ -83,7 +89,10 @@ export default function TransactionsList() {
                       <td className={styles.thIcon}>
                         <button
                           className={styles.deleteBtn}
-                          onClick={() => setShowModal(true)}
+                          onClick={() => {
+                            setShowModal(true);
+                            setTransactionId(transaction._id);
+                          }}
                         >
                           <svg
                             className={styles.deleteBtnIcon}
@@ -103,15 +112,6 @@ export default function TransactionsList() {
                             </defs>
                           </svg>
                         </button>
-                        {showModal ? (
-                          <Modal
-                            onClick={() => handleDeleteClick(transaction._id)}
-                            setShowModal={setShowModal}
-                          >
-                            {' '}
-                            Do you really want to delete this transaction?
-                          </Modal>
-                        ) : null}
                       </td>
                     </tr>
                   ))}
@@ -119,6 +119,15 @@ export default function TransactionsList() {
           </table>
         </div>
       </div>
+      {showModal ? (
+        <Modal
+          onClick={() => handleDeleteClick(transactionId)}
+          setShowModal={setShowModal}
+        >
+          {' '}
+          Do you really want to delete this transaction?
+        </Modal>
+      ) : null}
     </>
   );
 }

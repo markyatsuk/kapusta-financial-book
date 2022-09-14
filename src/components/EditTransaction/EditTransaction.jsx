@@ -8,7 +8,6 @@ import DateForm from '../DateForm';
 
 // import transactionsOperations from '../../redux/transactions/transactions-operations';
 import s from './EditTransaction.module.css';
-import { useDispatch } from 'react-redux';
 
 export default function EditTransaction({
   transaction,
@@ -16,7 +15,6 @@ export default function EditTransaction({
   onDateChange,
 }) {
   const ref = useRef();
-  const dispatch = useDispatch();
   const [date, setDate] = useState(transaction.date);
   const [subCategory, setSubCategory] = useState(transaction.subCategory);
   const [category, setCategory] = useState(transaction.category);
@@ -100,6 +98,8 @@ export default function EditTransaction({
               type="text"
               required
               onChange={handleChangeDescription}
+              minLength={3}
+              maxLength={20}
             />
           </label>
           <label className={s.editLabels}>
@@ -114,11 +114,12 @@ export default function EditTransaction({
                 value={sum}
                 name="sum"
                 id="sum"
-                type="string"
+                type="text"
                 maxLength="10"
                 placeholder="0.00"
                 required
                 onChange={handleChangeSum}
+                min={1}
               />
               <div onClick={handleCalcClick} className={s.inputSum}>
                 <div className={s.calcIcon}>{/* <CalculatorIcon /> */}</div>

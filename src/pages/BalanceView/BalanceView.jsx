@@ -150,7 +150,10 @@ const BalanceView = () => {
                     picker={picker}
                   />
                 </div>
-                <TransactionsListMobile transactionType={type} date={date} />
+                {date !== '' ? (
+                  <TransactionsListMobile transactionType={type} date={date} />
+                ) : null}
+
                 <div className={s.buttonContainerMobile}>
                   <button
                     className={`${s.buttonExpense} ${
