@@ -24,6 +24,7 @@ const getTransactions = createAsyncThunk('/transactions', async credentials => {
 const addTransaction = createAsyncThunk('/transactions', async credentials => {
   try {
     const { data } = await axios.post('/transactions', credentials);
+    console.log(data);
     return data;
   } catch (error) {
     console.log(error);

@@ -28,13 +28,13 @@ export const authSlice = createSlice({
     },
     [authOperations.logIn.rejected](state) {
       state.email = null;
-      state.balance = null;
+      state.balance = 0;
       state.token = null;
       state.isLoggedIn = false;
     },
     [authOperations.logOut.fulfilled](state) {
       state.email = null;
-      state.balance = null;
+      state.balance = 0;
       state.token = null;
       state.isLoggedIn = false;
     },

@@ -10,6 +10,8 @@ const Balance = ({ hide, width }) => {
 
   const balance = useSelector(authSelectors.getUserBalance);
 
+  console.log(balance);
+
   const [sum, setSum] = useState(null);
 
   const [setPromptClose, setClosePrompt] = useState(true);
@@ -29,7 +31,7 @@ const Balance = ({ hide, width }) => {
       return;
     }
 
-    dispatch(authOperations.updateBalance({ balance: sum }));
+    dispatch(authOperations.updateBalance({ balance: +sum.toFixed(2) }));
   };
   return (
     <form onSubmit={handleSubmit} className={s.reportBalance}>
@@ -73,7 +75,7 @@ const Balance = ({ hide, width }) => {
                     : `${s.balanceInput}`
                 }
               >
-                {balance} UAH
+                {+balance.toFixed(2)} UAH
               </p>
             </>
           )}

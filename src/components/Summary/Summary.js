@@ -9,7 +9,6 @@ const Summary = ({ type = 'expense' }) => {
     <div className={s.container}>
       <p className={s.title}>Summary</p>
       <table className={s.list}>
-
         <>
           <tbody>
             {data?.transactions &&
@@ -20,14 +19,13 @@ const Summary = ({ type = 'expense' }) => {
                     index < 6 && (
                       <tr className={s.item} key={_id.month}>
                         <td className={s.description}>{months[_id.month]}</td>
-                        <td className={s.description}>{total}</td>
+                        <td className={s.description}>{+total.toFixed(2)}</td>
                       </tr>
                     )
                   );
                 })}
           </tbody>
         </>
-
       </table>
     </div>
   );

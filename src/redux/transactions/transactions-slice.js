@@ -22,13 +22,6 @@ export const transactionsSlice = createSlice({
     [transactionsOperations.setBalance.fulfilled](state, { payload }) {
       state.wallet.balance = payload.data.balance;
     },
-    //  [transactionsOperations.getTransactions.fulfilled](state, { payload }) {
-    //   state.wallet.balance = payload.data.balance;
-    // },
-    [transactionsOperations.getTransactionsByType.fulfilled](
-      state,
-      { payload },
-    ) {},
     [transactionsOperations.getFullTransactions.fulfilled](state, { payload }) {
       state.wallet.getIncomePerMonth = payload.transactions[1]?.total ?? 0;
       state.wallet.getExpencesPerMonth = payload.transactions[0]?.total ?? 0;
