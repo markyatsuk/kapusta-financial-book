@@ -3,6 +3,7 @@
   table-layout: fixed;
   border: none;
   overflow-x: hidden;
+  /* overflow-y: scroll; */
 }
 
 .bodyTableScroll {
