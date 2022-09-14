@@ -28,7 +28,7 @@ export default function AddTransaction({ onCloseForm }) {
 
   const viewPort = useWindowDimensions();
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     if (category === '') {
       Notiflix.Notify.warning('Please, choose a category', {
@@ -53,13 +53,14 @@ export default function AddTransaction({ onCloseForm }) {
       subCategory: description,
       sum: Number(sum),
     };
-    createTransaction(transaction);
+    const { data } = await createTransaction(transaction);
 
-    const newBalance =
-      transaction.type === 'income'
-        ? balance + transaction.sum
-        : balance - transaction.sum;
-    dispatch(authOperations.updateBalance({ balance: +newBalance }));
+    // const newBalance =
+    //   transaction.type === 'income'
+    //     ? balance + transaction.sum
+    //     : balance - transaction.sum;
+
+    dispatch(authOperations.updateBalance({ balance: data.balance }));
 
     cleanState();
   };
