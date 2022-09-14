@@ -25,7 +25,7 @@ export const App = () => {
 
   const token = searchParams.get('token');
   const email = searchParams.get('email');
-  const balance = searchParams.get('balance');
+  const balance = searchParams.get(Number('balance'));
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
