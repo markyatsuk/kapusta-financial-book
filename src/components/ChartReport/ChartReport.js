@@ -1,7 +1,7 @@
 import React from 'react';
 import s from './ChartReport.module.css';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-import { VictoryBar, VictoryChart, VictoryAxis, VictoryTheme } from 'victory';
+import { VictoryBar, VictoryChart, VictoryAxis } from 'victory';
 
 export default function ChartReport({
   category,
@@ -52,6 +52,7 @@ export default function ChartReport({
 
   let filteredData = [];
 
+  // eslint-disable-next-line array-callback-return
   newData.map(elem => {
     const b = chosenCategory?.data.filter(
       element => element.subCategory === elem.subCategory,

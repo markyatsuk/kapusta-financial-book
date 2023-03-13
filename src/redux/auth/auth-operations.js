@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
-axios.defaults.baseURL = 'https://finantial-book-kapusta.herokuapp.com/api';
+axios.defaults.baseURL = 'https://finance-book-server.onrender.com/api';
 
 const token = {
   set(token) {
